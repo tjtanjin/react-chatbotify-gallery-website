@@ -1,12 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faAngleLeft,
-	faAngleRight,
-	faPlay,
-} from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
-import "./Portfolio12.css";
 
 const portfolios = [
 	{
@@ -147,10 +140,6 @@ const tabBar = [
 const PortfolioItem = ({ item }) => (
 	<div className="bg-slate-50 dark:bg-slate-800 h-full rounded overflow-hidden">
 		<div className="relative">
-			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white flex items-center justify-center w-12 h-12 bg-white bg-opacity-50 rounded-full cursor-pointer">
-				<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white bg-opacity-20"></div>
-				<FontAwesomeIcon icon={faPlay} className="ml-1" />
-			</div>
 			<img src={item.bannerImg} className="w-full" alt={item.title} />
 		</div>
 		<div className="p-4">
@@ -198,17 +187,20 @@ const Pagination = () => (
 		<ul className="flex flex-wrap gap-3 justify-center mt-12">
 			<li>
 				<a
-					className="bg-blue-600 text-white hover:bg-opacity-90 w-12 h-12 flex justify-center items-center rounded text-lg cursor-pointer"
+					className=" text-white hover:bg-opacity-90 w-12 h-12 flex justify-center items-center rounded text-lg cursor-pointer"
 					href="#!"
 				>
-					<FontAwesomeIcon icon={faAngleLeft} />
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+</svg>
+
 				</a>
 			</li>
 
 			{pagination.map((page, j) => (
 				<li
-					className={`border border-gray-300 dark:border-gray-800 hover:bg-blue-600 hover:text-white w-12 h-12 flex justify-center items-center rounded text-lg cursor-pointer ${
-						page.isActive && "bg-blue-600 text-white hover:bg-opacity-90"
+					className={`border border-gray-300 dark:border-gray-800 text-white hover:bg-[#240046] hover:text-white w-12 h-12 flex justify-center items-center rounded text-lg cursor-pointer ${
+						page.isActive && "bg-[#240046] text-white hover:bg-opacity-90"
 					}`}
 					key={j}
 				>
@@ -220,10 +212,13 @@ const Pagination = () => (
 
 			<li>
 				<a
-					className="bg-blue-600 text-white hover:bg-opacity-90 w-12 h-12 flex justify-center items-center rounded text-lg cursor-pointer"
+					className=" text-white hover:bg-opacity-90 w-12 h-12 flex justify-center items-center rounded text-lg cursor-pointer"
 					href="#!"
 				>
-					<FontAwesomeIcon icon={faAngleRight} />
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+</svg>
+
 				</a>
 			</li>
 		</ul>
@@ -244,21 +239,21 @@ TabBar.propTypes = {
 	tabItem: PropTypes.object.isRequired,
 };
 
-const Portfolio12 = () => {
+const ThemeGallery = () => {
 	return (
-		<section className="ezy__portfolio12  py-14 md:py-24 bg-white dark:bg-black text-zinc-900 dark:text-white">
+		<section className="py-14 md:py-24 bg-[#491d8d] dark:bg-black text-zinc-900 dark:text-white">
 			<div className="container px-4 mx-auto">
 				<div className="flex flex-col items-center text-center">
-					<h1 className="text-3xl md:text-[45px] font-bold mb-2">
-						Our Exclusive Courses
+					<h1 className="text-3xl text-white md:text-[45px] font-bold mb-2">
+						Themes
 					</h1>
 
 					{/*  tab bar  */}
-					<ul className="flex flex-wrap justify-center my-6">
+					{/* <ul className="flex flex-wrap justify-center my-6">
 						{tabBar.map((tabItem, k) => (
-							<TabBar tabItem={tabItem} key={k} index={k} />
+							<TabBar tabItem={tabItem} key={k} />
 						))}
-					</ul>
+					</ul> */}
 				</div>
 
 				<div>
@@ -284,5 +279,5 @@ const Portfolio12 = () => {
 	);
 };
 
-export default Portfolio12;
+export default ThemeGallery;
 
