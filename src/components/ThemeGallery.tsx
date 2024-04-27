@@ -201,48 +201,7 @@ PortfolioItem.propTypes = {
 	item: PropTypes.object.isRequired,
 };
 
-const Pagination = () => (
-	<nav>
-		<ul className="flex flex-wrap gap-3 justify-center mt-12">
-			<li>
-				<a
-					className=" text-white hover:bg-opacity-90 w-12 h-12 flex justify-center items-center rounded text-lg cursor-pointer"
-					href="#!"
-				>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-</svg>
 
-				</a>
-			</li>
-
-			{pagination.map((page, j) => (
-				<li
-					className={`border border-gray-300 dark:border-gray-800 text-white hover:bg-[#240046] hover:text-white w-12 h-12 flex justify-center items-center rounded text-lg cursor-pointer ${
-						page.isActive && "bg-[#240046] text-white hover:bg-opacity-90"
-					}`}
-					key={j}
-				>
-					<a className="m-0" href={page.href}>
-						{page.value}
-					</a>
-				</li>
-			))}
-
-			<li>
-				<a
-					className=" text-white hover:bg-opacity-90 w-12 h-12 flex justify-center items-center rounded text-lg cursor-pointer"
-					href="#!"
-				>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-</svg>
-
-				</a>
-			</li>
-		</ul>
-	</nav>
-);
 
 const TabBar = ({ tabItem }: TabItem) => (
 	<li
@@ -266,17 +225,8 @@ const ThemeGallery = () => {
 					<h1 className="text-3xl text-white md:text-[45px] font-bold mb-2">
 						Themes
 					</h1>
-
-					{/*  tab bar  */}
-					{/* <ul className="flex flex-wrap justify-center my-6">
-						{tabBar.map((tabItem, k) => (
-							<TabBar tabItem={tabItem} key={k} />
-						))}
-					</ul> */}
 				</div>
-
 				<div>
-					{/*  tab contents  */}
 					<div className="grid grid-cols-12 gap-6 mt-6">
 						{portfolios.map((item, i) => (
 							<div
@@ -288,10 +238,6 @@ const ThemeGallery = () => {
 						))}
 					</div>
 
-					{/*  pagination  */}
-					<div className="col-span-12">
-						<Pagination />
-					</div>
 				</div>
 			</div>
 		</section>
