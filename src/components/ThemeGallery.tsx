@@ -100,43 +100,7 @@ const portfolios = [
 	},
 ];
 
-const pagination = [
-	{
-		isActive: true,
-		href: "#!",
-		value: "1",
-	},
-	{
-		isActive: false,
-		href: "#!",
-		value: "2",
-	},
-	{
-		isActive: false,
-		href: "#!",
-		value: "3",
-	},
-	{
-		isActive: false,
-		href: "#!",
-		value: "4",
-	},
-	{
-		isActive: false,
-		href: "#!",
-		value: "5",
-	},
-	{
-		isActive: false,
-		href: "#!",
-		value: "...",
-	},
-	{
-		isActive: false,
-		href: "#!",
-		value: "11",
-	},
-];
+
 
 const tabBar = [
 	{
