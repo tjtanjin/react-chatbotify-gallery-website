@@ -1,5 +1,24 @@
-import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+
+type Portfolios = {
+	item: {
+		bannerImg: string,
+		category: string,
+		title: string,
+		details: string,
+		authorImg: string,
+		author: string,
+	}
+}
+
+type TabItem = {
+	tabItem: {
+		isActive: boolean,
+		href: string,
+		value: string,
+	}
+}
 
 const portfolios = [
 	{
@@ -137,7 +156,7 @@ const tabBar = [
 	},
 ];
 
-const PortfolioItem = ({ item }) => (
+const PortfolioItem = ({ item }: Portfolios ) => (
 	<div className="bg-slate-50 dark:bg-slate-800 h-full rounded overflow-hidden">
 		<div className="relative">
 			<img src={item.bannerImg} className="w-full" alt={item.title} />
@@ -190,7 +209,7 @@ const Pagination = () => (
 					className=" text-white hover:bg-opacity-90 w-12 h-12 flex justify-center items-center rounded text-lg cursor-pointer"
 					href="#!"
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
 </svg>
 
@@ -225,13 +244,13 @@ const Pagination = () => (
 	</nav>
 );
 
-const TabBar = ({ tabItem }) => (
+const TabBar = ({ tabItem }: TabItem) => (
 	<li
 		className={`px-4 py-2 ${tabItem.isActive && "border-b-2 border-blue-600"}`}
 	>
-		<a className="nav-link" href={tabItem.href}>
+		<Link className="nav-link" to={tabItem.href}>
 			{tabItem.value}
-		</a>
+		</Link> {/* Previously 'a tag', now 'Link tag' */}
 	</li>
 );
 
