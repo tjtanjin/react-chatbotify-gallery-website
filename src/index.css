@@ -3,15 +3,33 @@
 @tailwind utilities;
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+.background-image {
+	background-image: url('https://raw.githubusercontent.com/tjtanjin/react-chatbotify/main/assets/logo.png');
+	background-size: 70%;
+}
+
+.animate-bob {
+	animation: bob 5s infinite ease-in-out alternate-reverse;
+}
+
+@keyframes bob {
+	0%, 100% {
+		transform: translateY(0%);
+	}
+	50% {
+		transform: translateY(-2%);
+	}
 }

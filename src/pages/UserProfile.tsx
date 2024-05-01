@@ -96,76 +96,76 @@ const PortfolioItem = ({ item }: Portfolios ) => (
 );
 
 const UserProfilePage = () => {
-    const tabBar = [
-        {
-            isActive: true,
-            value: "Themes(4)",
-        },
-    ];
+	const tabBar = [
+		{
+			isActive: true,
+			value: "Themes(4)",
+		},
+	];
 
-    const TabBar = ({ tabItem }: {tabItem: {isActive: boolean, value: string}}) => (
-        <li
-            className={`px-2 py-2 ${tabItem.isActive && "border-b-2 border-slate-400/85"}`}
-        >
-            <button>
-                {tabItem.value}
-            </button>
-        </li>
-    );
+	const TabBar = ({ tabItem }: {tabItem: {isActive: boolean, value: string}}) => (
+		<li
+			className={`px-2 py-2 ${tabItem.isActive && "border-b-2 border-slate-400/85"}`}
+		>
+			<button>
+				{tabItem.value}
+			</button>
+		</li>
+	);
 
   return (
-    <section className='w-full h-[100%] mx-auto bg-black/90'>
-        {/* <Header /> */}
-        <div className='relative sm:rounded p-3 h-40 bg-blue-600 flex flex-col justify-center items-center'>
-            <div className='rounded-full w-20 h-20 lg:w-28 lg:h-28 absolute -bottom-10 outline outline-black/90 left-10'>
-                <img src={botAvatar} alt=""  className=' rounded-full'/>
-            </div>
+	<section className='w-full h-[100%] mx-auto bg-black/90'>
+		{/* <Header /> */}
+		<div className='relative sm:rounded p-3 h-40 bg-blue-600 flex flex-col justify-center items-center'>
+			<div className='rounded-full w-20 h-20 lg:w-28 lg:h-28 absolute -bottom-10 outline outline-black/90 left-10'>
+				<img src={botAvatar} alt=""  className=' rounded-full'/>
+			</div>
 
-            <div className=' text-center text-slate-200'>
-                <p className='text-lg font-semibold sm:text-xl md:text-3xl'>Theme Author Profile</p>
-                <p className='text-xs sm:text-base md:text-base'>React ChatBotify</p>
-            </div>
+			<div className=' text-center text-slate-200'>
+				<p className='text-lg font-semibold sm:text-xl md:text-3xl'>Theme Author Profile</p>
+				<p className='text-xs sm:text-base md:text-base'>React ChatBotify</p>
+			</div>
 
-            <div className=' absolute bottom-4 right-6 z-30 flex flex-row gap-2'>
-                <Github width={18} hanging={18} className=' text-slate-300 '/>
-                <Twitter width={18} hanging={18} className=' text-slate-300 '/>
-            </div>
-        </div>
+			<div className=' absolute bottom-4 right-6 z-30 flex flex-row gap-2'>
+				<Github width={18} hanging={18} className=' text-slate-300 '/>
+				<Twitter width={18} hanging={18} className=' text-slate-300 '/>
+			</div>
+		</div>
 
-        <div className='relative h-fit p-4 px-6 text-white'>
-            <div className='pt-7'>
-                <p className='text-xl font-semibold'>Mishael Joseph</p>
-                <Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Github width={15} hanging={15}/> Mishael-joe</Link>
-                <Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Twitter width={15} hanging={15}/> @Mishaeljoe</Link>
-                <Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Linkedin width={15} hanging={15}/> in/mishael-joe</Link>
-                <p className='text-sm opacity-80 flex gap-1 items-center'> <LucideMapPin width={15} hanging={15}/> Spain</p>
-            </div>
+		<div className='relative h-fit p-4 px-6 text-white'>
+			<div className='pt-7'>
+				<p className='text-xl font-semibold'>Mishael Joseph</p>
+				<Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Github width={15} hanging={15}/> Mishael-joe</Link>
+				<Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Twitter width={15} hanging={15}/> @Mishaeljoe</Link>
+				<Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Linkedin width={15} hanging={15}/> in/mishael-joe</Link>
+				<p className='text-sm opacity-80 flex gap-1 items-center'> <LucideMapPin width={15} hanging={15}/> Spain</p>
+			</div>
 
-            <div>
-                <p className=' absolute top-2 right-6 text-xs opacity-80 flex gap-1 items-center'> <CalendarDays width={15} hanging={15}/> Joined January 2024</p>
-                {/* <p className=' absolute top-2 right-2 text-xs opacity-80'>Member since: 20/04/24</p> */}
-            </div>
+			<div>
+				<p className=' absolute top-2 right-6 text-xs opacity-80 flex gap-1 items-center'> <CalendarDays width={15} hanging={15}/> Joined January 2024</p>
+				{/* <p className=' absolute top-2 right-2 text-xs opacity-80'>Member since: 20/04/24</p> */}
+			</div>
 
-            <div>
-                <ul className="flex flex-wrap justify-center my-4">
-                    {tabBar.map((tabItem, k) => (
-                        <TabBar tabItem={tabItem} key={k} />
-                    ))}
-                </ul>
-            </div>
+			<div>
+				<ul className="flex flex-wrap justify-center my-4">
+					{tabBar.map((tabItem, k) => (
+						<TabBar tabItem={tabItem} key={k} />
+					))}
+				</ul>
+			</div>
 
-            <div className="grid grid-cols-12 gap-6 mt-6">
-                {portfolios.map((item, i) => (
-                    <div
-                        className="col-span-12 sm:col-span-6 lg:col-span-4 xl:col-span-3"
-                        key={i}
-                    >
-                        <PortfolioItem item={item} />
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
+			<div className="grid grid-cols-12 gap-6 mt-6">
+				{portfolios.map((item, i) => (
+					<div
+						className="col-span-12 sm:col-span-6 lg:col-span-4 xl:col-span-3"
+						key={i}
+					>
+						<PortfolioItem item={item} />
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
   )
 }
 
