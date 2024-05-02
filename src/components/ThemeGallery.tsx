@@ -68,7 +68,7 @@ const ThemeGallery = () => {
 	},[fetchAndSetThemes])
 
 	return (
-		<section className="py-14 md:py-24 bg-[#491d8d] dark:bg-black text-zinc-900 dark:text-white">
+		<section className="py-14 md:py-24 bg-[#42b0c5] dark:bg-black text-zinc-900 dark:text-white">
 			<div className="container px-4 mx-auto">
 				<div className="flex flex-col items-center text-center">
 					<h1 className="text-3xl text-white md:text-[45px] font-bold mb-2">
