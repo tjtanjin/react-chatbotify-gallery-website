@@ -101,6 +101,7 @@ const portfolios = [
 ];
 
 
+<<<<<<< Updated upstream
 
 const tabBar = [
 	{
@@ -121,6 +122,9 @@ const tabBar = [
 ];
 
 const PortfolioItem = ({ item }: Portfolios ) => (
+=======
+const PortfolioItem = ({ item }) => (
+>>>>>>> Stashed changes
 	<div className="bg-slate-50 dark:bg-slate-800 h-full rounded overflow-hidden">
 		<div className="relative">
 			<img src={item.bannerImg} className="w-full" alt={item.title} />
@@ -163,22 +167,6 @@ const PortfolioItem = ({ item }: Portfolios ) => (
 
 PortfolioItem.propTypes = {
 	item: PropTypes.object.isRequired,
-};
-
-
-
-const TabBar = ({ tabItem }: TabItem) => (
-	<li
-		className={`px-4 py-2 ${tabItem.isActive && "border-b-2 border-blue-600"}`}
-	>
-		<Link className="nav-link" to={tabItem.href}>
-			{tabItem.value}
-		</Link> {/* Previously 'a tag', now 'Link tag' */}
-	</li>
-);
-
-TabBar.propTypes = {
-	tabItem: PropTypes.object.isRequired,
 };
 
 const ThemeGallery = () => {
