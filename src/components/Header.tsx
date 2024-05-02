@@ -16,9 +16,20 @@ const Header = () => {
 						</div>
 					</div>
 					<div className="xl:col-span-8 flex justify-end">
-						<p className="content-center">GitHub</p>
-						<p className="content-center">Discord</p>
-						<button>Login</button>
+						<div className="flex flex-row content-center items-center cursor-pointer">
+						<a className="hover:underline" href="https://github.com/tjtanjin/react-chatbotify" target="_blank">GitHub </a>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3 ml-0.5 content-center">
+  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+</svg>
+						</div>
+						<div className="flex flex-row content-center items-center mx-2 cursor-pointer">
+						<a className="hover:underline" href="https://discord.gg/ahGTMgAw" target="_blank">Discord</a>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3 ml-0.5 content-center">
+  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+</svg>
+						</div>
+						<button onClick={() => setLoggedIn(!loggedIn)} className="mr-2">{loggedIn ? "Logout": "Login"}</button>
+						{loggedIn ? <p className="content-center">Profile</p>: null}
 						</div>
 				</div>
 			</div>
