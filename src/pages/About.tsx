@@ -3,9 +3,10 @@ import { Link } from "react-router-dom"
 
 const AboutPage = () => {
   	return (
+		<>
+		<Header />
 		<section className=" bg-black/90 text-slate-200">
 	  		<div className="p-4">
-				{/* <Header /> */}
 				<div className="w-full max-w-4xl mx-auto">
 					<h1 className="text-lg md:text-2xl md:font-semibold text-center py-4">Unleash the Power of React ChatBotify with Diverse Themes</h1>
 					<p className="text-center py-2">React ChatBotify is an open-source library designed to make chatbot development accessible and efficient. Whether you're a seasoned developer or just starting out, our intuitive platform and extensive themes streamline the process, allowing you to focus on crafting exceptional user experiences.</p>
@@ -58,6 +59,7 @@ const AboutPage = () => {
 				</div>
 	  		</div>
 		</section>
+		</>
   	)
 }
 
