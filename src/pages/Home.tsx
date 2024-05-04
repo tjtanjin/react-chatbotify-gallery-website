@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { handleLogin } from '../services/authService';
 
 const HomePage = () => {
-	const { isLoggedIn } = useAuth();
+	const { isLoggedIn, userData } = useAuth();
 
 	const navigate = useNavigate();
 
@@ -16,7 +16,12 @@ const HomePage = () => {
 		<div className="relative bg-black text-white min-h-screen flex">
 			<div className="w-1/2 flex flex-col justify-center items-center p-10 fade-down">
 				<h1 id="title" className="text-6xl font-bold text-center leading-tight mb-4">Welcome to <br className="md:hidden" /> React ChatBotify Gallery</h1>
-				<p id="subtitle" className="text-lg text-center mb-8">Browse, rate and share themes for your chatbot today!</p>
+				{isLoggedIn
+					?
+					<p id="subtitle" className="text-lg text-center mb-8">It's good to see you, {userData?.name}!</p>
+					:
+					<p id="subtitle" className="text-lg text-center mb-8">Browse, rate and share themes for your chatbot today!</p>
+				}
 				<div className="flex justify-center">
 					{!isLoggedIn &&
 						<button className="bg-white text-black px-6 py-3 rounded-md mr-4 hover:bg-blue-500 transition-colors duration-300" onClick={() => {

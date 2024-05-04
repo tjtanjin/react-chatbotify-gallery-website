@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import logo from '../assets/images/logo.png';
 import { handleLogin } from '../services/authService';
 
 const NavigationBar = () => {
+	const navigate = useNavigate();
 	const { isLoggedIn, setIsLoggedIn, setUserData } = useAuth();
 	const [menuOpen, setMenuOpen] = useState(false);
 
@@ -75,6 +76,7 @@ const NavigationBar = () => {
 							<button onClick={() => {
 								setIsLoggedIn(false);
 								setUserData(null);
+								navigate("/");
 							}}>Logout</button>
 						</li>
 					</>
