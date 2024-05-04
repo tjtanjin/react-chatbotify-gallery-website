@@ -1,20 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import logo from '../assets/images/logo.png';
 import { handleLogin } from '../services/authService';
 
 const NavigationBar = () => {
-	const { isLoggedIn } = useAuth();
+	const { isLoggedIn, setIsLoggedIn, setUserData } = useAuth();
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const toggleMenu = () => {
 		setMenuOpen(!menuOpen);
 	};
-
-	useEffect(() => {
-		console.log(isLoggedIn);
-	})
 
 	return (
 		<nav className="bg-gray-800 text-white py-2 px-6 flex justify-between items-center h-7vh" style={{ height: '8vh' }}>
@@ -76,7 +72,10 @@ const NavigationBar = () => {
 							<Link to="/profile" className="hover:text-blue-500">Profile</Link>
 						</li>
 						<li>
-							<button>Logout</button>
+							<button onClick={() => {
+								setIsLoggedIn(false);
+								setUserData(null);
+							}}>Logout</button>
 						</li>
 					</>
 				) : (

@@ -1,8 +1,15 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
 interface UserData {
+	avatar_url: string;
 	name: string;
 	email: string;
+
+	// todo: backend update with actual user id, not github user id
+	id: string;
+
+	// todo: backend replace with github_handle instead of login (default from github)
+	login: string;
 }
 
 interface AuthContextType {
@@ -19,17 +26,25 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(() => {
-        // Initialize isLoggedIn with the value from local storage or false if it doesn't exist
-        const storedIsLoggedIn = localStorage.getItem('isLoggedIn');
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
+        // Initialize is_logged_in with the value from local storage or false if it doesn't exist
+        const storedIsLoggedIn = localStorage.getItem('is_logged_in');
         return storedIsLoggedIn ? JSON.parse(storedIsLoggedIn) : false;
     });
-    const [userData, setUserData] = useState<UserData | null>(null);
+	const [userData, setUserData] = useState<UserData | null>(() => {
+        // Initialize userData with the value from local storage or false if it doesn't exist
+        const storedUserData = localStorage.getItem('user_data');
+        return storedUserData ? JSON.parse(storedUserData) : false;
+    });
 
     // Save isLoggedIn to local storage whenever it changes
     useEffect(() => {
-        localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn));
+        localStorage.setItem('is_logged_in', JSON.stringify(isLoggedIn));
     }, [isLoggedIn]);
+
+	useEffect(() => {
+        localStorage.setItem('user_data', JSON.stringify(userData));
+    }, [userData]);
 
     return (
         <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, userData, setUserData }}>
