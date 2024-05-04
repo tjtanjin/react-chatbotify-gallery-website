@@ -1,4 +1,3 @@
-import Header from '../components/Header'
 import { Link } from 'react-router-dom'
 import botAvatar from "../assets/images/bot_avatar.png";
 import { CalendarDays, Github, Linkedin, LucideMapPin, Twitter } from 'lucide-react';
@@ -96,6 +95,7 @@ const PortfolioItem = ({ item }: Portfolios ) => (
 );
 
 const UserProfilePage = () => {
+	console.log("OK WE AERE FOUND")
 	const tabBar = [
 		{
 			isActive: true,
@@ -115,7 +115,6 @@ const UserProfilePage = () => {
 
   return (
 	<section className='w-full h-[100%] mx-auto bg-black/90'>
-		{/* <Header /> */}
 		<div className='relative sm:rounded p-3 h-40 bg-blue-600 flex flex-col justify-center items-center'>
 			<div className='rounded-full w-20 h-20 lg:w-28 lg:h-28 absolute -bottom-10 outline outline-black/90 left-10'>
 				<img src={botAvatar} alt=""  className=' rounded-full'/>
