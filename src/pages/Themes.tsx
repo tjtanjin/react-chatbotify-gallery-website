@@ -1,35 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import ThemeCard from '../components/ThemeCard';
 import Filters from '../components/Filters';
 import SearchBar from '../components/SearchBar';
-import { fetchThemes } from '../services/apiService';
+import { getThemeData } from '../services/apiService';
 import { Theme } from '../interfaces/Theme';
-import { useAuth } from '../context/AuthContext';
 
-const ThemesPage: React.FC = () => {
+const Themes: React.FC = () => {
 	const [themes, setThemes] = useState<Theme[]>([]);
-
-	const fetchThemesData = async () => {
-		try {
-			// todo: add loading spinner while fetching themes
-			const data = fetchThemes();
-			setThemes(data);
-		} catch (error) {
-			// todo: add display error message
-		}
-	};
-
-	useEffect(() => {
-		fetchThemesData();
-	}, []);
+	const fetchAndSetThemes = useCallback(async () => {
+		const themesArray = await fetchThemes();
+		setThemes([...themesArray])
+	},[])
 
 	const handleSearch = (query: string) => {
 		const filtered = themes.filter(theme =>
-			theme.title.toLowerCase().includes(query.toLowerCase()) ||
+			theme.name.toLowerCase().includes(query.toLowerCase()) ||
 			theme.description.toLowerCase().includes(query.toLowerCase())
 		);
 		setThemes(filtered);
 	};
+
+	// todo: backend add an api endpoint for getting list of theme names
+	const themeNames = ['cyborg','midnight_black','minimal_midnight','retro','solid_purple_haze','terminal','tranquil_teal']
+	const fetchThemes = async (): Promise<Theme[]> => {
+		return await Promise.all(themeNames.map(getThemeData))
+	}
+
+	useEffect(() => {
+		fetchAndSetThemes()
+	},[fetchAndSetThemes])
+
+
 
 	return (
 		<div className="flex">
@@ -48,4 +49,5 @@ const ThemesPage: React.FC = () => {
 	);
 };
 
-export default ThemesPage;
+export default Themes;
+
