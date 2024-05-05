@@ -3,27 +3,9 @@ import botAvatar from "../assets/images/bot_avatar.png";
 import { useState } from "react";
 
 const AboutPage = () => {
-	const [loggedIn,setLoggedIn] = useState<boolean>(false);
-  	return (
-		<main className=" bg-black text-slate-200  h-screen">
-		<section className="bg-inherit">
-			<div className=" fixed right-10 top-5 flex justify-end">
-				<div className="flex flex-row content-center items-center cursor-pointer">
-				<a className="hover:underline" href="https://github.com/tjtanjin/react-chatbotify" target="_blank">GitHub </a>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3 ml-0.5 content-center">
-					<path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-					</svg>
-				</div>
-				<div className="flex flex-row content-center items-center mx-2 cursor-pointer">
-				<a className="hover:underline" href="https://discord.gg/ahGTMgAw" target="_blank">Discord</a>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3 ml-0.5 content-center">
-					<path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-					</svg>
-				</div>
-				<button onClick={() => setLoggedIn(!loggedIn)} className="mr-2">{loggedIn ? "Logout": "Login"}</button>
-				{loggedIn ? <p className="content-center">Profile</p>: null}
-			</div>
-	  		<div className="p-4">
+	return (
+		<section className=" bg-black/90 text-slate-200">
+			<div className="p-4">
 				<div className="w-full max-w-4xl mx-auto">
 					<div className="flex w-full h-52 justify-center items-center">
 						<h1 className=" sm:text-4xl flex items-center gap-4 flex-col text-xl sm:flex-row"><img src={botAvatar} alt="" className="sm:w-20 sm:h-20 w-40 h-40 rounded-full" />React ChatBotify Theme Gallery</h1>
@@ -83,9 +65,8 @@ const AboutPage = () => {
 						</Link>
 					</div>
 				</div>
-	  		</div>
+			</div>
 		</section>
-		</main>
   	)
 }
 

@@ -3,37 +3,62 @@ import ReactDOM from "react-dom/client";
 import './index.css';
 import HomePage from './pages/Home'
 import reportWebVitals from './reportWebVitals';
-import ErrorPage from './pages/NotFound-Page'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider, useRoutes } from "react-router-dom";
 import AboutPage from './pages/About';
+import ErrorPage from './pages/Error'
 import ThemesPage from './pages/Themes';
 import UserProfilePage from './pages/UserProfile';
+import NavigationBar from './components/NavigationBar';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './routes/ProtectedRoute';
+import LoginProcessPage from './pages/LoginProcess';
 
-const router = createBrowserRouter([
+const routes = [
 	{
-		path: "/",
+		path: '/',
 		element: <HomePage />,
-		errorElement: <ErrorPage />, // For errors displaying web pages or NotFound pages
+		errorElement: <ErrorPage />,
 	},
 	{
-		path: "/themes",
-		element: <ThemesPage />,
+		path: '/login/process',
+		element: <LoginProcessPage />,
 	},
 	{
-		path: "/about",
-		element: <AboutPage />,
-	},
-	// todo: this is a protected route, only for users who are logged in
-	{
-		path: "/profile/:themeAuthor",
-		element: <UserProfilePage />,
-	},
-]);
+		path: '/',
+		element: <NavbarWrapper/>,
+		children: [
+			{
+				path: '/about',
+				element: <AboutPage />,
+			},
+			{
+				path: '/themes',
+				element: <ThemesPage />,
+			},
+			{
+				path: '/profile',
+				element: <ProtectedRoute element={<UserProfilePage />} />,
+			}
+		]
+	}
+];
+  
+function NavbarWrapper(){
+	return (
+		<div>
+			<NavigationBar/>
+			<Outlet/>
+		</div>
+	)
+};
 
+const router = createBrowserRouter(routes);
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
-	</React.StrictMode>
+		<AuthProvider>
+			<RouterProvider router={router}/>
+		</AuthProvider>
+	</React.StrictMode>,
 );
 reportWebVitals();
 // If you want to start measuring performance in your app, pass a function

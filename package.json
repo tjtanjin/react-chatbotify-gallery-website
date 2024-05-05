@@ -34,6 +34,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.2.2",
+    "uuid": "^9.0.1",
     "vite-plugin-dts": "^3.4.0",
     "vite-plugin-svgr": "^4.2.0",
     "web-vitals": "^1.1.2"
@@ -42,7 +43,8 @@
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
-    "vite": "^5.2.10"
+    "vite": "^5.2.10",
+    "vite-plugin-svgr": "^4.2.0"
   },
   "scripts": {
     "lint": "eslint --fix . --ext .tsx",

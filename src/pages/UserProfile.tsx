@@ -1,7 +1,7 @@
-import Header from '../components/Header'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import botAvatar from "../assets/images/bot_avatar.png";
 import { CalendarDays, Github, Linkedin, LucideMapPin, Twitter } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 type Portfolios = {
 	item: {
@@ -96,9 +96,7 @@ const PortfolioItem = ({ item }: Portfolios ) => (
 );
 
 const UserProfilePage = () => {
-	const params = useParams();
-
-	console.log(params.themeAuthor);
+	const { userData } = useAuth();
 	const tabBar = [
 		{
 			isActive: true,
@@ -118,15 +116,14 @@ const UserProfilePage = () => {
 
   return (
 	<section className='w-full h-[100%] mx-auto bg-black/90'>
-		{/* <Header /> */}
 		<div className='relative sm:rounded p-3 h-40 bg-blue-600 flex flex-col justify-center items-center'>
 			<div className='rounded-full w-20 h-20 lg:w-28 lg:h-28 absolute -bottom-10 outline outline-black/90 left-10'>
-				<img src={botAvatar} alt=""  className=' rounded-full'/>
+				<img src={userData?.avatar_url} alt=""  className=' rounded-full'/>
 			</div>
 
 			<div className=' text-center text-slate-200'>
 				{/* <p className='text-lg font-semibold sm:text-xl md:text-3xl'>Theme Author Profile</p> */}
-				<p className='text-lg font-semibold sm:text-xl md:text-3xl'>{params.themeAuthor?.toUpperCase()}'S PROFILE</p>
+				<p className='text-lg font-semibold sm:text-xl md:text-3xl'>{}'S PROFILE</p>
 				<p className='text-xs sm:text-base md:text-base'>React ChatBotify</p>
 			</div>
 
@@ -138,10 +135,9 @@ const UserProfilePage = () => {
 
 		<div className='relative h-fit p-4 px-6 text-white'>
 			<div className='pt-7'>
-				<p className='text-xl font-semibold'>{params.themeAuthor?.toUpperCase()}</p>
-				<Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Github width={15} hanging={15}/> {params.themeAuthor}</Link>
-				<Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Twitter width={15} hanging={15}/> @Mishaeljoe</Link>
-				<Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Linkedin width={15} hanging={15}/> in/mishael-joe</Link>
+				<p className='text-xl font-semibold'>{userData?.name}</p>
+				<Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Github width={15} hanging={15}/>{userData?.name}</Link>
+				<Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Twitter width={15} hanging={15}/>{userData?.login}</Link>
 				<p className='text-sm opacity-80 flex gap-1 items-center'> <LucideMapPin width={15} hanging={15}/> Spain</p>
 			</div>
 
