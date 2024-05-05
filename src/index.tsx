@@ -25,7 +25,7 @@ const router = createBrowserRouter([
 	},
 	// todo: this is a protected route, only for users who are logged in
 	{
-		path: "/profile",
+		path: "/profile/:themeAuthor",
 		element: <UserProfilePage />,
 	},
 ]);

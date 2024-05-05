@@ -1,5 +1,5 @@
 import Header from '../components/Header'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import botAvatar from "../assets/images/bot_avatar.png";
 import { CalendarDays, Github, Linkedin, LucideMapPin, Twitter } from 'lucide-react';
 
@@ -96,6 +96,9 @@ const PortfolioItem = ({ item }: Portfolios ) => (
 );
 
 const UserProfilePage = () => {
+	const params = useParams();
+
+	console.log(params.themeAuthor);
 	const tabBar = [
 		{
 			isActive: true,
@@ -122,7 +125,8 @@ const UserProfilePage = () => {
 			</div>
 
 			<div className=' text-center text-slate-200'>
-				<p className='text-lg font-semibold sm:text-xl md:text-3xl'>Theme Author Profile</p>
+				{/* <p className='text-lg font-semibold sm:text-xl md:text-3xl'>Theme Author Profile</p> */}
+				<p className='text-lg font-semibold sm:text-xl md:text-3xl'>{params.themeAuthor?.toUpperCase()}'S PROFILE</p>
 				<p className='text-xs sm:text-base md:text-base'>React ChatBotify</p>
 			</div>
 
@@ -134,8 +138,8 @@ const UserProfilePage = () => {
 
 		<div className='relative h-fit p-4 px-6 text-white'>
 			<div className='pt-7'>
-				<p className='text-xl font-semibold'>Mishael Joseph</p>
-				<Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Github width={15} hanging={15}/> Mishael-joe</Link>
+				<p className='text-xl font-semibold'>{params.themeAuthor?.toUpperCase()}</p>
+				<Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Github width={15} hanging={15}/> {params.themeAuthor}</Link>
 				<Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Twitter width={15} hanging={15}/> @Mishaeljoe</Link>
 				<Link to={`//https//github.com/`} className='text-sm opacity-80 flex gap-1 items-center w-fit'><Linkedin width={15} hanging={15}/> in/mishael-joe</Link>
 				<p className='text-sm opacity-80 flex gap-1 items-center'> <LucideMapPin width={15} hanging={15}/> Spain</p>
@@ -170,3 +174,20 @@ const UserProfilePage = () => {
 }
 
 export default UserProfilePage
+
+
+const username = 'your_username_here'; // Replace 'your_username_here' with the GitHub username you want to fetch data for
+
+fetch(`https://api.github.com/users/${username}`)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data); // Here you can handle the retrieved user data
+  })
+  .catch(error => {
+    console.error('There was a problem fetching the data:', error);
+  });
