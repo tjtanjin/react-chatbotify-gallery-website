@@ -10,10 +10,10 @@ const LoginProcessPage = () => {
 	useEffect(() => {
 		const queryParams = new URLSearchParams(location.search);
 		const uuid = queryParams.get('uuid');
-		const type = queryParams.get('type')
+		const provider = queryParams.get('provider')
 		const fetchUserData = async () => {
 			// todo: abstract into a constants file
-			const url = `https://rcb-gallery-api.tjtanjin.com/api/v1/auth/login/process?type=${type}&uuid=${uuid}`;
+			const url = `https://rcb-gallery-api.tjtanjin.com/api/v1/auth/login/process?provider=${provider}&uuid=${uuid}`;
 			const response = await fetch(url, {
 				method: 'GET',
 				credentials: 'include'
