@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import logo from '../assets/images/logo.png';
 import { handleLogin } from '../services/authService';
+import { siteConfig } from '../config/site';
 
 const NavigationBar = () => {
 	const navigate = useNavigate();
@@ -14,19 +15,19 @@ const NavigationBar = () => {
 	};
 
 	return (
-		<nav className="bg-gray-800 text-white py-2 px-6 flex justify-between items-center h-7vh" style={{ height: '8vh' }}>
-			<div className="pl-20 flex">
-				<Link to="/" className="flex items-center"> {/* Wrap logo and title with Link */}
-					<img src={logo} alt="Logo" className="w-8 h-8 mr-2" />
-					<h1 className="text-lg font-bold">React ChatBotify Gallery</h1>
-				</Link>
-			</div>
+		<nav className="bg-gray-800 text-white py-2 px-6 flex justify-between items-center" style={{ height: '8vh' }}>
+			<Link to="/" className="flex items-center"> {/* Wrap logo and title with Link */}
+				<img src={logo} alt="Logo" className="w-8 h-8 mr-2" />
+				<h1 className="text-lg font-bold">{siteConfig.siteName}</h1>
+			</Link>
+
 			<div className="relative">
 				<button onClick={toggleMenu} className="block md:hidden">
 					<svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
 					</svg>
 				</button>
+
 				{menuOpen && (
 					<div className="absolute right-0 mt-2 bg-gray-800 border border-gray-600 rounded-md shadow-lg py-1 w-48 z-10">
 						<ul className="px-2">
@@ -57,6 +58,7 @@ const NavigationBar = () => {
 					</div>
 				)}
 			</div>
+			
 			<ul className="hidden md:flex pr-20">
 				<li className="mr-8">
 					<Link to="/about" className="hover:text-blue-500">About</Link>

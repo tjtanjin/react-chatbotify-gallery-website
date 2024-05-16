@@ -15,7 +15,16 @@ const getThemeData = async (item: string) => {
 
 	// todo:
 
-	return {id: id, name: meta.theme, tags: tags, themeImg: displayUrl, authorName: meta.author, authorImg: authorImg, description: meta.description}
+	return {
+		id: id, 
+		name: meta.theme, 
+		tags: tags, 
+		themeImg: displayUrl, 
+		authorName: meta.author, 
+		authorImg: authorImg, 
+		description: meta.description,
+		github: meta.github
+	}
 }
 
 export {

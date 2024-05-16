@@ -12,6 +12,7 @@ import NavigationBar from './components/NavigationBar';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './routes/ProtectedRoute';
 import LoginProcessPage from './pages/LoginProcess';
+import TermsOfService from './pages/terms';
 
 const routes = [
 	{
@@ -34,6 +35,10 @@ const routes = [
 			{
 				path: '/themes',
 				element: <ThemesPage />,
+			},
+			{
+				path: '/terms-of-service',
+				element: <TermsOfService />,
 			},
 			{
 				path: '/profile',

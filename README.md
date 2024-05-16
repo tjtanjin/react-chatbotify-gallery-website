@@ -3,7 +3,7 @@
 ## Table of contents
 
 - [Overview](#overview)
-  - [Getting Stated](#getting-started)
+  - [Getting Started](#getting-started)
   - [Test and Build](#test-and-build)
   - [Eject](#eject)
   - [Useful resources](#useful-resources)
