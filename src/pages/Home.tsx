@@ -14,7 +14,7 @@ const HomePage = () => {
 	};
 
 	return (
-		<div className="relative bg-black text-white min-h-screen flex flex-col-reverse">
+		<div className="relative bg-black text-white min-h-screen flex">
 			<div className="md:w-1/2 flex flex-col justify-center items-center p-10 fade-down">
 				<h1 id="title" className="text-6xl font-bold text-center leading-tight mb-4">Welcome to <br className="md:hidden" /> {siteConfig.siteName}</h1>
 				{isLoggedIn

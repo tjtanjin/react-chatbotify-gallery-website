@@ -41,7 +41,7 @@ const routes = [
 				element: <TermsOfService />,
 			},
 			{
-				path: '/profile/:id',
+				path: '/profile',
 				element: <ProtectedRoute element={<UserProfilePage />} />,
 			}
 		]
