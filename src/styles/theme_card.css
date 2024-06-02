@@ -30,3 +30,9 @@
 .theme-card-fav.active > svg {
     scale: 1.2;
 }
+
+.theme-card-github {
+    @apply rounded-xl translate-x-6 translate-y-2 flex items-center p-1 w-[25px] h-[25px];
+    box-shadow: var(--smooth-shadow);
+    background-color: var(--main-color);
+}
