@@ -1,0 +1,32 @@
+.theme-card-info {
+    @apply p-4 pb-0 flex flex-col justify-between h-[145px] rounded-lg border-slate-500 border-slate-400 -translate-y-20 bg-white;
+    box-shadow: var(--smooth-shadow);
+}
+
+.theme-card-author {
+    @apply text-sm font-medium mb-0 rounded-xl px-3 text-white -translate-x-6 translate-y-2 flex items-center;
+    box-shadow: var(--smooth-shadow);
+    background-color: var(--main-color);
+}
+
+.theme-card-title {
+    @apply text-sm font-medium mb-2 rounded-r-xl px-3 py-2 text-white -translate-x-6 inline-flex items-center;
+    box-shadow: var(--smooth-shadow);
+    background-color: var(--main-color);
+}
+
+.theme-card-fav {
+    @apply rounded-l-xl px-3 py-2 translate-x-6 w-[50px] h-[36px] inline-flex items-center;
+    box-shadow: var(--smooth-shadow);
+    border: 0.5px solid var(--main-color);
+    background-color: white;
+    transition: all 0.4s ease;
+}
+
+.theme-card-fav.active {
+    background-color: var(--main-color);
+}
+
+.theme-card-fav.active > svg {
+    scale: 1.2;
+}
