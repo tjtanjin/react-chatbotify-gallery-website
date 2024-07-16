@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 import dts from 'vite-plugin-dts'
@@ -11,11 +12,6 @@ export default ({ mode }) => {
 
   return defineConfig({
     root: 'src',
-    server: {
-      hmr: {
-        overlay: false
-      }
-    },
     build: {
       lib: {
         entry: path.resolve(__dirname, 'src/index.tsx'),
@@ -49,7 +45,10 @@ export default ({ mode }) => {
     ],
     server: {
       port: 3000,
-      host: true
+      host: true,
+      hmr: {
+        overlay: false
+      }
     }
   })
 }

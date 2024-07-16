@@ -16,9 +16,9 @@ const TermsOfService: React.FC = () => {
 
           <div className=" text-slate-100 pt-10">
             <p>
-              These Terms of Service('Terms') govern your use of{' '}
+              These Terms of Service(&apos;Terms&apos;) govern your use of{' '}
               <span className=" font-semibold">
-                {siteConfig.siteName.toUpperCase()}(the 'Service')
+                {siteConfig.siteName.toUpperCase()}(the &apos;Service&apos;)
               </span>
               , an open-source project created and maintained by React
               ChatBotify Team.
@@ -49,9 +49,10 @@ const TermsOfService: React.FC = () => {
 
             <p className="pt-4">
               <span className="font-semibold text-lg">4. No Warranty:</span> -
-              The Service is provided "as is", without Warranty of any kind,
-              express or implied. We disclaim any warranty of merchantability,
-              fitness for a particular purpose, or non-infringement.
+              The Service is provided &quot;as is&quot;, without Warranty of any
+              kind, express or implied. We disclaim any warranty of
+              merchantability, fitness for a particular purpose, or
+              non-infringement.
             </p>
 
             <p className="pt-4">

@@ -1,5 +1,3 @@
-import { Theme } from '../interfaces/Theme'
-
 const getThemeData = async (item: string) => {
   const cdnUrl =
     'https://cdn.jsdelivr.net/gh/tjtanjin/react-chatbotify-themes/themes'

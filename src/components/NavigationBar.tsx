@@ -27,7 +27,12 @@ const NavigationBar = () => {
       </Link>
 
       <div className="relative">
-        <button onClick={toggleMenu} className="block md:hidden">
+        <button
+          onClick={toggleMenu}
+          className="block md:hidden"
+          type="button"
+          aria-label="Menu"
+        >
           <svg
             className="w-6 h-6 text-white"
             fill="none"
@@ -79,7 +84,10 @@ const NavigationBar = () => {
                     </Link>
                   </li>
                   <li className="my-1">
-                    <button className="block px-4 py-2 hover:bg-gray-700">
+                    <button
+                      className="block px-4 py-2 hover:bg-gray-700"
+                      type="button"
+                    >
                       Logout
                     </button>
                   </li>
@@ -124,6 +132,7 @@ const NavigationBar = () => {
             </li>
             <li>
               <button
+                type="button"
                 onClick={() => {
                   setIsLoggedIn(false)
                   setUserData(null)
@@ -137,6 +146,7 @@ const NavigationBar = () => {
         ) : (
           <li>
             <button
+              type="button"
               onClick={() => handleLogin()}
               className="hover:text-blue-500"
             >

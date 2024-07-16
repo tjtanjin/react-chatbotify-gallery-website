@@ -3,12 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import HomePage from './pages/Home'
 import reportWebVitals from './reportWebVitals'
-import {
-  createBrowserRouter,
-  Outlet,
-  RouterProvider,
-  useRoutes
-} from 'react-router-dom'
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import AboutPage from './pages/About'
 import ErrorPage from './pages/Error'
 import ThemesPage from './pages/Themes'
@@ -18,6 +13,13 @@ import { AuthProvider } from './context/AuthContext'
 import ProtectedRoute from './routes/ProtectedRoute'
 import LoginProcessPage from './pages/LoginProcess'
 import TermsOfService from './pages/terms'
+
+const NavbarWrapper = () => (
+  <div>
+    <NavigationBar />
+    <Outlet />
+  </div>
+)
 
 const routes = [
   {
@@ -52,13 +54,6 @@ const routes = [
     ]
   }
 ]
-
-const NavbarWrapper = () => (
-  <div>
-    <NavigationBar />
-    <Outlet />
-  </div>
-)
 
 const router = createBrowserRouter(routes)
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
