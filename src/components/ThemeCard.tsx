@@ -6,7 +6,7 @@ import GithubIcon from '../assets/images/icon_github_white.svg?react'
 import '../styles/theme_card.css'
 
 interface Props {
-	theme: Theme;
+  theme: Theme
 }
 
 const ThemeCard: React.FC<Props> = ({ theme }) => {
@@ -37,4 +37,4 @@ const ThemeCard: React.FC<Props> = ({ theme }) => {
 	);
 };
 
-export default ThemeCard;
+export default ThemeCard
