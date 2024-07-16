@@ -7,6 +7,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended'
   ],
   rules: {
+    'react/react-in-jsx-scope': 'off',
     'linebreak-style': ['error', 'unix'],
     '@typescript-eslint/camelcase': 'off',
     'import/no-unresolved': 'error',
