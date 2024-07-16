@@ -11,6 +11,11 @@ export default ({ mode }) => {
 
   return defineConfig({
     root: 'src',
+    server: {
+      hmr: {
+        overlay: false
+      }
+    },
     build: {
       lib: {
         entry: path.resolve(__dirname, 'src/index.tsx'),
