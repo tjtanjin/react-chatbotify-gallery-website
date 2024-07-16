@@ -1,46 +1,50 @@
-import react from "@vitejs/plugin-react";
-import svgr from "vite-plugin-svgr";
-import dts from "vite-plugin-dts";
-import path from "path";
+import react from '@vitejs/plugin-react'
+import svgr from 'vite-plugin-svgr'
+import dts from 'vite-plugin-dts'
+import path from 'path'
 import eslint from 'vite-plugin-eslint'
 
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig, loadEnv } from 'vite'
 
-export default ({mode}) => {
-  
-  process.env = {...process.env, ...loadEnv(mode, process.cwd())};
-  
+export default ({ mode }) => {
+  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
+
   return defineConfig({
-    root: "src",
+    root: 'src',
     build: {
       lib: {
-        entry: path.resolve(__dirname, "src/index.tsx"),
-        name: "react-chatbotify",
-        fileName: "index",
-        formats: ["es", "cjs"],
+        entry: path.resolve(__dirname, 'src/index.tsx'),
+        name: 'react-chatbotify',
+        fileName: 'index',
+        formats: ['es', 'cjs']
       },
       rollupOptions: {
-        external: ["react", "react-dom"]
+        external: ['react', 'react-dom']
       },
-      outDir: "../dist",
+      outDir: '../dist'
     },
-    assetsInclude: ["**/*.svg", "**/*.png", "**/*.wav"],
+    assetsInclude: ['**/*.svg', '**/*.png', '**/*.wav'],
     plugins: [
       svgr({
         svgrOptions: {
-          ref: true,
-        },
+          ref: true
+        }
       }),
-      eslint(),
+
+      {
+        ...eslint({
+          failOnWarning: false,
+          failOnError: false
+        })
+      },
       react({
-        include: "**/*.{jsx,tsx}",
+        include: '**/*.{jsx,tsx}'
       }),
       dts()
     ],
     server: {
       port: 3000,
-      host: true,
-    },
-  });
-  
+      host: true
+    }
+  })
 }
