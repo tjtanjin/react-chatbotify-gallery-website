@@ -2,6 +2,7 @@ import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import dts from "vite-plugin-dts";
 import path from "path";
+import eslint from 'vite-plugin-eslint'
 
 import { defineConfig, loadEnv } from "vite";
 
@@ -30,6 +31,7 @@ export default ({mode}) => {
           ref: true,
         },
       }),
+      eslint(),
       react({
         include: "**/*.{jsx,tsx}",
       }),
