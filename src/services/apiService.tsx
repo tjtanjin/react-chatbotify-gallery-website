@@ -1,11 +1,16 @@
 const getThemeData = async (item: string) => {
+  // todo: move this into .env
   const cdnUrl =
     'https://cdn.jsdelivr.net/gh/tjtanjin/react-chatbotify-themes/themes'
-  const displayFile = 'display.png'
+
+  // fetch meta info
   const metaFile = 'meta.json'
-  const displayUrl = `${cdnUrl}/${item}/${displayFile}`
   const metaUrl = `${cdnUrl}/${item}/${metaFile}`
   const meta = await (await fetch(metaUrl)).json()
+
+  // fetch display image
+  const displayFile = 'display.png'
+  const displayUrl = `${cdnUrl}/${item}/${meta.version}/${displayFile}`
 
   // todo: backend to provide these values?
   const id = 0
