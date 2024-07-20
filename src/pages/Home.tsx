@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { handleLogin } from '../services/authService'
 import { siteConfig } from '../config/site'
+import logo from "../assets/images/logo.png";
 
 const HomePage = () => {
   const { isLoggedIn, userData } = useAuth()
@@ -90,7 +91,7 @@ const HomePage = () => {
             </svg>
           </Link>
 
-          <Link to="https://discord.gg/zMw3nCnw">
+          <Link to="https://discord.gg/6R4DK4G5Zh">
             <svg
               className=" fill-white w-8 hover:fill-blue-500 transition-colors duration-300"
               fill="#000000"
@@ -166,7 +167,10 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="md:w-1/2 absolute top-0 bottom-0 right-0 opacity-40 bg-no-repeat bg-cover bg-center animate-bob background-image" />
+      <div 
+        className="md:w-1/2 absolute top-0 bottom-0 right-0 opacity-40 bg-no-repeat bg-cover bg-center animate-bob"
+        style={{backgroundSize: "70%", backgroundImage: `url(${logo})`}}
+      />
     </div>
   )
 }

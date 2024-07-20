@@ -27,11 +27,6 @@ code {
 		monospace;
 }
 
-.background-image {
-	background-image: url('https://raw.githubusercontent.com/tjtanjin/react-chatbotify/main/assets/logo.png');
-	background-size: 70%;
-}
-
 .animate-bob {
 	animation: bob 5s infinite ease-in-out alternate-reverse;
 }
