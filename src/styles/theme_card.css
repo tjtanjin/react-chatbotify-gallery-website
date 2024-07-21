@@ -1,5 +1,5 @@
 .theme-card-info {
-    @apply p-4 pb-0 flex flex-col justify-between h-[145px] rounded-lg border-slate-500 border-slate-400 -translate-y-20 bg-white;
+    @apply p-4 pb-0 flex flex-col justify-between h-[145px] rounded-lg border-slate-500 border-slate-400 -translate-y-10 bg-white;
     box-shadow: var(--smooth-shadow);
 }
 
@@ -34,5 +34,16 @@
 .theme-card-github {
     @apply rounded-xl translate-x-6 translate-y-2 flex items-center p-1 w-[25px] h-[25px];
     box-shadow: var(--smooth-shadow);
+    background-color: var(--main-color);
+}
+
+.theme-card-details {
+    @apply opacity-0 z-30 absolute top-1/2 w-full transition ease-in-out group-hover:opacity-100 text-sm font-medium mb-2 px-3 py-2 text-white;
+    background-color: var(--main-color);
+    backdrop-filter: 15px;
+}
+
+.theme-card-download {
+    @apply text-sm font-medium mb-2 px-3 py-2 text-white;
     background-color: var(--main-color);
 }

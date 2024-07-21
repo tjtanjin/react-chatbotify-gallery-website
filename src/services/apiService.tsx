@@ -8,9 +8,17 @@ const getThemeData = async (item: string) => {
   const metaUrl = `${cdnUrl}/${item}/${metaFile}`
   const meta = await (await fetch(metaUrl)).json()
 
-  // fetch display image
+  const contentUrl = `${cdnUrl}/${item}/${meta.version}`
+  // fetch contents
   const displayFile = 'display.png'
-  const displayUrl = `${cdnUrl}/${item}/${meta.version}/${displayFile}`
+  const optionsFile = 'options.json'
+  const stylesFile = 'styles.css'
+
+  const displayUrl = `${contentUrl}/${displayFile}`
+  const optionsUrl = `${contentUrl}/${optionsFile}`
+  const stylesUrl = `${contentUrl}/${stylesFile}`
+
+  // fetch files
 
   // todo: backend to provide these values?
   const id = 0
@@ -27,7 +35,11 @@ const getThemeData = async (item: string) => {
     authorName: meta.author,
     authorImg,
     description: meta.description,
-    github: meta.github
+    github: meta.github,
+    content: {
+      options: optionsUrl,
+      styles: stylesUrl
+    }
   }
 }
 
