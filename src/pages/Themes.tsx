@@ -3,13 +3,14 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 import ThemeCard from '../components/ThemeCard';
-import Filters from '../components/Filters';
+// import Filters from '../components/Filters';
 import SearchBar from '../components/SearchBar';
 import { getThemeData } from '../services/apiService';
 import { Theme } from '../interfaces/Theme';
 
 const Themes: React.FC = () => {
   const [themes, setThemes] = useState<Theme[]>([]);
+  const [themeSearchResults, setThemeSearchResults] = useState<Theme[]>([]);
   const [loading, setLoading] = useState(true);
   const [preview, setPreview] = useState<string[]>([]);
 
@@ -17,16 +18,22 @@ const Themes: React.FC = () => {
     setLoading(true);
     const themesArray = await fetchThemes();
     setThemes([...themesArray]);
+    setThemeSearchResults([...themesArray]);
     setLoading(false);
   }, []);
 
+  // todo: search should relegate to backend once the integration is fully done
   const handleSearch = (query: string) => {
-    const filtered = themes.filter(
-      (theme) =>
-        theme.name.toLowerCase().includes(query.toLowerCase()) ||
-        theme.description.toLowerCase().includes(query.toLowerCase())
-    );
-    setThemes(filtered);
+    if (query.trim() === '') {
+      setThemeSearchResults(themes);
+    } else {
+      const filtered = themes.filter(
+        (theme) =>
+          theme.name.toLowerCase().includes(query.toLowerCase()) ||
+          theme.description.toLowerCase().includes(query.toLowerCase())
+      );
+      setThemeSearchResults(filtered);
+    }
   };
 
   // todo: backend add an api endpoint for getting list of theme names
@@ -70,15 +77,15 @@ const Themes: React.FC = () => {
                   height={400}
                 />
               ))
-            : themes.map((theme) => (
+            : themeSearchResults.map((theme) => (
                 <ThemeCard key={theme.id} theme={theme} onPreview={onPreview} />
               ))}
         </div>
       </div>
       <div className="order-0 md:order-1 w-full lg:w-1/4 p-8 flex flex-col">
-        <div className="order-2 lg:order-1">
+        {/* <div className="order-2 lg:order-1">
           <Filters />
-        </div>
+        </div> */}
         <div className="order-1 lg:order-2 mb-4 lg:mb-0">
           <SearchBar onSearch={handleSearch} />
         </div>
