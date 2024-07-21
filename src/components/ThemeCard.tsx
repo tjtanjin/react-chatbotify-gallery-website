@@ -8,20 +8,33 @@ import ThemeModal from './ThemeModal'
 
 interface Props {
   theme: Theme
+  onPreview: (name: string) => void
 }
 
-const ThemeCard: React.FC<Props> = ({ theme }) => {
+const ThemeCard: React.FC<Props> = ({ theme, onPreview }) => {
   const [isFav, setIsFav] = useState(false)
   const [viewDetails, setViewDetails] = useState(false)
 
-  const onPreview = () => {
+  // we are going to use this instead of passing the whole preview array from parent to avoid using include
+  const [isPreviewed, setIsPreviewed] = useState(false)
+
+  const onViewDetails = () => {
     setViewDetails(true)
+  }
+
+  const onClickPreview = () => {
+    setIsPreviewed((prev) => !prev)
+    onPreview(theme.name)
   }
 
   return (
     <>
       <div className="text-black w-[300px] h-[545px]">
-        <button onClick={onPreview} type="button" className="relative group">
+        <button
+          onClick={onViewDetails}
+          type="button"
+          className="relative group"
+        >
           <img
             src={theme.themeImg}
             className="cursor-pointer w-full h-[400px] scale-80 group-hover:-translate-y-6 transition ease-in-out duration"
@@ -44,12 +57,18 @@ const ThemeCard: React.FC<Props> = ({ theme }) => {
             </div>
             <p className="text-[15px] opacity-80">{theme.description}</p>
           </div>
-
+          <Link to={`/profile/${theme.github}`} className="theme-card-github">
+            <GithubIcon />
+          </Link>
           <div className="flex justify-between">
             <h4 className="theme-card-author">{theme.authorName}</h4>
-            <Link to={`/profile/${theme.github}`} className="theme-card-github">
-              <GithubIcon />
-            </Link>
+            <button
+              className={`theme-card-preview ${isPreviewed ? 'active' : ''}`}
+              type="button"
+              onClick={onClickPreview}
+            >
+              Preview
+            </button>
           </div>
         </div>
       </div>

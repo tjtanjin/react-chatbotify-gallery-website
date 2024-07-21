@@ -11,6 +11,7 @@ import { Theme } from '../interfaces/Theme'
 const Themes: React.FC = () => {
   const [themes, setThemes] = useState<Theme[]>([])
   const [loading, setLoading] = useState(true)
+  const [preview, setPreview] = useState<string[]>([])
 
   const fetchAndSetThemes = useCallback(async () => {
     setLoading(true)
@@ -45,19 +46,29 @@ const Themes: React.FC = () => {
     fetchAndSetThemes()
   }, [fetchAndSetThemes])
 
+  const onPreview = (name: string) => {
+    setPreview((prevPreview) =>
+      prevPreview.includes(name)
+        ? prevPreview.filter((item) => item !== name)
+        : [...prevPreview, name]
+    )
+  }
+
   return (
     <div className="flex">
       <div className="w-3/4 p-8">
         <div className="grid grid-cols-3 gap-4">
-          {loading ? (
-            Array.from({ length: 9 }).map((_, index) => (
-              <Skeleton key={index} width={345} height={400} />
-            ))
-          ) : (
-            themes.map((theme) => (
-              <ThemeCard key={theme.id} theme={theme} />
-            ))
-          )}
+          {loading
+            ? Array.from({ length: 9 }).map((_, index) => (
+                <Skeleton
+                key={`skeleton-${index.toString()}`}
+                width={345}
+                height={400}
+                />
+              ))
+            : themes.map((theme) => (
+              <ThemeCard key={theme.id} theme={theme} onPreview={onPreview} />
+              ))}
         </div>
       </div>
       <div className="w-1/4 p-8">
