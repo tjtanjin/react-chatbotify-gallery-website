@@ -7,6 +7,14 @@ module.exports = {
     'plugin:@typescript-eslint/recommended'
   ],
   rules: {
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: false,
+        optionalDependencies: false,
+        peerDependencies: false
+      }
+    ],
     'react/react-in-jsx-scope': 'off',
     'linebreak-style': ['error', 'unix'],
     '@typescript-eslint/camelcase': 'off',

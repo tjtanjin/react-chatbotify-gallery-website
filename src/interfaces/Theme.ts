@@ -1,3 +1,8 @@
+interface ThemeContent {
+  options: string
+  styles: string
+}
+
 export interface Theme {
   id: number
   name: string
@@ -7,6 +12,7 @@ export interface Theme {
   authorName: string
   tags: string[]
   github: string
+  content: ThemeContent
 }
 
 export interface GithubUserDetails {
