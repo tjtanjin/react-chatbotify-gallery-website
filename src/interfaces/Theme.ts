@@ -1,6 +1,7 @@
 interface ThemeContent {
-  options: string
-  styles: string
+  settings: string
+  inlineStyles: string
+  cssStyles: string
 }
 
 export interface Theme {

@@ -13,8 +13,9 @@ const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
 
   const onDownload = () => {
     downloadThemeContent(
-      theme.content.options,
-      theme.content.styles,
+      theme.content.settings,
+      theme.content.inlineStyles,
+      theme.content.cssStyles,
       theme.name
     )
   }

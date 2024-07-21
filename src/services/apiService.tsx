@@ -11,12 +11,15 @@ const getThemeData = async (item: string) => {
   const contentUrl = `${cdnUrl}/${item}/${meta.version}`
   // fetch contents
   const displayFile = 'display.png'
-  const optionsFile = 'options.json'
-  const stylesFile = 'styles.css'
+  const settingsFile = 'settings.json'
+  const inlineStylesFile = 'styles.json'
+  const cssStylesFile = 'styles.css'
 
   const displayUrl = `${contentUrl}/${displayFile}`
-  const optionsUrl = `${contentUrl}/${optionsFile}`
-  const stylesUrl = `${contentUrl}/${stylesFile}`
+  const settingsUrl = `${contentUrl}/${settingsFile}`
+  const inlineStylesUrl = `${contentUrl}/${inlineStylesFile}`
+  const cssStylesUrl = `${contentUrl}/${cssStylesFile}`
+
 
   // fetch files
 
@@ -37,8 +40,9 @@ const getThemeData = async (item: string) => {
     description: meta.description,
     github: meta.github,
     content: {
-      options: optionsUrl,
-      styles: stylesUrl
+      settings: settingsUrl,
+      inlineStyles: inlineStylesUrl,
+      cssStyles: cssStylesUrl
     }
   }
 }

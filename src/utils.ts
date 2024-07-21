@@ -10,17 +10,20 @@ const fetchFile = async (url: string) => {
 }
 
 export const downloadThemeContent = async (
-  optionsUrl: string,
-  stylesUrl: string,
+  settingsUrl: string,
+  inlineStylesUrl: string,
+  cssStylesUrl: string,
   zipName: string
 ) => {
   const zip = new JSZip()
   try {
-    const options = await fetchFile(optionsUrl)
-    const styles = await fetchFile(stylesUrl)
+    const settings = await fetchFile(settingsUrl)
+    const inlineStyles = await fetchFile(inlineStylesUrl)
+    const cssStyles = await fetchFile(cssStylesUrl)
 
-    zip.file('options.json', options)
-    zip.file('styles.css', styles)
+    zip.file('settings.json', settings)
+    zip.file('styles.json', inlineStyles)
+    zip.file('styles.css', cssStyles)
 
     const content = await zip.generateAsync({ type: 'blob' })
     saveAs(content, `${zipName}.zip`)
