@@ -37,7 +37,11 @@ const Themes: React.FC = () => {
     'retro',
     'solid_purple_haze',
     'terminal',
-    'tranquil_teal'
+    'tranquil_teal',
+    'deep_azure',
+    'hamilton',
+    'rosa',
+    'simple_blue'
   ]
   const fetchThemes = async (): Promise<Theme[]> =>
     await Promise.all(themeNames.map(getThemeData))

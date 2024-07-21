@@ -17,7 +17,11 @@ const themeNames = [
   'retro',
   'solid_purple_haze',
   'terminal',
-  'tranquil_teal'
+  'tranquil_teal',
+  'deep_azure',
+  'hamilton',
+  'rosa',
+  'simple_blue'
 ]
 
 const ThemeItem = ({ item }: { item: Theme }) => (
