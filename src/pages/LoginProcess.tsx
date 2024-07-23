@@ -13,7 +13,6 @@ const LoginProcessPage = () => {
       return
     }
 
-    console.log('COMONONON')
     const queryParams = new URLSearchParams(location.search)
     const uuid = queryParams.get('uuid')
     const provider = queryParams.get('provider')

@@ -110,7 +110,7 @@ const HomePage = () => {
             </svg>
           </Link>
 
-          <Link to="https://react-chatbotify.tjtanjin.com/docs/introduction/quickstart">
+          <Link to="https://react-chatbotify.com/docs/introduction/quickstart">
             <svg
               className=" fill-white w-8 hover:fill-blue-500 transition-colors duration-300"
               width="35px"

@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
-import dts from 'vite-plugin-dts'
 import path from 'path'
 import eslint from 'vite-plugin-eslint'
 
@@ -13,16 +12,10 @@ export default ({ mode }) => {
   return defineConfig({
     root: 'src',
     build: {
-      lib: {
-        entry: path.resolve(__dirname, 'src/index.tsx'),
-        name: 'react-chatbotify',
-        fileName: 'index',
-        formats: ['es', 'cjs']
-      },
+      outDir: path.resolve(__dirname, 'dist'),
       rollupOptions: {
-        external: ['react', 'react-dom']
+        input: path.resolve(__dirname, 'src/index.html'),
       },
-      outDir: '../dist'
     },
     assetsInclude: ['**/*.svg', '**/*.png', '**/*.wav'],
     plugins: [
@@ -31,17 +24,13 @@ export default ({ mode }) => {
           ref: true
         }
       }),
-
-      {
-        ...eslint({
-          failOnWarning: false,
-          failOnError: false
-        })
-      },
+      eslint({
+        failOnWarning: false,
+        failOnError: false
+      }),
       react({
         include: '**/*.{jsx,tsx}'
-      }),
-      dts()
+      })
     ],
     server: {
       port: 3000,

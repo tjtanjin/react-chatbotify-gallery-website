@@ -20,6 +20,7 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 code {
@@ -53,4 +54,14 @@ code {
 		opacity: 1;
 		transform: translateY(0);
 	}
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

@@ -16,7 +16,7 @@ const NavigationBar = () => {
 
   return (
     <nav
-      className="bg-gray-800 text-white py-2 px-6 flex justify-between items-center"
+      className="fixed top-0 w-full z-50 opacity-80 bg-black text-white py-2 px-6 flex justify-between items-center"
       style={{ height: '8vh' }}
     >
       <Link to="/" className="flex items-center">
@@ -52,9 +52,18 @@ const NavigationBar = () => {
         {menuOpen && (
           <div className="absolute right-0 mt-2 bg-gray-800 border border-gray-600 rounded-md shadow-lg py-1 w-48 z-10">
             <ul className="px-2">
-              <li className="my-1">
+              {/* needs improvement */}
+              {/* <li className="my-1">
                 <Link to="/about" className="block px-4 py-2 hover:bg-gray-700">
                   About
+                </Link>
+              </li> */}
+              <li className="my-1">
+                <Link
+                  to="/plugins"
+                  className="block px-4 py-2 hover:bg-gray-700"
+                >
+                  Plugins
                 </Link>
               </li>
               <li className="my-1">
@@ -67,12 +76,39 @@ const NavigationBar = () => {
               </li>
               <li className="my-1">
                 <Link
+                  to="/theme-builder"
+                  className="block px-4 py-2 hover:bg-gray-700"
+                >
+                  Theme Builder
+                </Link>
+              </li>
+              <li className="my-1">
+                <Link
+                  to="https://react-chatbotify.com"
+                  target="_blank"
+                  className="block px-4 py-2 hover:bg-gray-700"
+                >
+                  Documentation
+                </Link>
+              </li>
+              <li className="my-1">
+                <Link
+                  to="https://discord.gg/6R4DK4G5Zh"
+                  target="_blank"
+                  className="block px-4 py-2 hover:bg-gray-700"
+                >
+                  Discord
+                </Link>
+              </li>
+              {/* needs improvement */}
+              {/* <li className="my-1">
+                <Link
                   to="/terms-of-service"
                   className="block px-4 py-2 hover:bg-gray-700"
                 >
                   Terms of Service
                 </Link>
-              </li>
+              </li> */}
               {isLoggedIn ? (
                 <>
                   <li className="my-1">
@@ -108,9 +144,15 @@ const NavigationBar = () => {
       </div>
 
       <ul className="hidden md:flex pr-20">
-        <li className="mr-8">
+        {/* needs improvement */}
+        {/* <li className="mr-8">
           <Link to="/about" className="hover:text-blue-500">
             About
+          </Link>
+        </li> */}
+        <li className="mr-8">
+          <Link to="/plugins" className="hover:text-blue-500">
+            Plugins
           </Link>
         </li>
         <li className="mr-8">
@@ -119,10 +161,34 @@ const NavigationBar = () => {
           </Link>
         </li>
         <li className="mr-8">
+          <Link to="/theme-builder" className="hover:text-blue-500">
+            Theme Builder
+          </Link>
+        </li>
+        <li className="mr-8">
+          <Link
+            to="https://react-chatbotify.com"
+            target="_blank"
+            className="hover:text-blue-500"
+          >
+            Documentation
+          </Link>
+        </li>
+        <li className="mr-8">
+          <Link
+            to="https://discord.gg/6R4DK4G5Zh"
+            target="_blank"
+            className="hover:text-blue-500"
+          >
+            Discord
+          </Link>
+        </li>
+        {/* needs improvement */}
+        {/* <li className="mr-8">
           <Link to="/terms-of-service" className="hover:text-blue-500">
             Terms of Service
           </Link>
-        </li>
+        </li> */}
         {isLoggedIn ? (
           <>
             <li className="mr-8">

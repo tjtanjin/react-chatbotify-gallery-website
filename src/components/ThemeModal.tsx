@@ -45,6 +45,8 @@ const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
                 <div>{theme.name}</div>
                 <div className="font-semibold">Description:</div>
                 <div>{theme.description}</div>
+                <div className="font-semibold">Version:</div>
+                <div>{theme.version}</div>
                 <div className="font-semibold">Author:</div>
                 <div className="flex items-center space-x-2">
                   {theme.authorImg && (

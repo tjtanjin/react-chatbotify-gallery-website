@@ -24,16 +24,16 @@ const getThemeData = async (item: string) => {
   // fetch files
 
   // todo: backend to provide these values?
-  const id = 0
+  const id = item
   const authorImg = ''
-  const tags = ['Retro']
-
-  // todo:
+  const tags = ["beta"]
 
   return {
     id,
-    name: meta.theme,
+    // remove theme when cdn is cleared
+    name: meta.name || meta.theme,
     tags,
+    version: meta.version,
     themeImg: displayUrl,
     authorName: meta.author,
     authorImg,

@@ -7,23 +7,20 @@ import '../styles/theme_card.css'
 import ThemeModal from './ThemeModal'
 
 interface Props {
-  theme: Theme
-  onPreview: (name: string) => void
+  theme: Theme;
+  isPreviewed: boolean;
+  onPreview: (name: string) => void;
 }
 
-const ThemeCard: React.FC<Props> = ({ theme, onPreview }) => {
+const ThemeCard: React.FC<Props> = ({ theme, isPreviewed, onPreview }) => {
   const [isFav, setIsFav] = useState(false)
   const [viewDetails, setViewDetails] = useState(false)
-
-  // we are going to use this instead of passing the whole preview array from parent to avoid using include
-  const [isPreviewed, setIsPreviewed] = useState(false)
 
   const onViewDetails = () => {
     setViewDetails(true)
   }
 
   const onClickPreview = () => {
-    setIsPreviewed((prev) => !prev)
     onPreview(theme.name)
   }
 

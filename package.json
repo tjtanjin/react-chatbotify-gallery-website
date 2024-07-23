@@ -5,9 +5,6 @@
     "react-chatbotify",
     "website"
   ],
-  "files": [
-    "./dist"
-  ],
   "description": "A gallery for showcasing React ChatBotify themes.",
   "author": "tjtanjin",
   "license": "MIT",
@@ -30,12 +27,11 @@
     "lucide-react": "^0.376.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
+    "react-chatbotify": "^2.0.0-beta.1",
     "react-dom": "^18.2.0",
     "react-loading-skeleton": "^3.4.0",
     "react-router-dom": "^6.2.2",
     "uuid": "^9.0.1",
-    "vite-plugin-dts": "^3.4.0",
-    "vite-plugin-svgr": "^4.2.0",
     "web-vitals": "^1.1.2"
   },
   "devDependencies": {
@@ -59,10 +55,9 @@
   "scripts": {
     "lint": "eslint --fix . --ext .tsx",
     "test": "node ./test/RunTests.js",
-    "build": "tsc && vite build && cp ./dist/index.d.ts ./dist/index.d.cts",
-    "prepublishOnly": "tsc && vite build && cp ./dist/index.d.ts ./dist/index.d.cts",
-    "prepack": "tsc && vite build && cp ./dist/index.d.ts ./dist/index.d.cts",
-    "start": "vite serve"
+    "build": "vite build",
+    "start": "vite",
+    "preview": "vite preview"
   },
   "eslintConfig": {
     "extends": [

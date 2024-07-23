@@ -10,7 +10,7 @@ type Theme = {
   themeAuthor: string
 }
 
-const themeNames = [
+const themeIds = [
   'cyborg',
   'midnight_black',
   'minimal_midnight',
@@ -67,7 +67,7 @@ const fetchThemeData = async (item: string) => {
 }
 
 const fetchThemes = async (): Promise<Theme[]> =>
-  await Promise.all(themeNames.map(fetchThemeData))
+  await Promise.all(themeIds.map(fetchThemeData))
 
 const ThemeGallery = () => {
   const [themes, setThemes] = useState<Theme[]>([])

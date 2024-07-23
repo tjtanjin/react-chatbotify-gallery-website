@@ -5,9 +5,10 @@ interface ThemeContent {
 }
 
 export interface Theme {
-  id: number
+  id: string
   name: string
   description: string
+  version: string
   themeImg: string
   authorImg: string
   authorName: string

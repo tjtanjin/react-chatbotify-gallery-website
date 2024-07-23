@@ -6,7 +6,9 @@ import reportWebVitals from './reportWebVitals'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import AboutPage from './pages/About'
 import ErrorPage from './pages/Error'
+import PluginsPage from './pages/Plugins';
 import ThemesPage from './pages/Themes'
+import ThemeBuilderPage from './pages/ThemeBuilder';
 import UserProfilePage from './pages/UserProfile'
 import NavigationBar from './components/NavigationBar'
 import { AuthProvider } from './context/AuthContext'
@@ -35,18 +37,26 @@ const routes = [
     path: '/',
     element: <NavbarWrapper />,
     children: [
+      // {
+      //   path: '/about',
+      //   element: <AboutPage />
+      // },
       {
-        path: '/about',
-        element: <AboutPage />
+        path: '/plugins',
+        element: <PluginsPage />
       },
       {
         path: '/themes',
         element: <ThemesPage />
       },
       {
-        path: '/terms-of-service',
-        element: <TermsOfService />
+        path: '/theme-builder',
+        element: <ThemeBuilderPage />
       },
+      // {
+      //   path: '/terms-of-service',
+      //   element: <TermsOfService />
+      // },
       {
         path: '/profile',
         element: <ProtectedRoute element={<UserProfilePage />} />
