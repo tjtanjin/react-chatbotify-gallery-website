@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import ReactDOM from 'react-dom'
 import { Theme } from '../interfaces/Theme'
 import { downloadThemeContent } from '../utils'
 
@@ -9,6 +10,26 @@ interface ThemeModalProps {
 }
 
 const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
+  const modalRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+        onClose()
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      document.body.style.overflow = 'hidden'
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen, onClose])
+
   if (!isOpen) return null
 
   const onDownload = () => {
@@ -20,9 +41,9 @@ const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
     )
   }
 
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg max-w-screen-lg w-full relative">
+  const modalContent = (
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-50 flex items-center justify-center pointer-events-auto">
+      <div ref={modalRef} className="relative bg-white p-6 rounded-lg shadow-lg max-w-screen-lg w-full m-4">
         <button
           type="button"
           onClick={onClose}
@@ -32,11 +53,7 @@ const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
         </button>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
           <div className="flex flex-col items-center">
-            <img
-              src={theme.themeImg}
-              alt={theme.name}
-              className="h-[400px] rounded-lg"
-            />
+            <img src={theme.themeImg} alt={theme.name} className="h-[400px] rounded-lg" />
           </div>
           <div className="space-y-4">
             <div className="space-y-2">
@@ -45,22 +62,17 @@ const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
                 <div>{theme.name}</div>
                 <div className="font-semibold">Description:</div>
                 <div>{theme.description}</div>
+                <div className="font-semibold">ID:</div>
+                <div>{theme.id}</div>
                 <div className="font-semibold">Version:</div>
                 <div>{theme.version}</div>
                 <div className="font-semibold">Author:</div>
                 <div className="flex items-center space-x-2">
                   {theme.authorImg && (
-                    <img
-                      src={theme.authorImg}
-                      alt={theme.authorName}
-                      className="w-8 h-8 rounded-full"
-                    />
+                    <img src={theme.authorImg} alt={theme.authorName} className="w-8 h-8 rounded-full" />
                   )}
                   <div>
-                    <a
-                      href={`https://github.com/${theme.github}`}
-                      className="text-blue-500 underline"
-                    >
+                    <a href={`https://github.com/${theme.github}`} className="text-blue-500 underline">
                       {theme.authorName}
                     </a>
                   </div>
@@ -77,11 +89,7 @@ const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
                   ))}
                 </div>
                 <div className="font-semibold">Contents:</div>
-                <button
-                  type="button"
-                  onClick={() => onDownload()}
-                  className="theme-card-download"
-                >
+                <button type="button" onClick={() => onDownload()} className="theme-card-download">
                   Download
                 </button>
               </div>
@@ -90,6 +98,11 @@ const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
         </div>
       </div>
     </div>
+  )
+
+  return ReactDOM.createPortal(
+    modalContent,
+    document.getElementById('modal-container') || document.body
   )
 }
 

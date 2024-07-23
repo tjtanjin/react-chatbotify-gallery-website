@@ -14,7 +14,6 @@ const Themes: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [previewIds, setPreviewIds] = useState<string[]>([]);
 
-  // todo: clean up this file and fetch themes from api
   const themeIds = [
     'cyborg', 'midnight_black', 'minimal_midnight', 'retro', 'solid_purple_haze',
     'terminal', 'tranquil_teal', 'deep_azure', 'hamilton', 'rosa', 'simple_blue',
@@ -60,10 +59,12 @@ const Themes: React.FC = () => {
     setPreviewIds([]);
   };
 
-  // todo: move into a chatbot component
   const flow = {
     start: {
-      message: "Hello 👋! Try previewing some themes below, or click on those on the left! 😊",
+      message: (params: Params) => {
+        params.injectMessage("Hello 👋! Did you know? The order of specifying themes matters!");
+        return "Try previewing some themes below, or click on those on the left! 😊";
+      },
       checkboxes: {items: ["Minimal Midnight", "Cyborg", "Terminal"]},
       function: (params: Params) => {
         setPreviewIds(params.userInput.split(",").map(theme => {
@@ -99,7 +100,7 @@ const Themes: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row h-screen">
+    <div className="flex flex-col lg:flex-row h-screen relative">
       {/* Main content area */}
       <div className="order-1 md:order-0 lg:w-3/4 overflow-y-auto bg-gray-900 p-8 hide-scrollbar">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 justify-items-center w-full" style={{transform: "translateY(8vh)"}}>
@@ -114,8 +115,8 @@ const Themes: React.FC = () => {
       </div>
 
       {/* Pinned search column */}
-      <div className="flex flex-col order-0 lg:order-1 ">
-        <div className="bg-black w-full" style={{height: "9vh", width: "110%"}}></div>
+      <div className="flex flex-col order-0 lg:order-1">
+        <div className="bg-black w-full" style={{height: "9vh"}}></div>
         <div className="bg-white shadow-xl p-6 flex flex-col overflow-y-auto hide-scrollbar">
           <div className="mb-4">
             <SearchBar onSearch={handleSearch} />
@@ -157,6 +158,11 @@ const Themes: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Modal container */}
+      <div id="modal-container" className="fixed inset-0 z-50 pointer-events-none">
+        {/* ThemeModals will be rendered here by React's portal */}
       </div>
     </div>
   );
