@@ -4,74 +4,72 @@ import './styles/index.css';
 import HomePage from './pages/Home'
 import reportWebVitals from './reportWebVitals'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
-import AboutPage from './pages/About'
 import ErrorPage from './pages/Error'
 import PluginsPage from './pages/Plugins';
 import ThemesPage from './pages/Themes'
 import ThemeBuilderPage from './pages/ThemeBuilder';
 import UserProfilePage from './pages/UserProfile'
-import NavigationBar from './components/NavigationBar'
+import NavigationBar from './components/NavigationBar/NavigationBar'
 import { AuthProvider } from './context/AuthContext'
 import ProtectedRoute from './routes/ProtectedRoute'
 import LoginProcessPage from './pages/LoginProcess'
-import TermsOfService from './pages/terms'
 
 const NavbarWrapper = () => (
-  <div>
-    <NavigationBar />
-    <Outlet />
-  </div>
+	<div>
+		<NavigationBar />
+		<Outlet />
+	</div>
 )
 
 const routes = [
-  {
-    path: '/',
-    element: <HomePage />,
-    errorElement: <ErrorPage />
-  },
-  {
-    path: '/login/process',
-    element: <LoginProcessPage />
-  },
-  {
-    path: '/',
-    element: <NavbarWrapper />,
-    children: [
-      // {
-      //   path: '/about',
-      //   element: <AboutPage />
-      // },
-      {
-        path: '/plugins',
-        element: <PluginsPage />
-      },
-      {
-        path: '/themes',
-        element: <ThemesPage />
-      },
-      {
-        path: '/theme-builder',
-        element: <ThemeBuilderPage />
-      },
-      // {
-      //   path: '/terms-of-service',
-      //   element: <TermsOfService />
-      // },
-      {
-        path: '/profile',
-        element: <ProtectedRoute element={<UserProfilePage />} />
-      }
-    ]
-  }
+	{
+		path: '/',
+		element: <HomePage />,
+		errorElement: <ErrorPage />
+	},
+	{
+		path: '/login/process',
+		element: <LoginProcessPage />
+	},
+	{
+		path: '/',
+		element: <NavbarWrapper />,
+		children: [
+			// {
+			//   path: '/about',
+			//   element: <AboutPage />
+			// },
+			{
+				path: '/plugins',
+				element: <PluginsPage />
+			},
+			{
+				path: '/themes',
+				element: <ThemesPage />
+			},
+			{
+				path: '/theme-builder',
+				element: <ThemeBuilderPage />
+			},
+			// {
+			//   path: '/terms-of-service',
+			//   element: <TermsOfService />
+			// },
+			{
+				path: '/profile',
+				element: <ProtectedRoute element={<UserProfilePage />} />
+			}
+		]
+	}
 ]
 
 const router = createBrowserRouter(routes)
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
-  </React.StrictMode>
+	<React.StrictMode>
+		<AuthProvider>
+			<RouterProvider router={router} />
+		</AuthProvider>
+	</React.StrictMode>
 )
 reportWebVitals()
 // If you want to start measuring performance in your app, pass a function

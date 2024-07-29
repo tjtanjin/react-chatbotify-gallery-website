@@ -16,13 +16,3 @@ export interface Theme {
   github: string
   content: ThemeContent
 }
-
-export interface GithubUserDetails {
-  name: string
-  login: string
-  bio: string
-  avatar_url: string
-  twitter_username: string
-  html_url: string
-  location: string
-}

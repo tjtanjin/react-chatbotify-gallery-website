@@ -2,6 +2,7 @@ import { Info } from 'lucide-react'
 import { Link, useRouteError } from 'react-router-dom'
 
 const ErrorPage = () => {
+	/* eslint-disable */
   const error: any = useRouteError()
   console.error(error)
 
