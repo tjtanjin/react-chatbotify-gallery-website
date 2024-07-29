@@ -62,7 +62,7 @@ Setting up the project is relatively simple. Before you begin, ensure that you h
 
 ### GitHub Projects & Issues
 
-The progress of the project is tracked using [**GitHub Projects**]() and [**issues**](). The project board is updated each sprint (conducted bi-weekly), and team members will provide their updates within discord. For each sprint, there will be epic issue(s) that serves as the overall goal for the sprint. Individual developers will be assigned smaller bite-size issues to tackle, which will contribute towards resolving the epic issues by the end of the sprint.
+The progress of the project is tracked using [**GitHub Projects**](https://github.com/users/tjtanjin/projects/6) and [**issues**](https://github.com/tjtanjin/react-chatbotify-gallery-website/issues). The project board is updated each sprint (conducted bi-weekly), and team members will provide their updates within discord. For each sprint, there will be epic issue(s) that serves as the overall goal for the sprint. Individual developers will be assigned smaller bite-size issues to tackle, which will contribute towards resolving the epic issues by the end of the sprint.
 
 ### Forking Workflow
 This project adopts the [**Forking Workflow**](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow). In short, here are the steps required:
