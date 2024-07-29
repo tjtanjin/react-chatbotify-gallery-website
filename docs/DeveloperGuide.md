@@ -35,6 +35,23 @@ To facilitate your reading, take note of the following syntaxes used throughout 
 
 <div  style="page-break-after: always;"></div>
 
+## Setup
+
+Setting up the project is relatively simple. Before you begin, ensure that you have **at least NodeJS 16.x** installed (this project was first developed on v20.3.1).
+1) Fork the [project repository](https://github.com/tjtanjin/react-chatbotify-gallery-website).
+2) Clone the **forked project** into your desired directory with:
+    ```
+    git clone {the-forked-project}.git
+    ```
+3) Next, `cd` into the project and install dependencies with:
+    ```
+    npm install
+    ```
+4) Once installations are complete, you may launch the project with:
+    ```
+    npm run start
+    ```
+
 ## Design
 
 ### Overview
