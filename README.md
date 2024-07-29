@@ -1,85 +1,75 @@
-# React Chatbotify Gallery [*Frontend*]
+<p align="center">
+  <img width="200px" src="https://raw.githubusercontent.com/tjtanjin/react-chatbotify/main/assets/logo.png" />
+  <h1 align="center">React ChatBotify Gallery Website</h1>
+</p>
 
-## Table of contents
+// todo: add status badges once github actions is setup
 
-- [Overview](#overview)
-  - [Getting Started](#getting-started)
-  - [Test and Build](#test-and-build)
-  - [Eject](#eject)
-  - [Useful resources](#useful-resources)
-<!-- - [Author](#author)
-- [Acknowledgments](#acknowledgments) -->
+## Table of Contents
+* [Introduction](#introduction)
+* [Features](#features)
+* [Technologies](#technologies)
+* [Quickstart](#quickstart)
+* [Documentation](#documentation)
+* [Team](#team)
+* [Contributing](#contributing)
+* [Support](#support)
+* [Attributions](#attributions)
 
-# OVERVIEW
+### Introduction
 
-## Getting Started
+<p align="center">
+  <img height="400px" src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*0tUeuAp1gYoCXUPDWOn4jg.png" />
+</p>
 
-Fork and clone the repository then run the following command in the project directory.
+The React ChatBotify Gallery is a new project introduced alongside [**v2 of React ChatBotify**](https://medium.com/@tjtanjin/react-chatbotify-v2-beta-release-whats-changed-what-s-new-and-what-s-next-6aec9e049a98). The purpose of the gallery website is to provide developers with a central place for browsing, rating and sharing both themes and plugins. The website comes with an interactive theme preview feature, which allows developers to try out and visualise how the various themes look like. As an added bonus, the website also comes with a theme builder, which allows developers to directly craft and share themes by uploading them on the website.
 
-1. To install the the necessary dependencies, run the following command:
+Note that this repository contains the code for frontend portion of the gallery project. The backend code for the gallery project is separately maintained [here](https://github.com/tjtanjin/react-chatbotify-gallery-api).
 
-```bash
-npm install
-```
+### Features
 
-2. To start the application, run the following command:
+The React ChatBotify Gallery Website offers the following core features:
 
-```bash
-npm start
-```
-- Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-- The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Theme Previews:** Developers are able to select themes they wish to preview and interact with a live chatbot
+- **Theme Builder:** Developers are able to build themes directly via the website and optionally, upload them to share with others
+- **Plugin Browsing:** Developers can browse for plugins on the website (potentially try them out via a live preview as well - to be explored)
+- **GitHub OAuth Login:** Login with GitHub to verify identifies for uploading and rating of themes
+- **Authors Leaderboard:** Authors of themes and plugins will be ranked on a leaderboard based on the ratings received and number of themes/plugins contributed
+- **Profile Page:** Developers can manage their own themes and plugins on their profile page
 
-## Test and Build
+The above list is not exhaustive, but represents the majority of the key features for the gallery project.
 
-#### Testing
+### Technologies
+Technologies used by React ChatBotify Gallery Website are as below:
+#### Done with:
 
-To run tests, execute the following command:
+<p align="center">
+  <img height="150" width="150" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" />
+</p>
+<p align="center">
+ReactJS
+</p>
+<p align="center">
+  <img height="150" width="150" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png" />
+</p>
+<p align="center">
+Typescript
+</p>
 
-```bash
-npm test
-```
-- Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Project Repository
+- https://github.com/tjtanjin/react-chatbotify-gallery-website
 
-#### Builds 
+### Team
+* [Tan Jin](https://github.com/tjtanjin)
 
-To run builds, execute the following command
+// todo: the team will be expanded once members are confirmed
 
-```bash
-npm run build
-```
+### Contributing
+If you are looking to contribute to the project, you may find the [**Developer Guide**](https://github.com/tjtanjin/react-chatbotify-gallery-website/blob/main/docs/DeveloperGuide.md) useful.
 
-- Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-- The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-- See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+In general, the forking workflow is encouraged and you may open a pull request with clear descriptions on the changes and what they are intended to do (enhancement, bug fixes etc). Alternatively, you may simply raise bugs or suggestions by opening an [**issue**](https://github.com/tjtanjin/react-chatbotify-gallery-website/issues) or raising it up on [**discord**](https://discord.gg/6R4DK4G5Zh).
 
-## Eject
+Note: Templates have been created for pull requests and issues to guide you in the process.
 
-⚠️⚠️ **Note:** This is a one-way operation. Once you `eject`, you can’t go back!\
-To eject, you need to run the following command
-
-```bash
-npm run eject
-```
-
-- If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-- Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Useful resources
-
-You can learn more in the [Use React App documentation](https://help.easyfrontend.com/starting-guide/using-react-js).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-**Build Error** (`npm run build` *build fails to minify*): This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-
+### Support
+If there are any questions pertaining to the application itself (usage or implementation wise), you may create an [**issue**](https://github.com/tjtanjin/react-chatbotify-gallery-website/issues), raise it up on [**discord**](https://discord.gg/6R4DK4G5Zh), or drop me an email at: **cjtanjin@gmail.com.**
