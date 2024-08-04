@@ -1,6 +1,11 @@
 import React from 'react';
+
 import { Link } from 'react-router-dom';
 
+/**
+ * Displays plugins for users to search, browse and rate.
+ * // todo: dynamically load plugins as user scrolls instead of fetching wholesale from backend
+ */
 const Plugins: React.FC = () => {
 	return (
 		<div className="flex items-center justify-center h-screen bg-black">
@@ -15,7 +20,7 @@ const Plugins: React.FC = () => {
 				<Link
 					to="/themes"
 					className="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg
-            hover:bg-blue-600 transition duration-300"
+						hover:bg-blue-600 transition duration-300"
 				>
 					Browse Themes
 				</Link>

@@ -1,13 +1,22 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../context/AuthContext'
-import logo from '../../assets/images/logo.png'
-import { handleLogin } from '../../services/authService'
-import { SiteConfig } from '../../constants/SiteConfig'
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
+import { handleLogin } from '../../services/authService';
+import { useAuth } from '../../context/AuthContext';
+import { SiteConfig } from '../../constants/SiteConfig';
+import logo from '../../assets/images/logo.png';
+
+/**
+ * Navigation bar for users to navigate between pages.
+ */
 const NavigationBar = () => {
-	const navigate = useNavigate()
+	// context for handling user data
 	const { isLoggedIn, setIsLoggedIn, setUserData } = useAuth()
+
+	// handles page navigation
+	const navigate = useNavigate()
+
+	// menu used for mobile view
 	const [menuOpen, setMenuOpen] = useState(false)
 
 	const toggleMenu = () => {
@@ -17,7 +26,7 @@ const NavigationBar = () => {
 	return (
 		<nav
 			className="fixed top-0 w-full z-50 opacity-80 bg-black
-        text-white py-2 px-6 flex justify-between items-center"
+				text-white py-2 px-6 flex justify-between items-center"
 			style={{ height: '8vh' }}
 		>
 			<Link to="/" className="flex items-center">
@@ -53,15 +62,15 @@ const NavigationBar = () => {
 				{menuOpen && (
 					<div 
 						className="absolute right-0 mt-2 bg-gray-800 border
-              border-gray-600 rounded-md shadow-lg py-1 w-48 z-10"
+							border-gray-600 rounded-md shadow-lg py-1 w-48 z-10"
 					>
 						<ul className="px-2">
 							{/* needs improvement */}
 							{/* <li className="my-1">
-                <Link to="/about" className="block px-4 py-2 hover:bg-gray-700">
-                  About
-                </Link>
-              </li> */}
+								<Link to="/about" className="block px-4 py-2 hover:bg-gray-700">
+									About
+								</Link>
+							</li> */}
 							<li className="my-1">
 								<Link
 									to="/plugins"
@@ -106,13 +115,13 @@ const NavigationBar = () => {
 							</li>
 							{/* needs improvement */}
 							{/* <li className="my-1">
-                <Link
-                  to="/terms-of-service"
-                  className="block px-4 py-2 hover:bg-gray-700"
-                >
-                  Terms of Service
-                </Link>
-              </li> */}
+								<Link
+									to="/terms-of-service"
+									className="block px-4 py-2 hover:bg-gray-700"
+								>
+									Terms of Service
+								</Link>
+							</li> */}
 							{isLoggedIn ? (
 								<>
 									<li className="my-1">
@@ -150,10 +159,10 @@ const NavigationBar = () => {
 			<ul className="hidden md:flex pr-20">
 				{/* needs improvement */}
 				{/* <li className="mr-8">
-          <Link to="/about" className="hover:text-blue-500">
-            About
-          </Link>
-        </li> */}
+					<Link to="/about" className="hover:text-blue-500">
+						About
+					</Link>
+				</li> */}
 				<li className="mr-8">
 					<Link to="/plugins" className="hover:text-blue-500">
 						Plugins
@@ -189,10 +198,10 @@ const NavigationBar = () => {
 				</li>
 				{/* needs improvement */}
 				{/* <li className="mr-8">
-          <Link to="/terms-of-service" className="hover:text-blue-500">
-            Terms of Service
-          </Link>
-        </li> */}
+					<Link to="/terms-of-service" className="hover:text-blue-500">
+						Terms of Service
+					</Link>
+				</li> */}
 				{isLoggedIn ? (
 					<>
 						<li className="mr-8">

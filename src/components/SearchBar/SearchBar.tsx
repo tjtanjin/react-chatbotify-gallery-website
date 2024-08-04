@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 type Props = {
-  onSearch: (query: string) => void
+	onSearch: (query: string) => void
 }
 
+/**
+ * Searchbar for users to input their search query.
+ */
 const SearchBar: React.FC<Props> = ({ onSearch }) => {
+	// tracks current user search query
 	const [query, setQuery] = useState('')
 
+	// todo: perhaps only search when enter is pressed while search is focused
+	// to reduce the api calls to backend incurred from every change
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value } = e.target
 		setQuery(value)

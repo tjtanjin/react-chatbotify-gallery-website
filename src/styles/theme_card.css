@@ -1,3 +1,4 @@
+/* todo: consider co-locating this file with where theme card component is */
 .theme-card-info {
     @apply p-4 pb-0 flex flex-col justify-between h-[145px] rounded-lg border-slate-500 border-slate-400 -translate-y-10 bg-white;
     box-shadow: var(--smooth-shadow);

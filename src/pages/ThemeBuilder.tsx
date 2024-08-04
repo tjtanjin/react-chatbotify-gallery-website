@@ -1,6 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
 
+import { Link } from 'react-router-dom';
+
+/**
+ * Supports building and optionally sharing of themes directly on the website.
+ */
 const ThemeBuilder: React.FC = () => {
 	// todo: add theme builder
 	console.log('test')
@@ -18,7 +22,7 @@ const ThemeBuilder: React.FC = () => {
 				<Link
 					to="/themes"
 					className="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg
-            hover:bg-blue-600 transition duration-300"
+						hover:bg-blue-600 transition duration-300"
 				>
 					Browse Themes
 				</Link>

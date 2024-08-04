@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react'
-import ReactDOM from 'react-dom'
-import { Theme } from '../../interfaces/Theme'
-import { downloadThemeContent } from '../../utils'
+import React, { useEffect, useRef } from 'react';
+
+import ReactDOM from 'react-dom';
+
+import { downloadThemeContent } from '../../utils';
+import { Theme } from '../../interfaces/Theme';
 
 type ThemeModalProps = {
   isOpen: boolean
@@ -9,6 +11,9 @@ type ThemeModalProps = {
   theme: Theme
 }
 
+/**
+ * Modal to popup for showing theme details.
+ */
 const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
 	const modalRef = useRef<HTMLDivElement>(null)
 

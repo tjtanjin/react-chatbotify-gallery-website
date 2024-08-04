@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
 
-import ThemeModal from './ThemeModal'
-import { Theme } from '../../interfaces/Theme'
-import FavIcon from '../../assets/images/icon_favorite.svg'
-import GitHubIcon from '../../assets/images/icon_github_white.svg'
+import { Link } from 'react-router-dom';
+
+import ThemeModal from './ThemeModal';
+import { Theme } from '../../interfaces/Theme';
+import FavIcon from '../../assets/images/icon_favorite.svg';
+import GitHubIcon from '../../assets/images/icon_github_white.svg';
 
 import '../../styles/theme_card.css'
 
@@ -14,6 +15,9 @@ type Props = {
   onPreview: (name: string) => void
 }
 
+/**
+ * Theme card component to hold the details of each theme in the themes page.
+ */
 const ThemeCard: React.FC<Props> = ({ theme, isPreviewed, onPreview }) => {
 	const [isFav, setIsFav] = useState(false)
 	const [viewDetails, setViewDetails] = useState(false)
