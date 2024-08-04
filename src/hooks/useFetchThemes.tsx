@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { ApiTheme } from "../interfaces/ApiTheme";
 import { getGitHubThemeData } from "../services/themeService";
@@ -21,15 +21,10 @@ const useFetchThemes = (
 	const [themes, setThemes] = useState<Theme[]>([]);
 	const [loading, setLoading] = useState<boolean>(true);
 	const [error, setError] = useState<Error | null>(null);
-	const fetchInitiated = useRef<boolean>(false);
 
 	useEffect(() => {
-		// prevents duplicate fetching
-		if (fetchInitiated.current) {
-			return;
-		}
-
 		const fetchData = async () => {
+			setLoading(true);
 			try {
 				let finalUrl = `${url}?pageSize=${pageSize}&pageNum=${pageNum}`;
 				if (searchQuery) {
@@ -48,7 +43,6 @@ const useFetchThemes = (
 		};
 
 		fetchData();
-		fetchInitiated.current = true;
 	}, [url, pageSize, pageNum, searchQuery]);
 
 	return { themes, loading, error };

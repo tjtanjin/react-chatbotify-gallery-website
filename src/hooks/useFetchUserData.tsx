@@ -16,7 +16,7 @@ const useFetchUserData = (url: string, provider: string, uuid: string) => {
 	const fetchInitiated = useRef<boolean>(false);
 
 	useEffect(() => {
-		// prevents duplicate fetching
+		// prevents duplicate fetching (todo: check is it due to strict mode?)
 		if (fetchInitiated.current) {
 			return;
 		}
