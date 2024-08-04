@@ -108,6 +108,7 @@ const Themes: React.FC = () => {
 						gap-6 justify-items-center w-full"
 					style={{transform: "translateY(8vh)"}}
 				>
+					{/* todo: this no longer seems to be working, not observing loading animation */}
 					{loading
 						? Array.from({ length: 9 }).map((_, index) => (
 							<Skeleton key={`skeleton-${index}`} width="100%" height={400} />
