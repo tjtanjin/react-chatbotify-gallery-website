@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -23,21 +23,7 @@ const Themes: React.FC = () => {
 
 	// theme data fetched from backend
 	// todo: consider parsing and including search query directly from query params here as well
-	// const { data, loading, error } = useFetchData(Endpoints.fetchApiThemes, 30, 1, searchQuery);
-	const { themes, loading, error } = useFetchData(Endpoints.fetchApiThemes, 30, 1);
-
-	// if search query changes, fetch theme again from backend api
-	useEffect(() => {
-		/**
-		 * Fetches themes from backend api.
-		 */
-		const fetchThemesFromApi = useCallback(async () => {
-			useFetchData(Endpoints.fetchApiThemes, 30, 1, searchQuery);
-		}, [searchQuery])
-
-		fetchThemesFromApi();
-	}, [searchQuery])
-
+	const { themes, loading, error } = useFetchData(Endpoints.fetchApiThemes, 30, 1, searchQuery);
 	/**
 	 * Handles setting of search query when user hits enter.
 	 *
