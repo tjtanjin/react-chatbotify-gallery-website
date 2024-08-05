@@ -3,7 +3,9 @@
   <h1 align="center">React ChatBotify Gallery Website</h1>
 </p>
 
-// todo: add status badges once github actions is setup
+<p align="center">
+  <a href="https://github.com/tjtanjin/react-chatbotify-gallery-website/actions/workflows/lint.yaml"> <img src="https://github.com/tjtanjin/react-chatbotify-gallery-website/actions/workflows/lint.yaml/badge.svg" /> </a>
+</p>
 
 ## Table of Contents
 * [Introduction](#introduction)
@@ -17,10 +19,6 @@
 * [Attributions](#attributions)
 
 ### Introduction
-
-<p align="center">
-  <img height="400px" src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*0tUeuAp1gYoCXUPDWOn4jg.png" />
-</p>
 
 The React ChatBotify Gallery is a new project introduced alongside [**v2 of React ChatBotify**](https://medium.com/@tjtanjin/react-chatbotify-v2-beta-release-whats-changed-what-s-new-and-what-s-next-6aec9e049a98). The purpose of the gallery website is to provide developers with a central place for browsing, rating and sharing both themes and plugins. The website comes with an interactive theme preview feature, which allows developers to try out and visualise how the various themes look like. As an added bonus, the website also comes with a theme builder, which allows developers to directly craft and share themes by uploading them on the website.
 

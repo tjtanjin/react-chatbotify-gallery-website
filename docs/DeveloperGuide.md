@@ -118,8 +118,6 @@ This page is not confirmed, it might be possible to integrate this into the them
 
 This page is not confirmed, it might be possible to integrate this into the plugins page (although to upload, the user must be logged in).
 
-### OAuth Login
-
 ## Implementation
 
 The project is still in early stages and there aren't significant implementations to note. Theme builder will definitely become an important implementation to document when the time comes, but work has not commenced for it. Perhaps, it would be interesting to cover OAuth integration but this also requires some of the backend documentation to be completed. This section will be revisited in due time.
