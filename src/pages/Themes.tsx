@@ -1,52 +1,43 @@
-import React, { useCallback, useState, useEffect } from 'react'
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
-import ChatBot, { Params } from 'react-chatbotify'
-import ThemeCard from '../components/Themes/ThemeCard'
-import SearchBar from '../components/SearchBar/SearchBar'
-import { getThemeData } from '../services/apiService'
-import { Theme } from '../interfaces/Theme'
+import React, { useState } from 'react';
 
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import ChatBot, { Params } from 'react-chatbotify';
+
+import ThemeCard from '../components/Themes/ThemeCard';
+import SearchBar from '../components/SearchBar/SearchBar';
+import useFetchData from '../hooks/useFetchThemes';
+import { Theme } from '../interfaces/Theme';
+import { Endpoints } from '../constants/Endpoints';
+
+/**
+ * Displays themes for users to search, browse and rate.
+ * // todo: dynamically load themes as user scrolls instead of fetching wholesale from backend
+ */
 const Themes: React.FC = () => {
-	const [themes, setThemes] = useState<Theme[]>([])
-	const [filteredThemes, setFilteredThemes] = useState<Theme[]>([])
-	const [loading, setLoading] = useState(true)
-	const [searchQuery, setSearchQuery] = useState('')
-	const [previewIds, setPreviewIds] = useState<string[]>([])
+	// search query for filtering themes to show
+	const [searchQuery, setSearchQuery] = useState('');
 
-	const themeIds = [
-		'cyborg', 'midnight_black', 'minimal_midnight', 'retro', 'solid_purple_haze',
-		'terminal', 'tranquil_teal', 'deep_azure', 'hamilton', 'rosa', 'simple_blue',
-	]
+	// id of themes being selected to be preview (and applied to the interactive chatbot)
+	const [previewIds, setPreviewIds] = useState<string[]>([]);
 
-	const fetchThemes = async (): Promise<Theme[]> => await Promise.all(themeIds.map(getThemeData))
-
-	const fetchAndSetThemes = useCallback(async () => {
-		setLoading(true)
-		const themesArray = await fetchThemes()
-		setThemes(themesArray)
-		setFilteredThemes(themesArray)
-		setLoading(false)
-	}, [])
-
-	useEffect(() => {
-		fetchAndSetThemes()
-	}, [fetchAndSetThemes])
-
-	useEffect(() => {
-		const lowercaseQuery = searchQuery.toLowerCase().trim()
-		const filtered = themes.filter(
-			(theme) =>
-				theme.name.toLowerCase().includes(lowercaseQuery) ||
-        theme.description.toLowerCase().includes(lowercaseQuery)
-		)
-		setFilteredThemes(filtered)
-	}, [searchQuery, themes])
-
+	// theme data fetched from backend
+	// todo: consider parsing and including search query directly from query params here as well
+	const { themes, loading, error } = useFetchData(Endpoints.fetchApiThemes, 30, 1, searchQuery);
+	/**
+	 * Handles setting of search query when user hits enter.
+	 *
+	 * @param query query user inputted
+	 */
 	const handleSearch = (query: string) => {
-		setSearchQuery(query)
+		setSearchQuery(query);
 	}
 
+	/**
+	 * Handles setting and unsetting of theme ids to preview.
+	 *
+	 * @param id id of theme to set or unset
+	 */
 	const onPreview = (id: string) => {
 		setPreviewIds((prevPreviewId) =>
 			prevPreviewId.includes(id)
@@ -55,10 +46,14 @@ const Themes: React.FC = () => {
 		)
 	}
 
+	/**
+	 * Clears all preview ids.
+	 */
 	const clearPreviewIds = () => {
 		setPreviewIds([])
 	}
 
+	// flow for interactive chatbot
 	const flow = {
 		start: {
 			message: (params: Params) => {
@@ -99,20 +94,26 @@ const Themes: React.FC = () => {
 		}
 	}
 
+	// todo: show a proper error message if themes are not able to be fetched
+	if (error) {
+		return <div>Error: {error.message}</div>;
+	}
+
 	return (
 		<div className="flex flex-col lg:flex-row h-screen relative">
 			{/* Main content area */}
 			<div className="order-1 md:order-0 lg:w-3/4 overflow-y-auto bg-gray-900 p-8 hide-scrollbar">
 				<div
 					className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3
-            gap-6 justify-items-center w-full"
+						gap-6 justify-items-center w-full"
 					style={{transform: "translateY(8vh)"}}
 				>
+					{/* todo: this no longer seems to be working, not observing loading animation */}
 					{loading
 						? Array.from({ length: 9 }).map((_, index) => (
 							<Skeleton key={`skeleton-${index}`} width="100%" height={400} />
 						))
-						: filteredThemes.map((theme) => (
+						: themes.map((theme: Theme) => (
 							<ThemeCard
 								key={theme.id}
 								theme={theme}
@@ -155,7 +156,7 @@ const Themes: React.FC = () => {
 											<li
 												key={index}
 												className="p-3 flex items-center justify-between text-gray-700
-                          hover:bg-gray-200 rounded transition duration-150"
+													hover:bg-gray-200 rounded transition duration-150"
 											>
 												<span>{id}</span>
 											</li>

@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-import { Link } from 'react-router-dom'
-import { CalendarDays, Github, LucideMapPin } from 'lucide-react'
-import { useAuth } from '../context/AuthContext'
-import botAvatar from '../assets/images/bot_avatar.png'
+import { Link } from 'react-router-dom';
+import { CalendarDays, Github, LucideMapPin } from 'lucide-react';
 
+import { useAuth } from '../context/AuthContext';
+import botAvatar from '../assets/images/bot_avatar.png';
+
+/**
+ * Displays user profile information, owned themes/plugins and favorited themes/plugins.
+ */
 const UserProfilePage: React.FC = () => {
 	const { userData } = useAuth()
 
@@ -60,7 +64,7 @@ const UserProfilePage: React.FC = () => {
 				<Link
 					to="/themes"
 					className="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 
-          hover:bg-blue-600 transition duration-300"
+					hover:bg-blue-600 transition duration-300"
 				>
 					Browse Themes
 				</Link>

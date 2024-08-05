@@ -1,16 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 type Props = {
-  onSearch: (query: string) => void
+	onSearch: (query: string) => void;
 }
 
+/**
+ * Searchbar for users to input their search query.
+ */
 const SearchBar: React.FC<Props> = ({ onSearch }) => {
-	const [query, setQuery] = useState('')
+	// tracks current user search query
+	const [query, setQuery] = useState("");
+	const [previousQuery, setPreviousQuery] = useState("");
 
+	// Handles the input change and sets the query state
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const { value } = e.target
-		setQuery(value)
-		onSearch(value)
+		const { value } = e.target;
+		setQuery(value);
+	}
+
+	// Handles the key down event and triggers search on Enter key press
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		// only search on enter key and if query changed
+		if (e.key === 'Enter' && query !== previousQuery) {
+			onSearch(query);
+			setPreviousQuery(query);
+		}
 	}
 
 	return (
@@ -21,10 +35,11 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
 				placeholder="Search themes..."
 				value={query}
 				onChange={handleChange}
+				onKeyDown={handleKeyDown}
 				className="w-full border rounded-md px-3 py-2"
 			/>
 		</div>
 	)
 }
 
-export default SearchBar
+export default SearchBar;

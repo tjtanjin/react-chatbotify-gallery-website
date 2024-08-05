@@ -1,50 +1,62 @@
-import { useEffect, useRef } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
+import { useEffect } from 'react';
 
+import { useLocation, useNavigate } from 'react-router-dom';
+
+import useFetchUserData from '../hooks/useFetchUserData';
+import { useAuth } from '../context/AuthContext';
+import { Endpoints } from '../constants/Endpoints';
+
+/**
+ * Temporary login process page shown as user is logging in.
+ */
 const LoginProcessPage = () => {
-	const { setUserData, setIsLoggedIn } = useAuth()
-	const navigate = useNavigate()
-	const location = useLocation()
-	const fetchUserDataCalled = useRef(false)
+	// context for handling user data
+	const { setUserData, setIsLoggedIn } = useAuth();
+
+	// handles navigation
+	const navigate = useNavigate();
+
+	// used in retrieving query params
+	const location = useLocation();
+
+	// retrieve provider and uuid from query params to be used for getting user data
+	const queryParams = new URLSearchParams(location.search);
+	const uuid = queryParams.get('uuid') as string;
+	const provider = queryParams.get('provider') as string;
+
+	// fetch user data
+	const { data, loading, error } = useFetchUserData(Endpoints.fetchUserData, provider, uuid);
 
 	useEffect(() => {
-		if (fetchUserDataCalled.current) {
-			return
+		if (loading || error) {
+			return;
 		}
 
-		const queryParams = new URLSearchParams(location.search)
-		const uuid = queryParams.get('uuid')
-		const provider = queryParams.get('provider')
-		const fetchUserData = async () => {
-			// todo: abstract into a constants file
-			const url = `https://rcb-gallery-api.tjtanjin.com/api/v1/auth/login/process?
-        provider=${provider}&uuid=${uuid}`
-			const response = await fetch(url, {
-				method: 'GET',
-				credentials: 'include'
-			})
+		// if data is retrieved successfully, set user data and login state
+		if (data) {
+			setUserData(data);
+			setIsLoggedIn(true);
 
-			if (!response.ok) {
-				throw new Error('Failed to fetch user data')
-			}
-
-			setUserData(await response.json())
-			setIsLoggedIn(true)
-
-			const redirectUri = localStorage.getItem('login_redirect_uri')
+			// if redirect uri is provided, then redirectu ser
+			const redirectUri = localStorage.getItem('login_redirect_uri');
 			if (redirectUri) {
-				window.location.href = redirectUri
+				window.location.href = redirectUri;
 			} else {
-				navigate('/themes')
+				// default to themes page if no redirect uri
+				navigate('/themes');
 			}
 		}
-		fetchUserData()
-		fetchUserDataCalled.current = true
-	}, [])
+	}, [loading, error, data]);
 
-	// todo: render a loading spinner in the middle of the screen
-	return null
+	// todo: improve loading display
+	if (loading) {
+		return <div>Loading...</div>;
+	}
+
+	// todo: redirect to error page
+	if (error) {
+		return <div>Error: {error.message}</div>;
+	}
 }
 
 export default LoginProcessPage

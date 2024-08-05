@@ -1,14 +1,26 @@
-const handleLogin = (redirect_uri?: string) => {
-	const client_id = import.meta.env.VITE_GITHUB_APP_CLIENT_ID
+import { Endpoints } from "../constants/Endpoints";
 
-	let final_redirect_uri = redirect_uri as string
+/**
+ * Handles redirecting of user for login.
+ *
+ * @param redirect_uri uri to redirect user to after login
+ */
+const handleLogin = (redirect_uri?: string) => {
+
+	// if no uri specified to redirect to after login, then fallback to current location
+	let final_redirect_uri = redirect_uri as string;
 	if (!redirect_uri) {
-		final_redirect_uri = window.location.href
+		final_redirect_uri = window.location.href;
 	}
 
-	// todo: abstract magic strings into a constants file
-	localStorage.setItem('login_redirect_uri', final_redirect_uri)
-	window.location.href = `https://github.com/login/oauth/authorize?client_id=${client_id}`
+	// save redirect uri for later (post-login)
+	localStorage.setItem('login_redirect_uri', final_redirect_uri);
+
+	// oauth provider chosen (currently no parameter as github is the only one)
+	const client_id = import.meta.env.VITE_GITHUB_APP_CLIENT_ID;
+
+	// redirect user to login endpoint with client id
+	window.location.href = `${Endpoints.gitHubLoginUrl}?client_id=${client_id}`;
 }
 
 export { handleLogin }
