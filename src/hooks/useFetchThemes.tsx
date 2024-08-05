@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ApiTheme } from "../interfaces/ApiTheme";
 import { getGitHubThemeData } from "../services/themeService";
 import { Theme } from "../interfaces/Theme";
+import { Placeholders } from "../constants/Placeholders";
 
 /**
  * Fetches themes from the backend api.
@@ -26,14 +27,20 @@ const useFetchThemes = (
 		const fetchData = async () => {
 			setLoading(true);
 			try {
-				let finalUrl = `${url}?pageSize=${pageSize}&pageNum=${pageNum}`;
-				if (searchQuery) {
-					finalUrl += `&searchQuery=${encodeURIComponent(searchQuery)}`;
+				let apiThemes;
+				if (url.startsWith("http")) {
+					let finalUrl = `${url}?pageSize=${pageSize}&pageNum=${pageNum}`;
+					if (searchQuery) {
+						finalUrl += `&searchQuery=${encodeURIComponent(searchQuery)}`;
+					}
+
+					const response = await fetch(finalUrl);
+					apiThemes = await response.json();
+				} else {
+					apiThemes = Placeholders.themes;
 				}
 
-				const response = await fetch(finalUrl);
-				const result = await response.json();
-				const themes = await fetchThemesFromGitHub(result);
+				const themes = await fetchThemesFromGitHub(apiThemes);
 				setThemes(themes);
 			} catch (err: unknown) {
 				setError(err as Error);
