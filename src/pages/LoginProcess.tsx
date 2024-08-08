@@ -19,13 +19,13 @@ const LoginProcessPage = () => {
 	// used in retrieving query params
 	const location = useLocation();
 
-	// retrieve provider and uuid from query params to be used for getting user data
+	// retrieve provider and key from query params to be used for getting user data
 	const queryParams = new URLSearchParams(location.search);
-	const uuid = queryParams.get('uuid') as string;
+	const key = queryParams.get('key') as string;
 	const provider = queryParams.get('provider') as string;
 
 	// fetch user data
-	const { data, loading, error } = useFetchUserData(Endpoints.fetchUserData, provider, uuid);
+	const { data, loading, error } = useFetchUserData(Endpoints.fetchUserData, provider, key);
 
 	useEffect(() => {
 		if (loading || error) {
