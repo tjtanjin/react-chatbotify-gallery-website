@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import useFetchUserData from '../hooks/useFetchUserData';
+import useLoginUser from '../hooks/useFetchUserData';
 import { useAuth } from '../context/AuthContext';
 import { Endpoints } from '../constants/Endpoints';
 
@@ -25,7 +25,7 @@ const LoginProcessPage = () => {
 	const provider = queryParams.get('provider') as string;
 
 	// fetch user data
-	const { data, loading, error } = useFetchUserData(Endpoints.fetchUserData, provider, key);
+	const { data, loading, error } = useLoginUser(Endpoints.loginUser, provider, key);
 
 	useEffect(() => {
 		if (loading || error) {

@@ -3,13 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import { UserData } from "../interfaces/UserData";
 
 /**
- * Fetches user data from the backend api.
+ * Logs a user in by calling the backend api.
  *
  * @param url url to fetch user data from
  * @param provider oauth login provider being used
  * @param key identifies the user uniquely
  */
-const useFetchUserData = (url: string, provider: string, key: string) => {
+const useLoginUser = (url: string, provider: string, key: string) => {
 	const [data, setData] = useState<UserData>();
 	const [loading, setLoading] = useState<boolean>(true);
 	const [error, setError] = useState<Error | null>(null);
@@ -23,7 +23,10 @@ const useFetchUserData = (url: string, provider: string, key: string) => {
 
 		const fetchData = async () => {
 			try {
-				const response = await fetch(`${url}?provider=${provider}&key=${key}`);
+				const response = await fetch(`${url}?provider=${provider}&key=${key}`, {
+          method: "GET",
+          credentials: "include",
+        });
 				const result = await response.json();
 				setData(result);
 			} catch (err: unknown) {
@@ -40,4 +43,4 @@ const useFetchUserData = (url: string, provider: string, key: string) => {
 	return { data, loading, error };
 };
 
-export default useFetchUserData;
+export default useLoginUser;
