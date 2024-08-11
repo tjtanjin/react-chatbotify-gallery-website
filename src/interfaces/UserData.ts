@@ -4,6 +4,7 @@
 // todo: good to add comments for ambiguous fields
 export interface UserData {
 	id: string;
+	role: string;
 	name: string;
 	email: string;
 	handle: string;
@@ -11,4 +12,6 @@ export interface UserData {
 	status: string;
 	location: string;
 	profile_url: string;
+	provider: string;
+	provider_user_id: string;
 }
