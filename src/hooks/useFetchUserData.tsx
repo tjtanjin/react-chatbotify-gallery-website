@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { UserData } from "../interfaces/UserData";
+import { galleryApiFetch } from "../services/apiService";
 
 /**
  * Logs a user in by calling the backend api.
@@ -23,10 +24,7 @@ const useLoginUser = (url: string, provider: string, key: string) => {
 
 		const fetchData = async () => {
 			try {
-				const response = await fetch(`${url}?provider=${provider}&key=${key}`, {
-          method: "GET",
-          credentials: "include",
-        });
+				const response = await galleryApiFetch(`${url}?provider=${provider}&key=${key}`);
 				const result = await response.json();
 				setData(result);
 			} catch (err: unknown) {

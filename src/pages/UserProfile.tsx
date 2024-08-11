@@ -6,6 +6,7 @@ import { CalendarDays, Github, LucideMapPin } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import botAvatar from '../assets/images/bot_avatar.png';
 import { Endpoints } from '../constants/Endpoints';
+import { galleryApiFetch } from '../services/apiService';
 
 /**
  * Displays user profile information, owned themes/plugins and favorited themes/plugins.
@@ -19,10 +20,7 @@ const UserProfilePage: React.FC = () => {
 
 	const refreshUserData = async () => {
 		try {
-			const response = await fetch(Endpoints.fetchUserProfile, {
-				method: "GET",
-				credentials: "include",
-			});
+			const response = await galleryApiFetch(Endpoints.fetchUserProfile);
 			const result = await response.json();
 			setUserData(result);
 		} catch {
