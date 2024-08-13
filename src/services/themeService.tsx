@@ -30,7 +30,7 @@ const getGitHubThemeData = async (apiTheme: ApiTheme) => {
 
 	// todo: fetch from github url (can use jsdelivr cache too)
   
-	const authorImg = `https://avatars.githubusercontent.com/${meta.author}`
+	const authorImg = `https://avatars.githubusercontent.com/${meta.github}`
 
 	// todo: explore whether tags should be stored in database or via meta.json on github
 	const tags = ['beta'];
