@@ -40,7 +40,7 @@ const useFetchThemes = (
 				} else {
 					apiThemes = Placeholders.themes;
 				}
-q
+
 				if (apiThemes) {
 					const themes = await fetchThemesFromGitHub(apiThemes);
 					setThemes(themes);
