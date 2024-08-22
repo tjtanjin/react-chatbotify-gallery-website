@@ -228,7 +228,7 @@ const NavigationBar = () => {
 						<button
 							type="button"
 							onClick={() => handleLogin()}
-							className="hover:text-blue-500"
+							className="hover:text-blue-500 mr-8"
 						>
 							Login
 						</button>
