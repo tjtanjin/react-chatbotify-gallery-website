@@ -5,6 +5,7 @@ import { handleLogin } from '../../services/authService';
 import { useAuth } from '../../context/AuthContext';
 import { SiteConfig } from '../../constants/SiteConfig';
 import logo from '../../assets/images/logo.png';
+import AppThemeToggle from './AppThemeToggle';
 
 /**
  * Navigation bar for users to navigate between pages.
@@ -233,6 +234,9 @@ const NavigationBar = () => {
 						</button>
 					</li>
 				)}
+				<li>
+					<AppThemeToggle />
+				</li>
 			</ul>
 		</nav>
 	)
