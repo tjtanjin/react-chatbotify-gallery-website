@@ -218,6 +218,7 @@ const NavigationBar = () => {
 									setUserData(null)
 									navigate('/')
 								}}
+								className="mr-8"
 							>
 								Logout
 							</button>
