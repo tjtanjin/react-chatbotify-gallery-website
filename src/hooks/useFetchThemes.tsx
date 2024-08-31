@@ -36,7 +36,8 @@ const useFetchThemes = (
 					}
 
 					const response = await galleryApiFetch(finalUrl);
-					apiThemes = await response.json();
+					const result = await response.json();
+          apiThemes = result.data;
 				} else {
 					apiThemes = Placeholders.themes;
 				}

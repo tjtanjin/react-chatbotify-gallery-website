@@ -26,7 +26,7 @@ const useLoginUser = (url: string, provider: string, key: string) => {
 			try {
 				const response = await galleryApiFetch(`${url}?provider=${provider}&key=${key}`);
 				const result = await response.json();
-				setData(result);
+				setData(result.data);
 			} catch (err: unknown) {
 				setError(err as Error);
 			} finally {

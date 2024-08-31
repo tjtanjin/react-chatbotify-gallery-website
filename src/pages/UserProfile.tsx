@@ -21,8 +21,10 @@ const UserProfilePage: React.FC = () => {
 	const refreshUserData = async () => {
 		try {
 			const response = await galleryApiFetch(Endpoints.fetchUserProfile);
-			const result = await response.json();
-			setUserData(result);
+			if (response.ok) {
+				const result = await response.json();
+				setUserData(result.data);
+			}
 		} catch {
 			// no update if error
 		}
@@ -37,7 +39,7 @@ const UserProfilePage: React.FC = () => {
 				<div className="flex items-center">
 					<div className="rounded-full w-32 h-32 bg-gray-700 overflow-hidden mr-6">
 						<img
-							src={userData?.avatar_url || botAvatar}
+							src={userData?.avatarUrl || botAvatar}
 							alt={userData?.name || 'Bot Avatar'}
 							className="w-full h-full object-cover"
 						/>
@@ -53,7 +55,7 @@ const UserProfilePage: React.FC = () => {
 				<div className="mt-6">
 					<div className="flex items-center mb-4">
 						<Github className="mr-2" />
-						<Link to={userData?.profile_url as string} className="text-sm">
+						<Link to={userData?.profileUrl as string} className="text-sm">
 							{userData?.handle}
 						</Link>
 					</div>
