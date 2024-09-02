@@ -163,7 +163,7 @@ const Themes: React.FC = () => {
 						</div>
 						<div className="flex flex-col justify-between items-center mb-4 mt-5 w-full">
 							<div className="bg-gray-100 rounded-lg p-4 overflow-y-auto shadow-lg w-full max-w-md">
-								<h2 className="text-center font-bold mb-4 text-lg text-gray-800">Preview Themes</h2>
+								<h2 className="text-center font-bold mb-4 text-lg text-gray-800">{t('display.pt')}</h2>
 								{previewIds.length > 0 ? (
 									<ul className="divide-y divide-gray-300">
 										{previewIds.map((id, index) => (
