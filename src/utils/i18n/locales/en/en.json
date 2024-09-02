@@ -1,0 +1,131 @@
+{
+
+  "navbar":{
+    "title": "React ChatBotify Gallery",
+    "plugin": "Plugins",
+    "themes": "Themes",
+    "thbuild": "Theme Builder",
+    "docs": "Documentation",
+    "discord": "Discord",
+    "login": "Login",
+    "logout": "Logout",
+    "lang": "English",
+    "profile": "Profile",
+    "light": "Light",
+    "dark": "Dark"
+  },
+
+  "home":{
+    "greet":"Welcome to React ChatBotify Gallery",
+    "dsc":"Browse, rate and share themes for your chatbot today!",
+    "login":"Login",
+    "brth":"Browse Themes",
+    "wlcm":"It's good to see you"
+  },
+
+  "themes":{
+    "srch": "Search",
+    "schbar":"Search Themes...",
+
+    "thcreds":{
+      "name1":"Tan Jin",
+      "name2":"Lewis Hamilton"
+    },    
+    
+    
+    "colors":{
+      "cyb":"Cyborg",
+      "daz":"Deep Azure",
+      "lh":"Lewis Hamilton",
+      "mblack":"Midnight Black",
+      "mnight":"Minimal Midnight",
+      "ret":"Retro",
+      "ros":"Rosa",
+      "sblue":"Simple blue",
+      "violet":"Solid Purple Haze",
+      "term":"Terminal",
+      "tt":"Tranquil Teal"
+    },
+    
+
+    "coldesc":{
+      "cybdesc":"A minimalistic design inspired by Nike Air Mag",
+      "dazdesc":"A deep space blue dark style",
+      "lhdesc":"Based in the trademark of Lewis Hamilton 44",
+      "mbldesc":"night sky during darkest hours",
+      "mnitdesc":"A simple minimalistic design - midnight blue",
+      "retdesc":"Rocket back into the past!",
+      "rosdesc":"Even the ugliest of themes can be beautiful, as long as you take the time to look",
+      "sbldesc":"Simple and clean design with blue color",
+      "viodesc":"There's no such thing as too much purple",
+      "terdesc":"For the geeks!",
+      "ttdesc":"Amazing teal theme"
+    },
+
+    "chat":{
+      "clear":"Load Chat History", 
+      "sponsor":"Powered by React ChatBotify"
+    },
+    "prompts":{
+        "next":"What's next? 😊",
+        "try":"Try again",
+        "chk":"Check Documentation",
+        "dis":"Discord",
+        "msg1":"Hello 👋! Did you know? The order of specifying themes matters!",
+        "msg2":"Try previewing some themes below, or click on those on the left!",
+        "err":"Hmmm I'm not sure what you said, but let's try again!"
+    },
+
+    "display":{
+      "pt":"Preview Themes",
+      "ptdesc":"No themes selected for preview",    
+      "cview":"Clear Previews"
+    },
+
+    "thlist":{
+      "vd":"View Details",
+      "view":"Preview"
+    },
+    
+    "carddetails":{
+    "name":"Name",
+    "details":"Description",
+    "id":"ID",
+    "ver":"Version",
+    "auth":"Author",
+    "tags":"Tags",
+    "cont":"Content",
+    "down":"Download"
+    }
+    
+    
+  },
+
+  "tbuilder":{
+    "hdline":"Coming Soon",
+    "desc":"The Theme Builder is under construction. Please check back later!",
+    "smsg":"In the meantime, please feel free to browse our available themes.",
+    "btn":"Browse Themes"
+  },
+
+  "plugin":{
+    "hdline":"Coming Soon",
+    "desc":"Plugins are not ready. Please check back later!",
+    "smsg":"In the meantime, please feel free to browse our available themes.",
+    "btn":"Browse Themes"
+  },
+
+  "userprofile":{
+    "doj":"Joined January 2024",
+    "title":"Theme Author Section",
+    "hdline":"Coming Soon",
+    "details":"This section is still under construction. In the meantime, feel free to browse our available themes.",
+    "alt":"Browse Themes"
+  },
+
+  "lang":{
+    "eng": "English",
+    "fre": "French",
+    "hi": "Hindi"
+  }
+}

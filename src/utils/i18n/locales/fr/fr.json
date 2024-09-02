@@ -1,0 +1,127 @@
+{
+    "navbar":{
+    "title": "Galerie React ChatBotify",
+    "plugin": "Extension",
+    "themes": "Thèmes",
+    "thbuild": "Générateur de thèmes",
+    "docs": "La documentation",
+    "discord": "Discord",
+    "login": "Login",
+    "logout": "Logout",
+    "lang": "Français",
+    "profile": "Profil",
+    "light": "Clair",
+    "dark": "Sombre"
+  },
+
+  "home":{
+    "greet":"Bienvenue dans la galerie React ChatBotify",
+    "dsc":"Parcourez, évaluez et partagez des thèmes pour votre chatbot dès aujourd'hui!",
+    "login":"Login",
+    "brth":"Parcourir les thèmes",
+    "wlcm":"C'est bon de te voir"
+  },
+
+  "themes":{
+
+    "srch": "Recherche",
+    "schbar":"Thèmes de recherche...",
+
+    "thcreds":{
+      "name1":"Tan Jin",
+      "name2":"Lewis Hamilton"
+    },
+
+    "colors":{
+      "cyb":"Cyborg",
+      "daz":"Azur Profond",
+      "lh":"Lewis Hamilton",
+      "mblack":"Noir de Minuit",
+      "mnight":"Minuit Minimal",
+      "ret":"Rétro",
+      "ros":"Rose",
+      "sblue":"Bleu Simple",
+      "violet":"Brume Violette Solide",
+      "term":"Terminal",
+      "tt":"Sarcelle Tranquille"
+    },
+
+    "coldesc":{
+      "cybdesc":"Un design minimaliste inspiré de Nike Air Mag",
+      "dazdesc":"Un style sombre bleu profond",
+      "lhdesc":"Basé sur la marque déposée de Lewis Hamilton 44",
+      "mbldesc":"Ciel nocturne pendant les heures les plus sombres",
+      "mnitdesc":"Un design simple et minimaliste - bleu nuit",
+      "retdesc":"Retournez dans le passé!",
+      "rosdesc":"Même les thèmes les plus laids peuvent être beaux, à condition de prendre le temps de regarder",
+      "sbldesc":"Design simple et épuré de couleur bleue",
+      "viodesc":"Il n'y a pas trop de violet",
+      "terdesc":"Pour les geeks!",
+      "ttdesc":"Thème sarcelle incroyable"
+    },
+
+    "chat":{
+      "clear":"Charger l'historique des discussions", 
+      "sponsor":"Propulsé par React ChatBotify"
+    },
+
+    "prompts":{
+        "next":"Quelle est la prochaine étape? 😊",
+        "try":"Essayer à nouveau",
+        "chk":"Vérifier la documentation",
+        "dis":"Discord",
+        "msg1":"Bonjour👋! Saviez-vous? L’ordre de spécification des thèmes compte!",
+        "msg2":"Essayez de prévisualiser certains thèmes ci-dessous ou cliquez sur ceux de gauche!",
+        "err":"Je n'ai pas compris ce que vous avez dit, mais réessayons!"
+      },
+
+      "display":{
+        "pt":"Thèmes d'aperçu",
+        "ptdesc":"Aucun thème sélectionné pour l'aperçu",
+        "cview":"Effacer l'écran"
+      },
+      
+      "thlist":{
+      "vd":"Afficher les détails",
+      "view":"Aperçu"
+      },
+
+      "carddetails":{
+        "name":"Nom",
+        "details":"Description",
+        "id":"ID",
+        "ver":"Version",
+        "auth":"Auteur",
+        "tags":"Balises",
+        "cont":"Contenu",
+        "down":"Télécharger"
+      }
+
+  },
+  "tbuilder":{
+    "hdline":"À venir",
+    "desc":"Le générateur de thèmes est en construction. Veuillez revenir plus tard!",
+    "smsg":"En attendant, n'hésitez pas à parcourir nos thèmes disponibles.",
+    "btn":"Parcourir les thèmes"
+  },
+  "plugin":{
+    "hdline":"À venir",
+    "desc":"Les plugins ne sont pas prêts. Veuillez revenir plus tard !",
+    "smsg":"En attendant, n'hésitez pas à parcourir nos thèmes disponibles.",
+    "btn":"Parcourir les thèmes"
+    
+  },
+  "userprofile":{
+    "doj":"Inscrit en janvier 2024",
+    "title":"Section Auteur du thème",
+    "hdline":"À venir",
+    "details":"Cette section est encore en construction. En attendant, n'hésitez pas à parcourir nos thèmes disponibles.",
+    "alt":"Parcourir les thèmes"
+  },
+
+  "lang":{
+    "eng": "Anglais",
+    "fre": "Français",
+    "hi": "Hindi"
+  }
+}
