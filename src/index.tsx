@@ -14,6 +14,7 @@ import { AuthProvider } from './context/AuthContext'
 import { AppThemeProvider } from './context/AppThemeContext';
 import ProtectedRoute from './routes/ProtectedRoute'
 import LoginProcessPage from './pages/LoginProcess'
+<<<<<<< HEAD
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
 import { useTranslation } from 'react-i18next';
@@ -26,6 +27,8 @@ import { useTranslation } from 'react-i18next';
   href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
 />
 
+=======
+>>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 
 const NavbarWrapper = () => (
 	<div>
@@ -79,6 +82,7 @@ const routes = [
 const router = createBrowserRouter(routes)
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
+<<<<<<< HEAD
     <I18nextProvider i18n={i18n}>
       <AuthProvider>
         <AppThemeProvider>
@@ -86,6 +90,13 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         </AppThemeProvider>
       </AuthProvider>
     </I18nextProvider>
+=======
+		<AuthProvider>
+			<AppThemeProvider>
+				<RouterProvider router={router} />
+			</AppThemeProvider>
+		</AuthProvider>
+>>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 	</React.StrictMode>
 )
 reportWebVitals()

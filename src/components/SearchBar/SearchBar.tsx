@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+<<<<<<< HEAD
 import { useTranslation } from 'react-i18next';
+=======
+>>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 
 type Props = {
 	onSearch: (query: string) => void;
@@ -31,6 +34,7 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
 		}
 	}
 
+<<<<<<< HEAD
   const { t } = useTranslation();
 
 	return (
@@ -39,6 +43,14 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
 			<input
 				type="text"
 				placeholder={t('themes.schbar')}
+=======
+	return (
+		<div className="mb-8">
+			<h2 className="text-lg font-semibold mb-4">Search</h2>
+			<input
+				type="text"
+				placeholder="Search themes..."
+>>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 				value={query}
 				onChange={handleChange}
 				onKeyDown={handleKeyDown}

@@ -6,7 +6,11 @@ import ThemeModal from './ThemeModal';
 import { Theme } from '../../interfaces/Theme';
 import FavIcon from '../../assets/images/icon_favorite.svg';
 import GitHubIcon from '../../assets/images/icon_github_white.svg';
+<<<<<<< HEAD
 import { useTranslation } from 'react-i18next';
+=======
+
+>>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 import '../../styles/theme_card.css'
 
 type Props = {
@@ -30,8 +34,11 @@ const ThemeCard: React.FC<Props> = ({ theme, isPreviewed, onPreview }) => {
 		onPreview(theme.name)
 	}
 
+<<<<<<< HEAD
   const {t} = useTranslation();
 
+=======
+>>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 	return (
 		<>
 			<div className="text-black w-[300px] h-[545px]">
@@ -46,12 +53,20 @@ const ThemeCard: React.FC<Props> = ({ theme, isPreviewed, onPreview }) => {
               group-hover:-translate-y-6 transition ease-in-out duration"
 						alt={theme.name}
 					/>
+<<<<<<< HEAD
 					<div className="theme-card-details">{t('themes.thlist.vd')}</div>
+=======
+					<div className="theme-card-details">View Details</div>
+>>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 				</button>
 				<div className="theme-card-info">
 					<div>
 						<div className="flex justify-between">
+<<<<<<< HEAD
 							<p className="theme-card-title">{t(theme.name)}</p>
+=======
+							<p className="theme-card-title">{theme.name}</p>
+>>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 							<button
 								type="button"
 								aria-label="Favorite Button"
@@ -61,7 +76,11 @@ const ThemeCard: React.FC<Props> = ({ theme, isPreviewed, onPreview }) => {
 								<img src={FavIcon} alt="fav-icon" />
 							</button>
 						</div>
+<<<<<<< HEAD
 						<p className="text-[15px] opacity-80">{t(theme.description)}</p>
+=======
+						<p className="text-[15px] opacity-80">{theme.description}</p>
+>>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 					</div>
 					<Link to={`/profile/${theme.github}`} className="theme-card-github">
 						<img src={GitHubIcon} alt="github-icon" />
