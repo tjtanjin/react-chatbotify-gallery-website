@@ -1,5 +1,6 @@
 import HeroAbout from "../components/About/HeroAbout"
 import MissionSection from "../components/About/MissionSection"
+import FeaturesAndBenefitsSection from "../components/About/FeaturesAndBenefitsSection"
 
 const About: React.FC = () => {
 	return (
@@ -9,6 +10,7 @@ const About: React.FC = () => {
 				<div className="my-32"/>
 				<MissionSection />
 				<div className="my-32"/>
+				<FeaturesAndBenefitsSection />
 			</div>
 		</div>
 	)
