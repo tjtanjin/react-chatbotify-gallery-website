@@ -28,7 +28,7 @@ const useFetchThemes = (
 		const fetchData = async () => {
 			setLoading(true);
 			try {
-				let apiThemes;
+				let apiThemes = null;
 				if (url.startsWith("http")) {
 					let finalUrl = `${url}?pageSize=${pageSize}&pageNum=${pageNum}`;
 					if (searchQuery) {
@@ -36,13 +36,18 @@ const useFetchThemes = (
 					}
 
 					const response = await galleryApiFetch(finalUrl);
-					apiThemes = await response.json();
+					const result = await response.json();
+          apiThemes = result.data;
 				} else {
 					apiThemes = Placeholders.themes;
 				}
 
-				const themes = await fetchThemesFromGitHub(apiThemes);
-				setThemes(themes);
+				if (apiThemes) {
+					const themes = await fetchThemesFromGitHub(apiThemes);
+					setThemes(themes);
+				} else {
+					setError(Error("Failed to fetch theme."));
+				}
 			} catch (err: unknown) {
 				setError(err as Error);
 			} finally {
