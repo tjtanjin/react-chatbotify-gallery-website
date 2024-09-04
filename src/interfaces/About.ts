@@ -8,3 +8,9 @@ export interface FeatureBenefitSet {
   title: string;
   cards: ICard[];
 }
+
+export interface IContributor {
+  avatar_url: string;
+  login: string;
+  html_url: string;
+}
