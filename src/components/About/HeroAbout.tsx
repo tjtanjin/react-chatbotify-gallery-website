@@ -12,7 +12,7 @@ const HeroAbout = () => {
 					<br/>
 					React ChatBotify Gallery
 				</h1>
-				<p className='space-y-4 text-sm lg:text-lg max-w-[500px]'>
+				<p className='space-y-4 text-base lg:text-lg max-w-[500px]'>
 					<span className='block'>
 						A community-driven platform where developers
 						{' '} and enthusiasts can browse, rate,

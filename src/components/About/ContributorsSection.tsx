@@ -63,7 +63,7 @@ const ContributorsSection = () => {
 			{/* Contact us */}
 			<div className="space-y-4 flex flex-col items-center pb-12 text-center lg:items-start lg:text-left">
 				<h3 className="font-semibold text-2xl">Contact us</h3>
-				<p className="text-sm max-w-[650px] lg:text-lg">
+				<p className="text-base max-w-[650px] lg:text-lg">
 					Have questions or want to get in touch?
 					{" "}Reach out to us via
 					{" "}<Link

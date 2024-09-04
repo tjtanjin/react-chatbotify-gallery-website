@@ -24,7 +24,7 @@ const Card: React.FC<ICard> = ({ icon, heading, paragraph}) => {
 				{icon}
 			</div>
 			<h5 className="mb-2 text-2xl font-bold tracking-tight">{heading}</h5>
-			<p className="font-normal">{paragraph}</p>
+			<p className="font-normal text-base lg:text-lg">{paragraph}</p>
 		</div>
 	)
 }
