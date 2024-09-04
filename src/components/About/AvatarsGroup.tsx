@@ -18,7 +18,7 @@ const AvatarsGroup: React.FC<Props> = ({ repoUrl, repoName, repoTitle }) => {
 	if (error) return <div>Error: {error.message}</div>;
 
 	return (
-		<div className="flex flex-col items-center lg:items-start">
+		<div className="flex flex-col items-center lg:items-start gap-2">
 			<Link
 				to={repoUrl}
 				target="_blank"
