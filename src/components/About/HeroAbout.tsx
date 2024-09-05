@@ -8,9 +8,7 @@ const HeroAbout = () => {
 		<section className='flex flex-col justify-centre items-center pt-32 gap-12 lg:flex-row lg:justify-between'>
 			<div className='flex-1 space-y-6 text-center lg:text-left'>
 				<h1 className='font-extrabold text-2xl lg:text-5xl'>
-					Welcome to
-					<br/>
-					React ChatBotify Gallery
+					About React ChatBotify Gallery
 				</h1>
 				<p className='space-y-4 text-base lg:text-lg max-w-[500px]'>
 					<span className='block'>
