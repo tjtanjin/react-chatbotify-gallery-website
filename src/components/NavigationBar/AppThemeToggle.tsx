@@ -15,7 +15,7 @@ const AppThemeToggle = () => {
 	console.log(appTheme)
 
 	return <div>
-		<button onClick={handleClick}>{t(`navbar.${appTheme}`)}</button>
+		<button onClick={handleClick}>${appTheme}</button>
 	</div>
 }
 

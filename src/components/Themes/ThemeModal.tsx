@@ -1,11 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 import ReactDOM from 'react-dom';
-<<<<<<< HEAD
 import { useTranslation } from 'react-i18next';
-=======
-
->>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 import { downloadThemeContent } from '../../utils';
 import { Theme } from '../../interfaces/Theme';
 
@@ -21,11 +17,8 @@ type ThemeModalProps = {
 const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
 	const modalRef = useRef<HTMLDivElement>(null)
 
-<<<<<<< HEAD
   const {t} = useTranslation();
 
-=======
->>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
@@ -84,17 +77,6 @@ const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
 					<div className="space-y-4">
 						<div className="space-y-2">
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-<<<<<<< HEAD
-								<div className="font-semibold">{t('themes.carddetails.name')}:</div>
-								<div>{theme.name}</div>
-								<div className="font-semibold">{t('themes.carddetails.details')}:</div>
-								<div>{theme.description}</div>
-								<div className="font-semibold">{t('themes.carddetails.id')}:</div>
-								<div>{theme.id}</div>
-								<div className="font-semibold">{t('themes.carddetails.ver')}:</div>
-								<div>{theme.version}</div>
-								<div className="font-semibold">{t('themes.carddetails.auth')}:</div>
-=======
 								<div className="font-semibold">Name:</div>
 								<div>{theme.name}</div>
 								<div className="font-semibold">Description:</div>
@@ -104,7 +86,6 @@ const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
 								<div className="font-semibold">Version:</div>
 								<div>{theme.version}</div>
 								<div className="font-semibold">Author:</div>
->>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 								<div className="flex items-center space-x-2">
 									{theme.authorImg && (
 										<img
@@ -122,11 +103,7 @@ const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
 										</a>
 									</div>
 								</div>
-<<<<<<< HEAD
-								<div className="font-semibold">T{t('themes.carddetails.tags')}:</div>
-=======
 								<div className="font-semibold">Tags:</div>
->>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 								<div className="flex flex-wrap gap-2">
 									{theme.tags.map((tag, index) => (
 										<span
@@ -137,21 +114,13 @@ const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
 										</span>
 									))}
 								</div>
-<<<<<<< HEAD
-								<div className="font-semibold">{t('themes.carddetails.cont')}:</div>
-=======
 								<div className="font-semibold">Contents:</div>
->>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 								<button
 									type="button"
 									onClick={() => onDownload()}
 									className="theme-card-download"
 								>
-<<<<<<< HEAD
-									{t('themes.carddetails.down')}
-=======
 									Download
->>>>>>> 45d0bd74b629ed311466970d2ae9c435d1df47a8
 								</button>
 							</div>
 						</div>

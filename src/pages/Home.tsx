@@ -25,15 +25,15 @@ const HomePage = () => {
 					id="title"
 					className="text-6xl font-bold text-center leading-tight mb-4"
 				>
-					{t('home.greet')}
+					Welcome to <br className="md:hidden" /> {SiteConfig.siteName}
 				</h1>
 				{isLoggedIn ? (
 					<p id="subtitle" className="text-lg text-center mb-8">
-						{t('home.wlcm')}, {userData?.name}!
+						It&apos;s good to see you, {userData?.name}!
 					</p>
 				) : (
 					<p id="subtitle" className="text-lg text-center mb-8">
-						{t('home.dsc')}
+						Browse, rate and share themes for your chatbot today!
 					</p>
 				)}
 				<div className="flex justify-center">
@@ -46,7 +46,7 @@ const HomePage = () => {
 								handleLogin('/themes')
 							}}
 						>
-							{t('home.login')}
+							Login
 						</button>
 					)}
 					<button
@@ -55,7 +55,7 @@ const HomePage = () => {
 							hover:bg-purple-800 transition-colors duration-300"
 						onClick={() => navigate('/themes')}
 					>
-						{t('home.brth')}
+						Browse Themes
 					</button>
 				</div>
 				{/* todo: add logos to link to documentation, github, discord etc */}

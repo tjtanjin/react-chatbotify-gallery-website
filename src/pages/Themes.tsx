@@ -10,6 +10,7 @@ import useFetchData from '../hooks/useFetchThemes';
 import { Theme } from '../interfaces/Theme';
 import { Endpoints } from '../constants/Endpoints';
 import { useSearchParams } from 'react-router-dom';
+
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -71,15 +72,15 @@ const Themes: React.FC = () => {
 	const flow = {
 		start: {
 			message: (params: Params) => {
-				params.injectMessage(t('themes.prompts.msg1'))
-				return t('themes.prompts.msg2')
+				params.injectMessage("Hello 👋! Did you know? The order of specifying themes matters!")
+				return "Try previewing some themes below, or click on those on the left! 😊"
 			},
-			checkboxes: {items: [t('themes.colors.mnight'), t('themes.colors.cyb'), t('themes.colors.term')]},
+			checkboxes: {items: ["Minimal Midnight", "Cyborg", "Terminal"]},
 			function: (params: Params) => {
 				setPreviewIds(params.userInput.split(",").map(theme => {
-					if (theme === t('themes.colors.mnight')) {
+					if (theme === "Minimal Midnight") {
 						return "minimal_midnight"
-					} else if (theme === t('themes.colors.cyb')) {
+					} else if (theme === "Cyborg") {
 						return "cyborg"
 					} else {
 						return "terminal"
@@ -90,18 +91,18 @@ const Themes: React.FC = () => {
 			path: "end"
 		},
 		end: {
-			message: t('themes.prompts.next'),
-			options: [t('themes.prompts.try'), t('themes.prompts.chk'), t('themes.prompts.dis')],
+			message: "What's next? 😊",
+			options: ["Try Again", "Check Documentation", "Discord"],
 			path: (params: Params) => {
-				if (params.userInput === t('themes.prompts.try')) {
+				if (params.userInput === "Try Again") {
 					setPreviewIds([])
-				} else if (params.userInput === t('themes.prompts.dis')) {
+				} else if (params.userInput === "Discord") {
 					window.open("https://discord.gg/6R4DK4G5Zh")
-				} else if (params.userInput === t('themes.prompts.chk')) {
+				} else if (params.userInput === "Check Documentation") {
 					window.open("https://react-chatbotify.com")
 				} else {
 					setPreviewIds([])
-					params.injectMessage(t('themes.prompts.err'))
+					params.injectMessage("Hmmm I'm not sure what you said, but let's try again!")
 				}
 				return "start"
 			}
@@ -158,12 +159,12 @@ const Themes: React.FC = () => {
 								className="text-white p-2 rounded-lg mt-5"
 								style={{backgroundColor: "#491d8d"}}
 							>
-								{t('themes.display.cview')}
+								Clear Previews
 							</button>
 						</div>
 						<div className="flex flex-col justify-between items-center mb-4 mt-5 w-full">
 							<div className="bg-gray-100 rounded-lg p-4 overflow-y-auto shadow-lg w-full max-w-md">
-								<h2 className="text-center font-bold mb-4 text-lg text-gray-800">{t('display.pt')}</h2>
+								<h2 className="text-center font-bold mb-4 text-lg text-gray-800">Preview Themes</h2>
 								{previewIds.length > 0 ? (
 									<ul className="divide-y divide-gray-300">
 										{previewIds.map((id, index) => (
@@ -177,7 +178,7 @@ const Themes: React.FC = () => {
 										))}
 									</ul>
 								) : (
-									<p className="text-center text-gray-500">{t('themes.display.ptdesc')}</p>
+									<p className="text-center text-gray-500">No themes selected for preview</p>
 								)}
 							</div>
 						</div>

@@ -60,17 +60,7 @@ const NavigationBar = () => {
         <>
           <span style={{display:"inline-flex"}}><img src="https://flagcdn.com/gb.svg" height="25" width="25" alt="England" /></span>{"  "+t('lang.eng')}
         </>); // Show English label
-      case 'fr':
-        return (
-        <>
-          <span style={{display:"inline-flex"}}><img src="https://flagcdn.com/fr.svg" height="25" width="25" alt="France"/></span>{"  "+t('lang.fre')}
-        </>); // Show French label
-      case 'hi':
-        return (
-          <>
-            <span style={{display:"inline-flex"}}><img src="https://flagcdn.com/in.svg" height="25" width="25" alt="India"/></span>{"   "+t('lang.hi')}
-          </>
-        )
+      
       default:
         return(
         <>
@@ -134,7 +124,7 @@ const NavigationBar = () => {
 									to="/plugins"
 									className="block px-4 py-2 hover:bg-gray-700"
 								>
-									{t('navbar.plugin')}
+									Plugins
 								</Link>
 							</li>
 							<li className="my-1">
@@ -142,7 +132,7 @@ const NavigationBar = () => {
 									to="/themes"
 									className="block px-4 py-2 hover:bg-gray-700"
 								>
-									{t('navbar.themes')}
+									Themes 
 								</Link>
 							</li>
 							<li className="my-1">
@@ -150,7 +140,7 @@ const NavigationBar = () => {
 									to="/theme-builder"
 									className="block px-4 py-2 hover:bg-gray-700"
 								>
-									{t('navbar.thbuild')}
+									Theme Builder
 								</Link>
 							</li>
 							<li className="my-1">
@@ -159,7 +149,7 @@ const NavigationBar = () => {
 									target="_blank"
 									className="block px-4 py-2 hover:bg-gray-700"
 								>
-									{t('navbar.docs')}
+									Documentation
 								</Link>
 							</li>
 							<li className="my-1">
@@ -168,7 +158,7 @@ const NavigationBar = () => {
 									target="_blank"
 									className="block px-4 py-2 hover:bg-gray-700"
 								>
-									{t('navbar.discord')}
+									Discord
 								</Link>
 							</li>
 							{/* needs improvement */}
@@ -192,9 +182,8 @@ const NavigationBar = () => {
                     className={`absolute w-24 bg-gray-800 rounded-md shadow-lg ${isOpen ? 'block' : 'hidden'}`}
                     style={{left: '-50%', transform: 'translateX(-21%)', top: '-16%', marginTop: '8px', }}
                   >
-                    <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer" onClick={() => handleOptionClick('en')}><span style={{display:"inline-flex"}}><img src="https://flagcdn.com/gb.svg" height="25" width="25" alt="England" /></span>{t('lang.eng')}</li>
-                    <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer" onClick={() => handleOptionClick('fr')}><span style={{display:"inline-flex"}}><img src="https://flagcdn.com/fr.svg" height="25" width="25" alt="France" /></span>{t('lang.fre')}</li>
-                    <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer" onClick={() => handleOptionClick('hi')}><span style={{display:"inline-flex"}}><img src="https://flagcdn.com/hi.svg" height="25" width="25" alt="India" /></span>{t('lang.hi')}</li>
+                    <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer" onClick={() => handleOptionClick('en')}><span style={{display:"inline-flex"}}><img src="https://flagcdn.com/gb.svg" height="25" width="25" alt="England" /></span>English</li>
+                    
                     {/* Add more options as needed */}
                   </ul>
                 </li>
@@ -205,7 +194,7 @@ const NavigationBar = () => {
 											to="/profile"
 											className="block px-4 py-2 hover:bg-gray-700"
 										>
-											{t('navbar.profile')}
+											Profile
 										</Link>
 									</li>
 									<li className="my-1">
@@ -213,7 +202,7 @@ const NavigationBar = () => {
 											className="block px-4 py-2 hover:bg-gray-700"
 											type="button"
 										>
-											{t('navbar.logout')}
+											Logout
 										</button>
 									</li>
 								</>
@@ -223,7 +212,7 @@ const NavigationBar = () => {
 										to="/login"
 										className="block px-4 py-2 hover:bg-gray-700"
 									>
-										{t('navbar.login')}
+										Login
 									</Link>
 								</li>
 							)}
@@ -241,17 +230,17 @@ const NavigationBar = () => {
 				</li> */}
 				<li className="mr-8">
 					<Link to="/plugins" className="hover:text-blue-500">
-          {t('navbar.plugin')}
+          Plugins
 					</Link>
 				</li>
 				<li className="mr-8">
 					<Link to="/themes" className="hover:text-blue-500">
-          {t('navbar.themes')}
+          Themes
 					</Link>
 				</li>
 				<li className="mr-8">
 					<Link to="/theme-builder" className="hover:text-blue-500">
-          {t('navbar.thbuild')}
+          Theme Builder
 					</Link>
 				</li>
 				<li className="mr-8">
@@ -260,7 +249,7 @@ const NavigationBar = () => {
 						target="_blank"
 						className="hover:text-blue-500"
 					>
-						{t('navbar.docs')}
+						Documentation
 					</Link>
 				</li>
 				<li className="mr-8">
@@ -269,7 +258,7 @@ const NavigationBar = () => {
 						target="_blank"
 						className="hover:text-blue-500"
 					>
-						{t('navbar.discord')}
+						Discord
 					</Link>
 				</li>
 				{/* needs improvement */}
@@ -290,9 +279,7 @@ const NavigationBar = () => {
             className={`absolute mt-2 w-28 bg-black shadow-lg ${isOpen ? 'block' : 'hidden'}`}
             style={{ zIndex: 1000, left: '50%', transform: 'translateX(-50%)', top: '100%', marginTop: '8px', }}
           >
-            <li className="px-2 py-2 hover:bg-blue-500 cursor-pointer" onClick={() => changeLanguage('en')}><span style={{display:"inline-flex"}}><img src="https://flagcdn.com/gb.svg" height="25" width="25" alt="England" /></span>   {t('lang.eng')}   </li>
-            <li className="px-2 py-2 hover:bg-blue-500 cursor-pointer" onClick={() => changeLanguage('fr')}><span style={{display:"inline-flex"}}><img src="https://flagcdn.com/fr.svg" height="25" width="25" alt="France" /></span>    {t('lang.fre')}</li>
-            <li className="px-3 py-2 hover:bg-blue-500 cursor-pointer" onClick={() => changeLanguage('hi')}><span style={{display:"inline-flex"}}><img src="https://flagcdn.com/in.svg" height="25" width="25" alt="India" /></span>   {t('lang.hi')}</li>
+            <li className="px-2 py-2 hover:bg-blue-500 cursor-pointer" onClick={() => changeLanguage('en')}><span style={{display:"inline-flex"}}><img src="https://flagcdn.com/gb.svg" height="25" width="25" alt="England" /></span>   English   </li>
             {/* Add more options as needed */}
           </ul>
         </li>
@@ -300,7 +287,7 @@ const NavigationBar = () => {
 					<>
 						<li className="mr-8">
 							<Link to="/profile" className="hover:text-blue-500">
-              {t('navbar.profile')}
+              Profile  {/* {t('navbar.profile')} */}
 							</Link>
 						</li>
 						<li>
@@ -313,7 +300,7 @@ const NavigationBar = () => {
 								}}
 								className="mr-8"
 							>
-								{t('navbar.logout')}
+								Logout
 							</button>
 						</li>
 					</>
@@ -324,7 +311,7 @@ const NavigationBar = () => {
 							onClick={() => handleLogin()}
 							className="hover:text-blue-500 mr-8"
 						>
-							{t('navbar.login')}
+							Login
 						</button>
 					</li>
 				)}

@@ -4,7 +4,7 @@
     "title": "React ChatBotify Gallery",
     "plugin": "Plugins",
     "themes": "Themes",
-    "thbuild": "Theme Builder",
+    "themebuild": "Theme Builder",
     "docs": "Documentation",
     "discord": "Discord",
     "login": "Login",
@@ -17,15 +17,15 @@
 
   "home":{
     "greet":"Welcome to React ChatBotify Gallery",
-    "dsc":"Browse, rate and share themes for your chatbot today!",
+    "description":"Browse, rate and share themes for your chatbot today!",
     "login":"Login",
-    "brth":"Browse Themes",
-    "wlcm":"It's good to see you"
+    "browse":"Browse Themes",
+    "welcome":"It's good to see you"
   },
 
   "themes":{
-    "srch": "Search",
-    "schbar":"Search Themes...",
+    "search": "Search",
+    "searchbar":"Search Themes...",
 
     "thcreds":{
       "name1":"Tan Jin",
@@ -34,17 +34,17 @@
     
     
     "colors":{
-      "cyb":"Cyborg",
-      "daz":"Deep Azure",
-      "lh":"Lewis Hamilton",
-      "mblack":"Midnight Black",
-      "mnight":"Minimal Midnight",
-      "ret":"Retro",
-      "ros":"Rosa",
-      "sblue":"Simple blue",
+      "cyber":"Cyborg",
+      "azure":"Deep Azure",
+      "lewis":"Lewis Hamilton",
+      "midblack":"Midnight Black",
+      "midnight":"Minimal Midnight",
+      "retro":"Retro",
+      "rose":"Rosa",
+      "blue":"Simple blue",
       "violet":"Solid Purple Haze",
-      "term":"Terminal",
-      "tt":"Tranquil Teal"
+      "end":"Terminal",
+      "teal":"Tranquil Teal"
     },
     
 
@@ -69,8 +69,8 @@
     "prompts":{
         "next":"What's next? 😊",
         "try":"Try again",
-        "chk":"Check Documentation",
-        "dis":"Discord",
+        "chkdocs":"Check Documentation",
+        "discord":"Discord",
         "msg1":"Hello 👋! Did you know? The order of specifying themes matters!",
         "msg2":"Try previewing some themes below, or click on those on the left!",
         "err":"Hmmm I'm not sure what you said, but let's try again!"
@@ -83,7 +83,7 @@
     },
 
     "thlist":{
-      "vd":"View Details",
+      "themedetails":"View Details",
       "view":"Preview"
     },
     
@@ -102,23 +102,23 @@
   },
 
   "tbuilder":{
-    "hdline":"Coming Soon",
+    "headline":"Coming Soon",
     "desc":"The Theme Builder is under construction. Please check back later!",
-    "smsg":"In the meantime, please feel free to browse our available themes.",
+    "msg":"In the meantime, please feel free to browse our available themes.",
     "btn":"Browse Themes"
   },
 
   "plugin":{
-    "hdline":"Coming Soon",
+    "headline":"Coming Soon",
     "desc":"Plugins are not ready. Please check back later!",
-    "smsg":"In the meantime, please feel free to browse our available themes.",
+    "msg":"In the meantime, please feel free to browse our available themes.",
     "btn":"Browse Themes"
   },
 
   "userprofile":{
-    "doj":"Joined January 2024",
+    "date":"Joined January 2024",
     "title":"Theme Author Section",
-    "hdline":"Coming Soon",
+    "headline":"Coming Soon",
     "details":"This section is still under construction. In the meantime, feel free to browse our available themes.",
     "alt":"Browse Themes"
   },
