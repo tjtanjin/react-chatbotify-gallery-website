@@ -49,17 +49,17 @@
     
 
     "coldesc":{
-      "cybdesc":"A minimalistic design inspired by Nike Air Mag",
-      "dazdesc":"A deep space blue dark style",
-      "lhdesc":"Based in the trademark of Lewis Hamilton 44",
-      "mbldesc":"night sky during darkest hours",
-      "mnitdesc":"A simple minimalistic design - midnight blue",
-      "retdesc":"Rocket back into the past!",
-      "rosdesc":"Even the ugliest of themes can be beautiful, as long as you take the time to look",
-      "sbldesc":"Simple and clean design with blue color",
-      "viodesc":"There's no such thing as too much purple",
-      "terdesc":"For the geeks!",
-      "ttdesc":"Amazing teal theme"
+      "cyberdesc":"A minimalistic design inspired by Nike Air Mag",
+      "azuredesc":"A deep space blue dark style",
+      "lewisdesc":"Based in the trademark of Lewis Hamilton 44",
+      "midblackdesc":"night sky during darkest hours",
+      "midnightdesc":"A simple minimalistic design - midnight blue",
+      "retrodesc":"Rocket back into the past!",
+      "rosedesc":"Even the ugliest of themes can be beautiful, as long as you take the time to look",
+      "bluedesc":"Simple and clean design with blue color",
+      "violetdesc":"There's no such thing as too much purple",
+      "enddesc":"For the geeks!",
+      "tealdesc":"Amazing teal theme"
     },
 
     "chat":{
@@ -77,8 +77,8 @@
     },
 
     "display":{
-      "pt":"Preview Themes",
-      "ptdesc":"No themes selected for preview",    
+      "preview":"Preview Themes",
+      "blank":"No themes selected for preview",    
       "cview":"Clear Previews"
     },
 
