@@ -4,7 +4,7 @@
     "title": "React ChatBotify Gallery",
     "plugin": "Plugins",
     "themes": "Themes",
-    "themebuilder": "Theme Builder",
+    "theme_builder": "Theme Builder",
     "docs": "Documentation",
     "discord": "Discord",
     "login": "Login",
@@ -27,13 +27,14 @@
     "search": "Search",
     "searchbar":"Search Themes...",
 
-    "themeauthors":{
+    "theme_authors":{
       "name1":"Tan Jin",
       "name2":"Lewis Hamilton"
     },    
     
     
     "colors":{
+
       "cyber":"Cyborg",
       "azure":"Deep Azure",
       "lewis":"Lewis Hamilton",
@@ -44,28 +45,28 @@
       "blue":"Simple blue",
       "violet":"Solid Purple Haze",
       "end":"Terminal",
-      "teal":"Tranquil Teal"
-    },
-    
+      "teal":"Tranquil Teal",
 
-    "colordescription":{
-      "cyberdesc":"A minimalistic design inspired by Nike Air Mag",
-      "azuredesc":"A deep space blue dark style",
-      "lewisdesc":"Based in the trademark of Lewis Hamilton 44",
-      "midblackdesc":"night sky during darkest hours",
-      "midnightdesc":"A simple minimalistic design - midnight blue",
-      "retrodesc":"Rocket back into the past!",
-      "rosedesc":"Even the ugliest of themes can be beautiful, as long as you take the time to look",
-      "bluedesc":"Simple and clean design with blue color",
-      "violetdesc":"There's no such thing as too much purple",
-      "enddesc":"For the geeks!",
-      "tealdesc":"Amazing teal theme"
+
+      "cyber_description":"A minimalistic design inspired by Nike Air Mag",
+      "azure_description":"A deep space blue dark style",
+      "lewis_description":"Based in the trademark of Lewis Hamilton 44",
+      "midblack_description":"night sky during darkest hours",
+      "midnight_description":"A simple minimalistic design - midnight blue",
+      "retro_description":"Rocket back into the past!",
+      "rose_description":"Even the ugliest of themes can be beautiful, as long as you take the time to look",
+      "blue_description":"Simple and clean design with blue color",
+      "violet_description":"There's no such thing as too much purple",
+      "end_description":"For the geeks!",
+      "teal_description":"Amazing teal theme"
+
     },
 
     "chat":{
       "clear":"Load Chat History", 
       "sponsor":"Powered by React ChatBotify"
     },
+
     "prompts":{
         "message3":"What's next? 😊",
         "message4":"Try again",
@@ -79,15 +80,15 @@
     "display":{
       "preview":"Preview Themes",
       "blank":"No themes selected for preview",    
-      "clearview":"Clear Previews"
+      "clear_view":"Clear Previews"
     },
 
-    "themelist":{
-      "themedetails":"View Details",
-      "themeview":"Preview"
+    "theme_list":{
+      "theme_details":"View Details",
+      "theme_view":"Preview"
     },
     
-    "carddetails":{
+    "card_details":{
     "name":"Name",
     "details":"Description",
     "id":"ID",
@@ -101,31 +102,31 @@
     
   },
 
-  "tbuilder":{
+  "theme_builder":{
     "headline":"Coming Soon",
-    "desc":"The Theme Builder is under construction. Please check back later!",
-    "msg":"In the meantime, please feel free to browse our available themes.",
-    "btn":"Browse Themes"
+    "description":"The Theme Builder is under construction. Please check back later!",
+    "message":"In the meantime, please feel free to browse our available themes.",
+    "button":"Browse Themes"
   },
 
   "plugin":{
     "headline":"Coming Soon",
-    "desc":"Plugins are not ready. Please check back later!",
-    "msg":"In the meantime, please feel free to browse our available themes.",
-    "btn":"Browse Themes"
+    "description":"Plugins are not ready. Please check back later!",
+    "message":"In the meantime, please feel free to browse our available themes.",
+    "button":"Browse Themes"
   },
 
-  "userprofile":{
+  "user_profile":{
     "date":"Joined January 2024",
     "title":"Theme Author Section",
     "headline":"Coming Soon",
     "details":"This section is still under construction. In the meantime, feel free to browse our available themes.",
-    "alt":"Browse Themes"
+    "alternate":"Browse Themes"
   },
 
   "lang":{
-    "eng": "English",
-    "fre": "French",
-    "hi": "Hindi"
+    "english": "English",
+    "french": "French",
+    "hindi": "Hindi"
   }
 }
