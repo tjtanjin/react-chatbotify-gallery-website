@@ -125,7 +125,7 @@ const Themes: React.FC = () => {
 	return (
 		<div className="bg-accent-950 flex h-screen w-full">
 			{/* Main Content Section */}
-			<div className="mt-20 overflow-y-scroll">
+			<div className="mt-20 overflow-y-scroll hide-scrollbar w-full">
 				<div className="text-accent-50">
 					{/* Headers */}
 					<h1>Select Theme(s)</h1>
@@ -134,7 +134,7 @@ const Themes: React.FC = () => {
 					</h2>
 					<h2>How choosing multiple themes work (i)</h2>
 				</div>
-				<div>
+				<div className="w-full flex flex-col md:flex-row md:flex-wrap">
 					{/* Card Content */}
 					{themes.map((theme) => {
 						return (

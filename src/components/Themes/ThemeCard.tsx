@@ -37,20 +37,20 @@ const ThemeCard: React.FC<Props> = ({ theme, isPreviewed, onPreview }) => {
 	};
 
 	return (
-		<div className={`flex flex-row p-4 my-4 mx-2 border-2 rounded-xl ${isCardSelected ? 'border-blue-700' : 'border-accent-600'}`}>
-			<div className="flex-1 basis-1/5 mr-3 flex flex-row overflow-hidden w-32 h-20 rounded-xl">
+		<div className={`flex flex-row md:flex-col md:w-64 p-4 my-4 mx-2 border-2 rounded-xl ${isCardSelected ? 'border-blue-700' : 'border-accent-600'}`}>
+			<div className="flex-1 basis-1/5 md:basis-1/2 mr-3 flex flex-row overflow-hidden w-32 h-20 md:w-56 md:h-56 rounded-xl">
 				<img
 					src={theme.themeImg}
 					alt={theme.name}
 					className="w-60 h-60 object-cover object-left-top"
 				/>
 			</div>
-			<div className="flex-1 mr-4 basis-3/5 flex flex-col justify-center">
+			<div className="flex-1 mr-4 basis-3/5 md:basis-1/3 flex flex-col justify-center">
 				<h2 className="text-accent-50">{theme.name}</h2>
 				<span className="text-accent-300">{theme.description}</span>
 				<span className="text-blue-500">More Info (i)</span>
 			</div>
-			<div className="flex-1 basis-1/5 flex items-center">
+			<div className="flex-1 basis-1/5 md:basis-1/6 flex items-center">
 				<label className="text-accent-50">
 					Select
 					<input
