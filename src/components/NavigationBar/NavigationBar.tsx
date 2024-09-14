@@ -61,7 +61,7 @@ const NavigationBar = () => {
 				</button>
 
 				{menuOpen && (
-					<div 
+					<div
 						className="absolute right-0 mt-2 bg-gray-800 border
 							border-gray-600 rounded-md shadow-lg py-1 w-48 z-10"
 					>
@@ -159,11 +159,11 @@ const NavigationBar = () => {
 
 			<ul className="hidden md:flex pr-20">
 				{/* needs improvement */}
-				{/* <li className="mr-8">
+				<li className="mr-8">
 					<Link to="/about" className="hover:text-blue-500">
 						About
 					</Link>
-				</li> */}
+				</li>
 				<li className="mr-8">
 					<Link to="/plugins" className="hover:text-blue-500">
 						Plugins
