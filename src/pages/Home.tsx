@@ -8,6 +8,7 @@ import { Button } from 'react-chatbotify';
 import HeroSection from '../components/LandingPage/HeroSection';
 
 import NavigationBar from '../components/NavigationBar/NavigationBar';
+import ImageHeroSection from '../components/LandingPage/ImageHeroSection';
 
 /**
  * Greets user as they visit the home (landing) page.
@@ -26,9 +27,7 @@ const HomePage = () => {
       <div className='relative z-1'>
         <NavigationBar />
       <HeroSection />
-      <div>
-        <img src='' />
-      </div>
+      <ImageHeroSection />
       </div>
 
 			

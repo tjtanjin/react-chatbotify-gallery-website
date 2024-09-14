@@ -42,7 +42,7 @@ const NavigationBar = () => {
 
 	return (
 		<nav
-			className="fixed top-0 w-full z-50 
+			className="sticky top-0 w-full z-50 
 				text-white py-2 px-6 flex justify-between items-center"
 			style={{ height: '8vh' }}
       ref={navbarRef}
@@ -56,7 +56,7 @@ const NavigationBar = () => {
 			<div className="relative">
 				<button
 					onClick={toggleMenu}
-					className="block md:hidden"
+					className="block lg:hidden"
 					type="button"
 					aria-label="Menu"
 				>
@@ -173,7 +173,7 @@ const NavigationBar = () => {
 				)}
 			</div>
 
-			<ul className="hidden md:flex pr-20">
+			<ul className="hidden lg:flex pr-20">
 				{/* needs improvement */}
 				<li className="mr-8">
 					<Link to="/about" className="hover:text-blue-500">
