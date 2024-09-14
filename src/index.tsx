@@ -9,6 +9,7 @@ import PluginsPage from './pages/Plugins';
 import ThemesPage from './pages/Themes'
 import ThemeBuilderPage from './pages/ThemeBuilder';
 import UserProfilePage from './pages/UserProfile'
+import AboutPage from './pages/About';
 import NavigationBar from './components/NavigationBar/NavigationBar'
 import { AuthProvider } from './context/AuthContext'
 import { AppThemeProvider } from './context/AppThemeContext';
@@ -36,10 +37,10 @@ const routes = [
 		path: '/',
 		element: <NavbarWrapper />,
 		children: [
-			// {
-			//   path: '/about',
-			//   element: <AboutPage />
-			// },
+			{
+				path: '/about',
+				element: <AboutPage />
+			},
 			{
 				path: '/plugins',
 				element: <PluginsPage />
