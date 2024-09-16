@@ -36,7 +36,7 @@ const ThemeCard: React.FC<Props> = ({ theme, isPreviewed, onPreview }) => {
 				<span className="text-accent-300 text-sm">{theme.description}</span>
 			</div>
 			<div className="flex-1 basis-1/5 md:basis-1/6 flex flex-col">
-        <span className="text-blue-500 text-sm my-4">More Info (i)</span>
+				<span className="text-blue-500 text-sm my-4">More Info (i)</span>
 				<label className="text-accent-50">
 					Select
 					<input
