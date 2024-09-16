@@ -82,7 +82,7 @@ const Themes: React.FC = () => {
 		<div className="bg-accent-950 flex h-screen w-full">
 			{/* Main Content Section */}
 			<div className="overflow-y-scroll hide-scrollbar w-full flex flex-col">
-				<div className="ml-14 mt-6 text-accent-50">
+				<div className="ml-14 mr-4 mt-6 text-accent-50">
 					{/* Headers */}
 					<h1 className="text-2xl font-semibold pb-3">Select Theme(s)</h1>
 					<h2 className="text-accent-300 text-sm mb-2">
