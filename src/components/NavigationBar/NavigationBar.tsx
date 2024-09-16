@@ -26,7 +26,7 @@ const NavigationBar = () => {
 
 	return (
 		<nav
-			className="fixed top-0 w-full z-50 opacity-80 bg-black
+			className="sticky top-0 w-full z-50 opacity-80 bg-black
 				text-white py-2 px-6 flex justify-between items-center"
 			style={{ height: '8vh' }}
 		>
