@@ -14,6 +14,12 @@ const DesktopThemePreview = ({
   clearPreviewIds,
   setPreviewIds,
 }: DesktopThemePreviewProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleDrawerVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
   // flow for interactive chatbot
   const flow = {
     start: {
@@ -61,13 +67,34 @@ const DesktopThemePreview = ({
     },
   };
 
-  console.log(previewIds)
+  const handleRemoveSelectionClick = (previewIdToRemove: string) => {
+    const filteredPreviewIds = previewIds.filter(
+      (previewId) => previewId !== previewIdToRemove
+    );
+    setPreviewIds([...filteredPreviewIds]);
+  };
 
-  return (
-    <div className="h-screen bg-accent-800 p-5 w-[45rem] flex flex-col items-center">
-      <div className="text-accent-50 mb-12 w-full">
+  return isVisible ? (
+    <div
+      className={`h-[92vh] bg-accent-800 p-5 flex flex-col items-center w-screen md:w-[45rem] absolute md:relative`}
+    >
+      <div className="text-accent-50  mb-4 md:mb-12 w-full md:mt-14">
         <h2 className="text-2xl font-semibold">Preview</h2>
-        <h3 className="text-accent-400">{previewIds.length} theme(s) selected</h3>
+        <h3 className="text-accent-400">
+          {previewIds.length} theme(s) selected
+        </h3>
+      </div>
+      <button className="text-accent-50 top-3 right-5 absolute" onClick={toggleDrawerVisibility}>Close</button>
+      <div className="hidden md:block absolute left-[-2rem]">
+        <span className="bg-blue-500 text-accent-50 text-sm px-[8px] py-[3px] rounded-full absolute left-[-12px] top-[-10px]">
+          {previewIds.length}
+        </span>
+        <button
+          onClick={toggleDrawerVisibility}
+          className="text-accent-50 text-lg bg-accent-700 py-2 px-3 rounded-lg"
+        >
+          Collapse {'>>'}
+        </button>
       </div>
       <ChatBot
         flow={flow}
@@ -75,20 +102,45 @@ const DesktopThemePreview = ({
         settings={{ general: { embedded: true } }}
         styles={{ chatWindowStyle: { height: '50vh' } }}
       />
-      <div className="w-full mt-8">
+      <div className="w-full mt-8 max-h-[300px] overflow-y-auto">
         {previewIds.map((previewId) => {
-          const previewTitle = formatPreviewIdToTitleCase(previewId)
-          return <div className="flex justify-between my-2">
-            <span className="text-accent-50 font-semibold text-lg">{previewTitle}</span>
-            <span className="text-blue-500 font-semibold">Remove Selection (x)</span>
-          </div>
+          const previewTitle = formatPreviewIdToTitleCase(previewId);
+          return (
+            <div className="flex justify-between my-2">
+              <span className="text-accent-50 font-semibold text-lg">
+                {previewTitle}
+              </span>
+              <button
+                onClick={() => handleRemoveSelectionClick(previewId)}
+                className="text-blue-500 hover:text-blue-600 font-semibold"
+              >
+                Remove Selection (x)
+              </button>
+            </div>
+          );
         })}
       </div>
       <div className="flex flex-col p-3 w-full items-center">
-        <button className="bg-accent-700 text-accent-400 text-lg py-2 rounded-lg my-2 w-[90%] hover:bg-accent-600 hover:text-accent-300">Download theme bundle</button>
-        <button className="bg-accent-300 text-accent-950 text-lg py-2 rounded-lg my-2 w-[90%] hover:bg-accent-200">Edit in theme builder</button>
+        <button className="bg-accent-700 text-accent-400 text-lg py-2 rounded-lg my-2 w-[90%] hover:bg-accent-600 hover:text-accent-300">
+          Download theme bundle
+        </button>
+        <button className="bg-accent-300 text-accent-950 text-lg py-2 rounded-lg my-2 w-[90%] hover:bg-accent-200">
+          Edit in theme builder
+        </button>
       </div>
     </div>
+  ) : (
+    <div className="absolute bottom-6 md:top-32 right-5">
+        <span className="bg-blue-500 text-accent-50 text-sm px-[8px] py-[3px] rounded-full absolute left-[-12px] top-[-10px]">
+          {previewIds.length}
+        </span>
+        <button
+          onClick={toggleDrawerVisibility}
+          className="text-accent-50 text-lg bg-accent-700 py-2 px-3 rounded-lg"
+        >
+          Show Preview
+        </button>
+      </div>
   );
 };
 

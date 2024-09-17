@@ -79,7 +79,8 @@ const Themes: React.FC = () => {
 	}
 
 	return (
-		<div className="bg-accent-950 flex h-screen w-full">
+    // 92vh comes from 100vh - 8vh (the height of the navbar)
+		<div className="bg-accent-950 flex h-[92vh] w-full">
 			{/* Main Content Section */}
 			<div className="overflow-y-scroll hide-scrollbar w-full flex flex-col">
 				<div className="ml-14 mr-4 mt-6 text-accent-50">
