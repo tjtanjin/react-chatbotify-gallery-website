@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 
 import ChatBot, { Params } from "react-chatbotify";
 import { formatPreviewIdToTitleCase } from "../../utils";
+import { Trash } from "lucide-react";
 
 type ThemePreviewProps = {
   previewIds: string[];
@@ -68,7 +69,7 @@ const ThemePreview = ({ previewIds, setPreviewIds }: ThemePreviewProps) => {
 			className={`h-[92vh] bg-accent-800 p-5 flex flex-col items-center 
     w-screen md:w-[45rem] absolute md:relative`}
 		>
-			<div className="text-accent-50  mb-4 md:mb-12 w-full md:mt-14">
+			<div className="text-accent-50  mb-4 md:mb-6 w-full md:mt-14">
 				<h2 className="text-2xl font-semibold">Preview</h2>
 				<h3 className="text-accent-400">{previewIds.length} theme(s) selected</h3>
 			</div>
@@ -96,7 +97,7 @@ const ThemePreview = ({ previewIds, setPreviewIds }: ThemePreviewProps) => {
 				flow={flow}
 				themes={previewIds.map((themeId) => ({ id: themeId }))}
 				settings={{ general: { embedded: true } }}
-				styles={{ chatWindowStyle: { height: "50vh" } }}
+				styles={{ chatWindowStyle: { height: "45vh" } }}
 			/>
 			<div className="w-full mt-8 max-h-[300px] overflow-y-auto">
 				{previewIds.map((previewId) => {
@@ -104,12 +105,15 @@ const ThemePreview = ({ previewIds, setPreviewIds }: ThemePreviewProps) => {
 					return (
 						<div className="flex justify-between my-2">
 							<span className="text-accent-50 font-semibold text-lg">{previewTitle}</span>
-							<button
-								onClick={() => handleRemoveSelectionClick(previewId)}
-								className="text-blue-500 hover:text-blue-600 font-semibold"
-							>
-								Remove Selection (x)
-							</button>
+							<div className="text-blue-500 hover:text-blue-600 flex items-center">
+								<button
+									onClick={() => handleRemoveSelectionClick(previewId)}
+									className="font-semibold mr-[3px]"
+								>
+									Remove Selection
+								</button>
+								<Trash size={15}/>
+							</div>
 						</div>
 					);
 				})}
