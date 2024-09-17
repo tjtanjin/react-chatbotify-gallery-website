@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
 
-import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import ChatBot, { Params } from 'react-chatbotify';
 
 import ThemeCard from '../components/Themes/ThemeCard';
 import SearchBar from '../components/SearchBar/SearchBar';
 import useFetchData from '../hooks/useFetchThemes';
-import { Theme } from '../interfaces/Theme';
 import { Endpoints } from '../constants/Endpoints';
 import { useSearchParams } from 'react-router-dom';
-import DesktopThemePreview from '../components/Themes/DesktopThemePreview';
+import ThemePreview from '../components/Themes/ThemePreview';
 
 /**
  * Displays themes for users to search, browse and rate.
  * // todo: dynamically load themes as user scrolls instead of fetching wholesale from backend
  */
+
 const Themes: React.FC = () => {
 	//search param hook to access URL
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -37,7 +35,7 @@ const Themes: React.FC = () => {
 		searchQuery
 	);
 
-	console.log(themes)
+	console.log(themes);
 	/**
    * Handles setting of search query when user hits enter.
    *
@@ -66,20 +64,13 @@ const Themes: React.FC = () => {
 		);
 	};
 
-	/**
-   * Clears all preview ids.
-   */
-	const clearPreviewIds = () => {
-		setPreviewIds([]);
-	};
-
 	// todo: show a proper error message if themes are not able to be fetched
 	if (error) {
 		return <div>Error: {error.message}</div>;
 	}
 
 	return (
-    // 92vh comes from 100vh - 8vh (the height of the navbar)
+	// 92vh comes from 100vh - 8vh (the height of the navbar)
 		<div className="bg-accent-950 flex h-[92vh] w-full">
 			{/* Main Content Section */}
 			<div className="overflow-y-scroll hide-scrollbar w-full flex flex-col">
@@ -90,9 +81,12 @@ const Themes: React.FC = () => {
 						You can select multiple themes and combine them however you like.
 					</h2>
 					{/* TODO: this will be a button that opens a modal or redirects */}
-					<h2 className="text-blue-500 text-sm">How choosing multiple themes work (i)</h2>
+					<h2 className="text-blue-500 text-sm">
+						How choosing multiple themes work (i)
+					</h2>
 					<div className="mt-4">
-						<SearchBar onSearch={handleSearch} /></div>
+						<SearchBar onSearch={handleSearch} />
+					</div>
 				</div>
 				<div className="flex flex-col md:grid md:grid-cols-[repeat(auto-fill,270px)] justify-center">
 					{/* Card Content */}
@@ -103,16 +97,16 @@ const Themes: React.FC = () => {
 								theme={theme}
 								isPreviewed={previewIds.includes(theme.id)}
 								onPreview={() => onPreview(theme.id)}
+								isLoading={loading}
 							/>
 						);
 					})}
 				</div>
 			</div>
 			{/* Drawer Section */}
-			<DesktopThemePreview
+			<ThemePreview
 				setPreviewIds={setPreviewIds}
 				previewIds={previewIds}
-				clearPreviewIds={clearPreviewIds}
 			/>
 		</div>
 	);
