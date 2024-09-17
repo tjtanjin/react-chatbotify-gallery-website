@@ -72,11 +72,11 @@ const ThemePreview = ({ previewIds, setPreviewIds }: ThemePreviewProps) => {
 				<h2 className="text-2xl font-semibold">Preview</h2>
 				<h3 className="text-accent-400">{previewIds.length} theme(s) selected</h3>
 			</div>
-      {/* Close button which is hidden on desktop */}
-			<button className="text-accent-50 top-3 right-5 absolute" onClick={toggleDrawerVisibility}>
+			{/* Close button which is hidden on desktop */}
+			<button className="text-accent-50 top-3 right-5 absolute md:hidden" onClick={toggleDrawerVisibility}>
 				Close
 			</button>
-      {/* Collapse button which is hidden on mobile */}
+			{/* Collapse button which is hidden on mobile */}
 			<div className="hidden md:block absolute left-[-2rem]">
 				<span
 					className="bg-blue-500 text-accent-50 text-sm px-[8px] py-[3px]
