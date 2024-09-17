@@ -6,6 +6,7 @@ import { Theme } from "../../interfaces/Theme";
 
 import "../../styles/theme_card.css";
 import ThemeModal from "./ThemeModal";
+import {  InfoIcon } from "lucide-react";
 
 type Props = {
   theme: Theme;
@@ -63,9 +64,12 @@ const ThemeCard: React.FC<Props> = ({ theme, isPreviewed, onPreview, isLoading }
 					<span className="text-accent-300 text-sm">{theme.description}</span>
 				</div>
 				<div className="flex-1 basis-1/6 md:basis-1/6 flex flex-col">
-					<button onClick={onViewDetails} className="text-blue-500 text-sm my-4 w-20">
-						More Info (i)
-					</button>
+					<div className="flex items-center text-blue-500">
+						<button onClick={onViewDetails} className="text-sm my-4 w-fit mr-[3px]">
+							More Info
+						</button>
+						<InfoIcon size={15}/>
+					</div>
 					<label className=" ml-[2px] text-accent-50 text-sm md:text-base">
 						Select
 						<input type="checkbox" checked={isPreviewed} onChange={handleCheckboxChange} className="ml-2" />

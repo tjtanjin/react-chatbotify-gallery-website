@@ -8,6 +8,7 @@ import useFetchData from '../hooks/useFetchThemes';
 import { Endpoints } from '../constants/Endpoints';
 import { useSearchParams } from 'react-router-dom';
 import ThemePreview from '../components/Themes/ThemePreview';
+import { InfoIcon } from 'lucide-react';
 
 /**
  * Displays themes for users to search, browse and rate.
@@ -81,9 +82,12 @@ const Themes: React.FC = () => {
 						You can select multiple themes and combine them however you like.
 					</h2>
 					{/* TODO: this will be a button that opens a modal or redirects */}
-					<h2 className="text-blue-500 text-sm">
-						How choosing multiple themes work (i)
-					</h2>
+					<div className="flex text-blue-500 items-center">
+						<h2 className="text-sm mr-[2px]">
+							How choosing multiple themes work
+						</h2>
+						<InfoIcon size={15}/>
+					</div>
 					<div className="mt-4">
 						<SearchBar onSearch={handleSearch} />
 					</div>
