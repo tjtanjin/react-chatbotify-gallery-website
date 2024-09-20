@@ -17,7 +17,8 @@ type ThemeModalProps = {
 const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
 	const modalRef = useRef<HTMLDivElement>(null)
 
-  const {t} = useTranslation();
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const {t} = useTranslation();
 
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {

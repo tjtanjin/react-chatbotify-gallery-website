@@ -8,7 +8,9 @@ import { useTranslation } from 'react-i18next';
 const ThemeBuilder: React.FC = () => {
 	// todo: add theme builder
 	console.log('test')
-  const {t} = useTranslation();
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const {t} = useTranslation();
   
 	return (
 		<div className="flex items-center justify-center h-screen bg-black">

@@ -6,7 +6,8 @@ const AppThemeToggle = () => {
 	// context for handling app theme
 	const { appTheme, toggleAppTheme } = useAppTheme()
 
-  const {t} = useTranslation();
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const {t} = useTranslation();
 
 	const handleClick = () => {
 		toggleAppTheme()

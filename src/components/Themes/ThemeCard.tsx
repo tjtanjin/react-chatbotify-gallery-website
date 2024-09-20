@@ -30,7 +30,8 @@ const ThemeCard: React.FC<Props> = ({ theme, isPreviewed, onPreview }) => {
 		onPreview(theme.name)
 	}
 
-  const {t} = useTranslation();
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const {t} = useTranslation();
 
 	return (
 		<>

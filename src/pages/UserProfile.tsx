@@ -31,7 +31,8 @@ const UserProfilePage: React.FC = () => {
 		}
 	}
 
-  const {t} = useTranslation();
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const {t} = useTranslation();
 
 	return (
 		<main className="w-full h-screen bg-[#121212] text-white flex flex-col">
@@ -75,11 +76,11 @@ const UserProfilePage: React.FC = () => {
 
 			<div className="flex-1 rounded-lg p-6 shadow-lg m-4 flex flex-col items-center justify-center h-full">
 				<h2 className="text-2xl font-bold mb-4 text-gray-200">
-        Theme Author Section
+					Theme Author Section
 				</h2>
 				<p className="text-lg text-gray-400 mb-4">Coming Soon</p>
 				<p className="text-md text-gray-500 text-center">
-        This section is still under construction. In the meantime, feel free
+					This section is still under construction. In the meantime, feel free
 					to browse our available themes.
 				</p>
 				<Link

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 
 type Props = {
 	onSearch: (query: string) => void;
@@ -11,8 +10,8 @@ type Props = {
  */
 const SearchBar: React.FC<Props> = ({ onSearch }) => {
 	// tracks current user search query
-  const [searchParams] = useSearchParams()
-  // initialize both query and previous query with searchParam if exists
+	const [searchParams] = useSearchParams()
+	// initialize both query and previous query with searchParam if exists
 	const [query, setQuery] = useState(() => searchParams.get('searchQuery') || "");
 	const [previousQuery, setPreviousQuery] = useState(() => searchParams.get('searchQuery') || "");
 
