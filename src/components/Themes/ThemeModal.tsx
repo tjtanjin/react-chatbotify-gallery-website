@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 import ReactDOM from 'react-dom';
-
+import { useTranslation } from 'react-i18next';
 import { downloadThemeContent } from '../../utils';
 import { Theme } from '../../interfaces/Theme';
 
@@ -16,6 +16,8 @@ type ThemeModalProps = {
  */
 const ThemeModal: React.FC<ThemeModalProps> = ({ isOpen, onClose, theme }) => {
 	const modalRef = useRef<HTMLDivElement>(null)
+
+  const {t} = useTranslation();
 
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {

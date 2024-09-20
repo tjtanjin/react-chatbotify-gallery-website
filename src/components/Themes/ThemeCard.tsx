@@ -6,7 +6,7 @@ import ThemeModal from './ThemeModal';
 import { Theme } from '../../interfaces/Theme';
 import FavIcon from '../../assets/images/icon_favorite.svg';
 import GitHubIcon from '../../assets/images/icon_github_white.svg';
-
+import { useTranslation } from 'react-i18next';
 import '../../styles/theme_card.css'
 
 type Props = {
@@ -29,6 +29,8 @@ const ThemeCard: React.FC<Props> = ({ theme, isPreviewed, onPreview }) => {
 	const onClickPreview = () => {
 		onPreview(theme.name)
 	}
+
+  const {t} = useTranslation();
 
 	return (
 		<>

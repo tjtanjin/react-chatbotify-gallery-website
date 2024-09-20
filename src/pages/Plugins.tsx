@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-
+import {useTranslation} from 'react-i18next';
 /**
  * Displays plugins for users to search, browse and rate.
  * // todo: dynamically load plugins as user scrolls instead of fetching wholesale from backend
