@@ -29,11 +29,11 @@ const ThemeCard: React.FC<Props> = ({ theme, isPreviewed, onPreview, isLoading }
 		onPreview(theme.name)
 	}
 
-  const handleCheckboxChange = () => {
+	const handleCheckboxChange = () => {
 		onClickPreview();
 	};
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const {t} = useTranslation();
 
 	if (isLoading) {
