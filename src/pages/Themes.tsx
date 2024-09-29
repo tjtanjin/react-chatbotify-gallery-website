@@ -10,6 +10,8 @@ import { useSearchParams } from 'react-router-dom';
 import ThemePreview from '../components/Themes/ThemePreview';
 import { InfoIcon } from 'lucide-react';
 
+import { useTranslation } from 'react-i18next';
+
 /**
  * Displays themes for users to search, browse and rate.
  * // todo: dynamically load themes as user scrolls instead of fetching wholesale from backend
@@ -26,6 +28,9 @@ const Themes: React.FC = () => {
 
 	// id of themes being selected to be preview (and applied to the interactive chatbot)
 	const [previewIds, setPreviewIds] = useState<string[]>([]);
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const { t } = useTranslation();
 
 	// theme data fetched from backend
 

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 
 import { Theme } from "../../interfaces/Theme";
-
+import { useTranslation } from 'react-i18next';
 import "../../styles/theme_card.css";
 import ThemeModal from "./ThemeModal";
 import {  InfoIcon } from "lucide-react";
@@ -26,12 +26,15 @@ const ThemeCard: React.FC<Props> = ({ theme, isPreviewed, onPreview, isLoading }
 	};
 
 	const onClickPreview = () => {
-		onPreview(theme.name);
-	};
+		onPreview(theme.name)
+	}
 
-	const handleCheckboxChange = () => {
+  const handleCheckboxChange = () => {
 		onClickPreview();
 	};
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const {t} = useTranslation();
 
 	if (isLoading) {
 		return (

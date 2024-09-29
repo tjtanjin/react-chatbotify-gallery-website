@@ -44,7 +44,7 @@ export default {
           700: 'var(--accent-700) /* #334155 */',
           800: 'var(--accent-800) /* #1E293B */',
           900: 'var(--accent-900) /* #0F172A */',
-          950: 'var(--accent-950) /* #020617 */',  
+          950: 'var(--accent-950) /* #020617 */',          
         },
       },
       keyframes: {

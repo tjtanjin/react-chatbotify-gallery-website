@@ -7,6 +7,7 @@ import { useAuth } from '../context/AuthContext';
 import botAvatar from '../assets/images/bot_avatar.png';
 import { Endpoints } from '../constants/Endpoints';
 import { galleryApiFetch } from '../services/apiService';
+import {useTranslation} from 'react-i18next';
 
 /**
  * Displays user profile information, owned themes/plugins and favorited themes/plugins.
@@ -29,6 +30,9 @@ const UserProfilePage: React.FC = () => {
 			// no update if error
 		}
 	}
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const {t} = useTranslation();
 
 	return (
 		<main className="w-full h-screen bg-[#121212] text-white flex flex-col">

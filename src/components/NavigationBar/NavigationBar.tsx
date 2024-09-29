@@ -6,6 +6,17 @@ import { useAuth } from '../../context/AuthContext';
 import { SiteConfig } from '../../constants/SiteConfig';
 import logo from '../../assets/images/logo.png';
 import AppThemeToggle from './AppThemeToggle';
+import { useTranslation } from 'react-i18next';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type DropdownProps = {
+  i18n: {
+    changeLanguage: (lang: string) => void;
+    language: string;
+    options: { lng: string };
+  };
+  t: (key: string) => string;
+}
 
 /**
  * Navigation bar for users to navigate between pages.
@@ -23,6 +34,45 @@ const NavigationBar = () => {
 	const toggleMenu = () => {
 		setMenuOpen(!menuOpen)
 	}
+
+	const { t, i18n } = useTranslation();
+
+	const changeLanguage = (lang: string) => {
+		i18n.changeLanguage(lang);
+		console.log(i18n.language);
+		i18n.options.lng = i18n.language;
+	};
+
+	const [isOpen, setIsOpen] = useState(false);
+
+	const toggleDropdown = () => {
+		setIsOpen(!isOpen);
+	};
+
+	const handleOptionClick = (lang: string) => {
+		changeLanguage(lang);
+		setIsOpen(false); // Close dropdown after selection
+	};
+
+	const getButtonText = () => {
+		switch (i18n.language) {
+		case 'en':
+			return( 
+				<>
+					<span style={{display:"inline-flex"}}>
+						<img src="https://flagcdn.com/gb.svg" height="25" width="25" alt="England" />
+					</span>{"  "+t('lang.eng')}
+				</>); // Show English label
+      
+		default:
+			return(
+				<>
+					<span className="fi fi-gb"></span>
+					{t('lang.eng')}
+				</>); // Default to English if language is unknown
+		}
+	};
+
 
 	return (
 		<nav
@@ -85,7 +135,7 @@ const NavigationBar = () => {
 									to="/themes"
 									className="block px-4 py-2 hover:bg-gray-700"
 								>
-									Themes
+									Themes 
 								</Link>
 							</li>
 							<li className="my-1">
@@ -123,6 +173,37 @@ const NavigationBar = () => {
 									Terms of Service
 								</Link>
 							</li> */}
+
+							<li className="block my-1 px-4 py-2 relative hover:bg-gray-700 border border-gray-600"
+								style={{cursor:'pointer'}}
+							>
+								<button
+									style={{ cursor: 'pointer', color: 'white', padding: '', borderRadius: '5px' }}
+									onClick={toggleDropdown} 
+								>
+									{getButtonText()}
+								</button>
+								<ul
+									className={`absolute w-24 bg-gray-800 rounded-md shadow-lg
+                    ${isOpen ? 'block' : 'hidden'}`
+									}
+									style={{left: '-50%', transform: 'translateX(-21%)',
+										top: '-16%', marginTop: '8px'
+									}}
+								>
+									<li className="px-4 py-2 hover:bg-gray-700 cursor-pointer"
+										onClick={() => handleOptionClick('en')}
+									>
+										<span style={{display:"inline-flex"}}>
+											<img src="https://flagcdn.com/gb.svg"
+												height="25" width="25" alt="England"
+											/>
+										</span>English
+									</li>
+                    
+									{/* Add more options as needed */}
+								</ul>
+							</li>
 							{isLoggedIn ? (
 								<>
 									<li className="my-1">
@@ -203,11 +284,38 @@ const NavigationBar = () => {
 						Terms of Service
 					</Link>
 				</li> */}
+
+				<li className="block mr-8 relative">
+					<button
+						style={{ cursor: 'pointer', backgroundColor: 'black',
+							color: 'white', padding: '', borderRadius: '5px'
+						}}
+						onClick={toggleDropdown} 
+					>
+						{getButtonText()}
+					</button>
+					<ul
+						className={`absolute mt-2 w-28 bg-black shadow-lg ${isOpen ? 'block' : 'hidden'}`}
+						style={{ zIndex: 1000, left: '50%', transform: 'translateX(-50%)',
+							top: '100%', marginTop: '8px'
+						}}
+					>
+						<li className="px-2 py-2 hover:bg-blue-500 cursor-pointer"
+							onClick={() => changeLanguage('en')}
+						>
+							<span style={{display:"inline-flex"}}>
+								<img src="https://flagcdn.com/gb.svg" height="25" width="25" alt="England" />
+							</span>
+							English
+						</li>
+						{/* Add more options as needed */}
+					</ul>
+				</li>
 				{isLoggedIn ? (
 					<>
 						<li className="mr-8">
 							<Link to="/profile" className="hover:text-blue-500">
-								Profile
+								Profile  {/* {t('navbar.profile')} */}
 							</Link>
 						</li>
 						<li>
