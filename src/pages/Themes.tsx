@@ -11,19 +11,24 @@ import { Theme } from '../interfaces/Theme';
 import { Endpoints } from '../constants/Endpoints';
 import { useSearchParams } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next';
+
 /**
  * Displays themes for users to search, browse and rate.
  * // todo: dynamically load themes as user scrolls instead of fetching wholesale from backend
  */
 const Themes: React.FC = () => {
-  //search param hook to access URL
-  const [searchParams, setSearchParams] = useSearchParams()
+	//search param hook to access URL
+	const [searchParams, setSearchParams] = useSearchParams()
 
 	// search query for filtering themes to show
 	const [searchQuery, setSearchQuery] = useState(()=> searchParams.get('searchQuery') || "");
 
 	// id of themes being selected to be preview (and applied to the interactive chatbot)
 	const [previewIds, setPreviewIds] = useState<string[]>([]);
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const { t } = useTranslation();
 
 	// theme data fetched from backend
 
@@ -34,13 +39,13 @@ const Themes: React.FC = () => {
 	 * @param query query user inputted
 	 */
 	const handleSearch = (query: string) => {
-    if(query === ""){
-      searchParams.delete('searchQuery')
-    } 
-    else {
-      searchParams.set('searchQuery',query)
-    }
-    setSearchParams(searchParams)
+		if(query === ""){
+			searchParams.delete('searchQuery')
+		} 
+		else {
+			searchParams.set('searchQuery',query)
+		}
+		setSearchParams(searchParams)
 		setSearchQuery(query);
 	}
 
