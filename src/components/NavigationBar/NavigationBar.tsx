@@ -11,7 +11,7 @@ import AppThemeToggle from './AppThemeToggle';
  * Navigation bar for users to navigate between pages.
  */
 
-const navBarClass = "fixed top-0 w-full z-50 text-white py-2 px-6 flex justify-between items-center"
+const navBarClass = "sticky bg-black top-0 w-full z-50 text-white py-2 px-6 flex justify-between items-center"
 const NavigationBar = () => {
 	// context for handling user data
 	const { isLoggedIn, setIsLoggedIn, setUserData } = useAuth()
@@ -26,26 +26,25 @@ const NavigationBar = () => {
 		setMenuOpen(!menuOpen)
 	}
 
-  const navbarRef = useRef<HTMLDivElement>(null)
+	const navbarRef = useRef<HTMLDivElement>(null)
 
-  useEffect(function(){
-    window.addEventListener('scroll',function(e){
-      if(navbarRef.current) {
-        if(window.scrollY >= 50) {
-          navbarRef.current.className = navBarClass + ' opacity-80 bg-black'
-        } else {
-          navbarRef.current.className = navBarClass
-        }
-      }
-    })
-  },[])
+	useEffect(function(){
+		window.addEventListener('scroll',function(e){
+			if(navbarRef.current) {
+				if(window.scrollY >= 50) {
+					navbarRef.current.className = navBarClass + ' opacity-80'
+				} else {
+					navbarRef.current.className = navBarClass
+				}
+			}
+		})
+	},[])
 
 	return (
 		<nav
-			className="sticky top-0 w-full z-50 
-				text-white py-2 px-6 flex justify-between items-center"
+			className={navBarClass}
 			style={{ height: '8vh' }}
-      ref={navbarRef}
+			ref={navbarRef}
 		>
 			<Link to="/">
 				{' '}
