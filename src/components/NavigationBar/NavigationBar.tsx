@@ -40,17 +40,17 @@ const NavigationBar = () => {
 
 	const navbarRef = useRef<HTMLDivElement>(null)
 
-  useEffect(function(){
-    window.addEventListener('scroll',function(e){
-      if(navbarRef.current) {
-        if(window.scrollY >= 50) {
-          navbarRef.current.className = navBarClass + ' opacity-80 bg-black'
-        } else {
-          navbarRef.current.className = navBarClass
-        }
-      }
-    })
-  },[])
+	useEffect(function(){
+		window.addEventListener('scroll',function(e){
+			if(navbarRef.current) {
+				if(window.scrollY >= 50) {
+					navbarRef.current.className = navBarClass + ' opacity-80 bg-black'
+				} else {
+					navbarRef.current.className = navBarClass
+				}
+			}
+		})
+	},[])
 
 	const { t, i18n } = useTranslation();
 
