@@ -22,13 +22,13 @@ const HomePage = () => {
 
 	return (
 		<div className="relative overflow-hidden h-screen bg-accent-50 w-full">
-      <div className='absolute size-[60%] sm:size-[60%] md:size-[60%] bg-gradient-to-r from-secondary-900 -rotate-[30deg] to-primary-600 rounded-full z-0 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] blur-[150px] sm:blur-[200px]'>
-      </div>
-      <div className='relative z-1'>
-        <NavigationBar />
-      <HeroSection />
-      <ImageHeroSection />
-      </div>
+			<div className='absolute size-[60%] sm:size-[60%] md:size-[60%] bg-gradient-to-r from-secondary-900 -rotate-[30deg] to-primary-600 rounded-full z-0 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] blur-[150px] sm:blur-[200px]'>
+			</div>
+			<div className='relative z-1'>
+				<NavigationBar />
+				<HeroSection />
+				<ImageHeroSection />
+			</div>
 
 			
 		</div>

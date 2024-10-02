@@ -16,8 +16,8 @@ import { useSearchParams } from 'react-router-dom';
  * // todo: dynamically load themes as user scrolls instead of fetching wholesale from backend
  */
 const Themes: React.FC = () => {
-  //search param hook to access URL
-  const [searchParams, setSearchParams] = useSearchParams()
+	//search param hook to access URL
+	const [searchParams, setSearchParams] = useSearchParams()
 
 	// search query for filtering themes to show
 	const [searchQuery, setSearchQuery] = useState(()=> searchParams.get('searchQuery') || "");
@@ -34,13 +34,13 @@ const Themes: React.FC = () => {
 	 * @param query query user inputted
 	 */
 	const handleSearch = (query: string) => {
-    if(query === ""){
-      searchParams.delete('searchQuery')
-    } 
-    else {
-      searchParams.set('searchQuery',query)
-    }
-    setSearchParams(searchParams)
+		if(query === ""){
+			searchParams.delete('searchQuery')
+		} 
+		else {
+			searchParams.set('searchQuery',query)
+		}
+		setSearchParams(searchParams)
 		setSearchQuery(query);
 	}
 

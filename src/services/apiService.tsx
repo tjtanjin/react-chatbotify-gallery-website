@@ -5,12 +5,12 @@
  * @param options additional options passed to fetch
  */
 const galleryApiFetch = (url: string, options = {}) => {
-  return fetch(url, {
-      ...options,
-      credentials: 'include',
-  });
+	return fetch(url, {
+		...options,
+		credentials: 'include',
+	});
 }
 
 export {
-  galleryApiFetch
+	galleryApiFetch
 }
