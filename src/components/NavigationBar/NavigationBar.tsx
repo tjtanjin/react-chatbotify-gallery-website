@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { handleLogin } from '../../services/authService';
@@ -21,6 +21,8 @@ type DropdownProps = {
 /**
  * Navigation bar for users to navigate between pages.
  */
+
+const navBarClass = "sticky top-0 w-full z-50 text-white py-2 px-6 flex justify-between items-center"
 const NavigationBar = () => {
 	// context for handling user data
 	const { isLoggedIn, setIsLoggedIn, setUserData } = useAuth()
@@ -34,6 +36,21 @@ const NavigationBar = () => {
 	const toggleMenu = () => {
 		setMenuOpen(!menuOpen)
 	}
+
+
+	const navbarRef = useRef<HTMLDivElement>(null)
+
+	useEffect(function(){
+		window.addEventListener('scroll',function(e){
+			if(navbarRef.current) {
+				if(window.scrollY >= 50) {
+					navbarRef.current.className = navBarClass + ' opacity-80 bg-black'
+				} else {
+					navbarRef.current.className = navBarClass
+				}
+			}
+		})
+	},[])
 
 	const { t, i18n } = useTranslation();
 
@@ -76,21 +93,20 @@ const NavigationBar = () => {
 
 	return (
 		<nav
-			className="fixed top-0 w-full z-50 opacity-80 bg-black
-				text-white py-2 px-6 flex justify-between items-center"
+			className={navBarClass}
 			style={{ height: '8vh' }}
+			ref={navbarRef}
 		>
-			<Link to="/" className="flex items-center">
+			<Link to="/">
 				{' '}
 				{/* Wrap logo and title with Link */}
 				<img src={logo} alt="Logo" className="w-8 h-8 mr-2" />
-				<h1 className="text-lg font-bold">{SiteConfig.siteName}</h1>
 			</Link>
 
 			<div className="relative">
 				<button
 					onClick={toggleMenu}
-					className="block md:hidden"
+					className="block lg:hidden"
 					type="button"
 					aria-label="Menu"
 				>
@@ -238,7 +254,7 @@ const NavigationBar = () => {
 				)}
 			</div>
 
-			<ul className="hidden md:flex pr-20">
+			<ul className="hidden lg:flex pr-20">
 				{/* needs improvement */}
 				<li className="mr-8">
 					<Link to="/about" className="hover:text-blue-500">
