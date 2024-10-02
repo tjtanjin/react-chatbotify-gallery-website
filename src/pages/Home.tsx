@@ -4,11 +4,15 @@ import { handleLogin } from '../services/authService';
 import { useAuth } from '../context/AuthContext';
 import { SiteConfig } from '../constants/SiteConfig';
 import logo from "../assets/images/logo.png";
+
 import { Button } from 'react-chatbotify';
 import HeroSection from '../components/LandingPage/HeroSection';
 
 import NavigationBar from '../components/NavigationBar/NavigationBar';
 import ImageHeroSection from '../components/LandingPage/ImageHeroSection';
+
+import { useTranslation } from 'react-i18next';
+
 
 /**
  * Greets user as they visit the home (landing) page.
@@ -16,6 +20,9 @@ import ImageHeroSection from '../components/LandingPage/ImageHeroSection';
 const HomePage = () => {
 	// used to render different text if user is logged in
 	const { isLoggedIn, userData } = useAuth()
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const {t} = useTranslation();
 
 	// handles navigation
 	const navigate = useNavigate()

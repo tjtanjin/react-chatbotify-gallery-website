@@ -53,7 +53,7 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "scripts": {
-    "lint": "echo .",
+    "lint": "eslint --fix . --ext .tsx",
     "test": "node ./test/RunTests.js",
     "build": "vite build",
     "start": "vite",

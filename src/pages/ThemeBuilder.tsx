@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
 /**
  * Supports building and optionally sharing of themes directly on the website.
  */
@@ -9,6 +9,9 @@ const ThemeBuilder: React.FC = () => {
 	// todo: add theme builder
 	console.log('test')
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const {t} = useTranslation();
+  
 	return (
 		<div className="flex items-center justify-center h-screen bg-black">
 			<div className="bg-white p-10 rounded-lg shadow-lg text-center max-w-screen-md">
