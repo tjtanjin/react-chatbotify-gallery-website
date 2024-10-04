@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { handleLogin } from '../../services/authService';
 import { useAuth } from '../../context/AuthContext';
-import { SiteConfig } from '../../constants/SiteConfig';
 import logo from '../../assets/images/logo.png';
 import AppThemeToggle from './AppThemeToggle';
 import { useTranslation } from 'react-i18next';
@@ -41,7 +40,7 @@ const NavigationBar = () => {
 	const navbarRef = useRef<HTMLDivElement>(null)
 
 	useEffect(function(){
-		window.addEventListener('scroll',function(e){
+		window.addEventListener('scroll',function(){
 			if(navbarRef.current) {
 				if(window.scrollY >= 50) {
 					navbarRef.current.className = navBarClass + ' opacity-80 bg-black'
