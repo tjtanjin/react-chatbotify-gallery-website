@@ -19,6 +19,10 @@ export default {
           700: '#29757C',
           800: '#1E5757',
           900: '#143838',
+          darkForeground: '#18181B',
+          mutedForeground: '#A1A1AA',
+          white: '#FAFAFA',
+          disabledForeground: '#5d5c5c'
         },
         secondary: {
           50: '#F5F3FF',
