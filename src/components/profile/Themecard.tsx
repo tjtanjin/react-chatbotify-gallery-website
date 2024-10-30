@@ -1,6 +1,6 @@
 import { GenericItemCardProps } from "../../interfaces/profile"
 
-export const ThemeCard: React.FC<GenericItemCardProps> = ({ mode, themeImg, name, description }) => {
+export const ThemeCard: React.FC<GenericItemCardProps> = ({ themeImg, name, description }) => {
 	return (
 		<div className="flex gap-3 w-full h-fit flex-row">
 			<img className="w-20 rounded-lg" src={themeImg} />

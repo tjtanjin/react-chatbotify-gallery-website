@@ -8,10 +8,10 @@ export const TimelineTitle = ChakraTimeline.Title
 export const TimelineDescription = ChakraTimeline.Description
 
 export const TimelineConnector = (props: ChakraTimeline.IndicatorProps) => {
-  return (
-    <ChakraTimeline.Connector>
-      <ChakraTimeline.Separator />
-      <ChakraTimeline.Indicator {...props} />
-    </ChakraTimeline.Connector>
-  )
+	return (
+		<ChakraTimeline.Connector>
+			<ChakraTimeline.Separator />
+			<ChakraTimeline.Indicator {...props} />
+		</ChakraTimeline.Connector>
+	)
 }
