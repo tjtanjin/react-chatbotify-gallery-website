@@ -37,7 +37,8 @@ const UserProfilePage: React.FC = () => {
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const {t} = useTranslation();
-	const themeFetch = useFetchThemes(Endpoints.fetchApiThemes, 6, 1)
+	const themeFetch = useFetchThemes(Endpoints.fetchApiThemes, 6, 1);
+  console.log(themeFetch)
 	return (
 		<main className=" min-h-screen overflow-clip flex-nowrap bg-[#121212] text-white flex flex-col">
 			<ProfileInfo userInfo={userData} />

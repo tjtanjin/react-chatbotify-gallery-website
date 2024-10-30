@@ -25,7 +25,7 @@ export default function ProfileMaterialContainer(Props: PropTypes) {
     p-10 bg-primary-darkForeground">
 			<div className="">
 				<h2 className="font-extrabold float-left text-xl ">{config[type].mainHeading}</h2>
-				<div className="float-right">toggle here</div>
+				{/* <div className="float-right">toggle here</div> */}
 			</div>
 			<MainContent {...Props} mode={mode} config={config[type]} />
 			{     !loading && items.length > 0 && <a href={config[type].allUrl} 
