@@ -1,3 +1,6 @@
+> [!WARNING]  
+> The **React ChatBotify Gallery Website** project has been moved to the [**React ChatBotify Organization**](https://github.com/react-chatbotify). You may find the latest updates [**here**](https://github.com/React-ChatBotify/gallery-website).
+
 <p align="center">
   <img width="200px" src="https://raw.githubusercontent.com/tjtanjin/react-chatbotify/main/assets/logo.png" />
   <h1 align="center">React ChatBotify Gallery Website</h1>
